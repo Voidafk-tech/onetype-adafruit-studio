@@ -1,0 +1,20 @@
+{
+  "label": "Distributor spec feed check",
+  "base": "workspace",
+  "mode": "simulation",
+  "filters": {},
+  "analysis": {
+    "x": "shipping_weight_g",
+    "y": "price_value"
+  },
+  "sources": [
+    {
+      "id": "DISTRIBUTOR_SPECS_42",
+      "kind": "specifications",
+      "label": "Distributor spec feed (synthetic)",
+      "captured_at": "2026-10-24",
+      "csv": "record_id,product_id,property,value,unit\nspec-1,ADA6130,flash,4,MB\nspec-2,0006398,flash,8,MB\nspec-3, 271 ,sram,32,kB\nspec-4,2926,flash,2,MB\nspec-5, 5437 ,clock,133,MHz\nspec-6,https://www.adafruit.com/product/2971,sram,32,kB\nspec-7,https://www.adafruit.com/product/3232,flash,2,MB\nspec-8,adafruit:5164,flash,2,MB\nspec-9, 3357 ,flash,2,MB\nspec-10,ADA3382,flash,2,MB\nspec-11,ADA5672,sram,520,KB\nspec-12,https://www.adafruit.com/product/5960,sram,32,KB\nspec-13, 3152 ,sram,32,KB\nspec-14,ADA5041,sram,264,KB\nspec-15,adafruit:5336,flash,8,MB\nspec-16,https://www.adafruit.com/product/2843,sram,32,KB\nspec-17,5835,clock,240000000,Hz\nspec-18,2927,flash,2,MB\nspec-19,adafruit:1078,sram,32,KB\nspec-20,https://www.adafruit.com/product/6246,clock,150,MHz\nspec-21,adafruit:2468,sram,32,KB\nspec-22,adafruit:5955,clock,240,MHz\nspec-23, 3588 ,flash,2,MB\nspec-24,ADA5946,sram,264,KB\nspec-25,https://www.adafruit.com/product/1947,clock,48,MHz\nspec-26,0005800,clock,240,MHz\nspec-27,adafruit:5629,sram,320,kB\nspec-28,https://www.adafruit.com/product/6183,flash,4,MB\nspec-29,0002821,sram,32,KB\nspec-30,ADA4884,clock,133000000,Hz\nspec-31,0002221,flash,4,MB\nspec-32,adafruit:6241,clock,133,MHz\nspec-33,0003979,flash,4,MB\nspec-34,ADA5877,clock,48,MHz\nspec-35,ADA5703,sram,264,kB\nspec-36,ADA2621,flash,2,MB\nspec-37,ADA4172,sram,520,kB\nspec-38,adafruit:6495,sram,32,KB\nspec-39,0005889,flash,4,MB\nspec-40,adafruit:6200,sram,520,kB\nspec-pico2-clock,ADA6006,clock,160,MHz\nspec-dispute-a,6130,flash,4,MB\nspec-dispute-b,6130,flash,8,MB\nspec-unknown-1,99990333,sram,64,kB\nspec-unknown-2,88880042,sram,64,kB\nspec-unknown-3,99999901,sram,64,kB\nspec-unknown-4,99999917,sram,64,kB\nspec-unknown-5,66660021,sram,64,kB\nspec-unknown-6,77770005,sram,64,kB\nspec-38,adafruit:6495,sram,32,KB\nspec-dispute-a,6130,flash,4,MB\nspec-40,adafruit:6200,sram,520,kB\nspec-33,0003979,flash,4,MB\nspec-21,adafruit:2468,sram,32,KB\nspec-unknown-4,99999917,sram,64,kB\nspec-30,ADA4884,clock,133000000,Hz\nspec-5, 5437 ,clock,133,MHz\nspec-26,0005800,clock,240,MHz\nspec-9, 3357 ,flash,2,MB\nspec-unknown-3,99999901,sram,64,kB\nspec-pico2-clock,ADA6006,clock,160,MHz\nspec-37,ADA4172,sram,520,kB\nspec-32,adafruit:6241,clock,133,MHz\nspec-unknown-1,99990333,sram,64,kB\nspec-18,2927,flash,2,MB\nspec-7,https://www.adafruit.com/product/3232,flash,2,MB\nspec-17,5835,clock,240000000,Hz\nspec-31,0002221,flash,4,MB\nspec-dispute-b,6130,flash,8,MB\nspec-14,ADA5041,sram,264,KB\nspec-4,2926,flash,2,MB\nspec-36,ADA2621,flash,2,MB\nspec-23, 3588 ,flash,2,MB\nspec-unknown-6,77770005,sram,64,kB\nspec-24,ADA5946,sram,264,KB\nspec-10,ADA3382,flash,2,MB\nspec-39,0005889,flash,4,MB\nspec-3, 271 ,sram,32,kB\nspec-25,https://www.adafruit.com/product/1947,clock,48,MHz\nspec-15,adafruit:5336,flash,8,MB\nspec-20,https://www.adafruit.com/product/6246,clock,150,MHz\n"
+    }
+  ],
+  "patches": []
+}

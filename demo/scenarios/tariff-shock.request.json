@@ -1,0 +1,290 @@
+{
+  "label": "Tariff +25% on 60% of Raspberry Pi Foundation",
+  "base": "workspace",
+  "mode": "simulation",
+  "filters": {
+    "manufacturer": "Raspberry Pi Foundation"
+  },
+  "analysis": {
+    "x": "shipping_weight_g",
+    "y": "price_value"
+  },
+  "sources": [],
+  "patches": [
+    {
+      "product_id": "ADA:2638",
+      "field": "price_value",
+      "value": 16.19
+    },
+    {
+      "product_id": "ADA:5813",
+      "field": "price_value",
+      "value": 250
+    },
+    {
+      "product_id": "ADA:6009",
+      "field": "price_value",
+      "value": 96.25
+    },
+    {
+      "product_id": "ADA:4027",
+      "field": "price_value",
+      "value": 31.25
+    },
+    {
+      "product_id": "ADA:4292",
+      "field": "price_value",
+      "value": 100
+    },
+    {
+      "product_id": "ADA:5812",
+      "field": "price_value",
+      "value": 162.5
+    },
+    {
+      "product_id": "ADA:5291",
+      "field": "price_value",
+      "value": 23.81
+    },
+    {
+      "product_id": "ADA:2604",
+      "field": "price_value",
+      "value": 12.44
+    },
+    {
+      "product_id": "ADA:5699",
+      "field": "price_value",
+      "value": 15
+    },
+    {
+      "product_id": "ADA:6514",
+      "field": "price_value",
+      "value": 123.75
+    },
+    {
+      "product_id": "ADA:4501",
+      "field": "price_value",
+      "value": 1.24
+    },
+    {
+      "product_id": "ADA:5902",
+      "field": "price_value",
+      "value": 21.75
+    },
+    {
+      "product_id": "ADA:6125",
+      "field": "price_value",
+      "value": 437.5
+    },
+    {
+      "product_id": "ADA:3441",
+      "field": "price_value",
+      "value": 37.44
+    },
+    {
+      "product_id": "ADA:4564",
+      "field": "price_value",
+      "value": 237.5
+    },
+    {
+      "product_id": "ADA:3400",
+      "field": "price_value",
+      "value": 18.75
+    },
+    {
+      "product_id": "ADA:5824",
+      "field": "price_value",
+      "value": 62.5
+    },
+    {
+      "product_id": "ADA:4782",
+      "field": "price_value",
+      "value": 31.25
+    },
+    {
+      "product_id": "ADA:4883",
+      "field": "price_value",
+      "value": 6.25
+    },
+    {
+      "product_id": "ADA:4301",
+      "field": "price_value",
+      "value": 8.13
+    },
+    {
+      "product_id": "ADA:4793",
+      "field": "price_value",
+      "value": 7.81
+    },
+    {
+      "product_id": "ADA:5659",
+      "field": "price_value",
+      "value": 31.25
+    },
+    {
+      "product_id": "ADA:5058",
+      "field": "price_value",
+      "value": 36.25
+    },
+    {
+      "product_id": "ADA:6458",
+      "field": "price_value",
+      "value": 14.94
+    },
+    {
+      "product_id": "ADA:6087",
+      "field": "price_value",
+      "value": 8.75
+    },
+    {
+      "product_id": "ADA:5658",
+      "field": "price_value",
+      "value": 48.13
+    },
+    {
+      "product_id": "ADA:3099",
+      "field": "price_value",
+      "value": 37.44
+    },
+    {
+      "product_id": "ADA:4561",
+      "field": "price_value",
+      "value": 68.75
+    },
+    {
+      "product_id": "ADA:6079",
+      "field": "price_value",
+      "value": 192.75
+    },
+    {
+      "product_id": "ADA:6242",
+      "field": "price_value",
+      "value": 24.94
+    },
+    {
+      "product_id": "ADA:6008",
+      "field": "price_value",
+      "value": 24.75
+    },
+    {
+      "product_id": "ADA:6408",
+      "field": "price_value",
+      "value": 72.5
+    },
+    {
+      "product_id": "ADA:4094",
+      "field": "price_value",
+      "value": 41.25
+    },
+    {
+      "product_id": "ADA:4295",
+      "field": "price_value",
+      "value": 48.13
+    },
+    {
+      "product_id": "ADA:3055",
+      "field": "price_value",
+      "value": 43.75
+    },
+    {
+      "product_id": "ADA:3708",
+      "field": "price_value",
+      "value": 20
+    },
+    {
+      "product_id": "ADA:6315",
+      "field": "price_value",
+      "value": 10
+    },
+    {
+      "product_id": "ADA:4788",
+      "field": "price_value",
+      "value": 43.75
+    },
+    {
+      "product_id": "ADA:5288",
+      "field": "price_value",
+      "value": 18.75
+    },
+    {
+      "product_id": "ADA:5041",
+      "field": "price_value",
+      "value": 1.25
+    },
+    {
+      "product_id": "ADA:5287",
+      "field": "price_value",
+      "value": 31.25
+    },
+    {
+      "product_id": "ADA:5815",
+      "field": "price_value",
+      "value": 16.88
+    },
+    {
+      "product_id": "ADA:2738",
+      "field": "price_value",
+      "value": 41.25
+    },
+    {
+      "product_id": "ADA:4791",
+      "field": "price_value",
+      "value": 68.75
+    },
+    {
+      "product_id": "ADA:6281",
+      "field": "price_value",
+      "value": 42.44
+    },
+    {
+      "product_id": "ADA:4744",
+      "field": "price_value",
+      "value": 12.44
+    },
+    {
+      "product_id": "ADA:6320",
+      "field": "price_value",
+      "value": 20.63
+    },
+    {
+      "product_id": "ADA:3953",
+      "field": "price_value",
+      "value": 25
+    },
+    {
+      "product_id": "ADA:6007",
+      "field": "price_value",
+      "value": 112.5
+    },
+    {
+      "product_id": "ADA:5660",
+      "field": "price_value",
+      "value": 48.13
+    },
+    {
+      "product_id": "ADA:5661",
+      "field": "price_value",
+      "value": 65.63
+    },
+    {
+      "product_id": "ADA:4302",
+      "field": "price_value",
+      "value": 14.76
+    },
+    {
+      "product_id": "ADA:3440",
+      "field": "price_value",
+      "value": 43.75
+    },
+    {
+      "product_id": "ADA:4982",
+      "field": "price_value",
+      "value": 100
+    },
+    {
+      "product_id": "ADA:5657",
+      "field": "price_value",
+      "value": 36.56
+    }
+  ]
+}

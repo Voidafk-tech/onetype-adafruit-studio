@@ -1,0 +1,21 @@
+record_id,purchase_order_id,product_id,quantity,supplier,expected_date,status
+po-1,PO-4143,adafruit:6328,160,Shenzhen PCB Works,2026-12-04,open
+po-2,PO-4144,adafruit:4092,445,Digi-Key Distribution,2026-11-05,open
+po-3,PO-4145,adafruit:5525,364,Raspberry Pi Ltd,2026-11-25,open
+po-4,PO-4146,ADA3925,137,Shenzhen PCB Works,2026-12-22,open
+po-5,PO-4147,https://www.adafruit.com/product/6416,141,Espressif Systems,2026-11-19,open
+po-6,PO-4148,3400,474,Shenzhen PCB Works,2026-12-15,open
+po-7,PO-4149,https://www.adafruit.com/product/6439,82,Raspberry Pi Ltd,2026-12-23,open
+po-8,PO-4150,4299,115,Digi-Key Distribution,2026-11-10,open
+po-9,PO-4151,ADA3708,102,Digi-Key Distribution,2026-12-24,open
+po-10,PO-4152,ADA4564,1311,Espressif Systems,2026-12-18,open
+po-11,PO-4153,5287,1254,Digi-Key Distribution,2026-12-23,open
+po-12,PO-4154, 3446 ,163,Shenzhen PCB Works,2026-11-28,open
+po-13,PO-4155, 4296 ,35,Digi-Key Distribution,2026-11-03,open
+po-14,PO-4156, 5659 ,157,Espressif Systems,2026-12-14,open
+po-15,PO-4157,https://www.adafruit.com/product/6320,110,Digi-Key Distribution,2026-11-18,open
+po-16,PO-4158, 6056 ,158,Digi-Key Distribution,2026-12-14,open
+po-17,PO-4159, 5287 ,170,Shenzhen PCB Works,2026-12-22,open
+po-18,PO-4160,ADA5824,149,Shenzhen PCB Works,2026-11-14,open
+po-unknown-1,PO-4161,88880042,100,Espressif Systems,2026-12-01,open
+po-10,PO-4152,ADA4564,1311,Espressif Systems,2026-12-18,open

@@ -1,0 +1,370 @@
+{
+  "label": "Packaging +40% · Strips",
+  "base": "workspace",
+  "mode": "simulation",
+  "filters": {
+    "category_id": "183"
+  },
+  "analysis": {
+    "x": "shipping_weight_g",
+    "y": "price_value"
+  },
+  "sources": [],
+  "patches": [
+    {
+      "product_id": "ADA:4913",
+      "field": "shipping_weight_g",
+      "value": 82.6
+    },
+    {
+      "product_id": "ADA:2539",
+      "field": "shipping_weight_g",
+      "value": 254
+    },
+    {
+      "product_id": "ADA:6509",
+      "field": "shipping_weight_g",
+      "value": 5.6
+    },
+    {
+      "product_id": "ADA:3811",
+      "field": "shipping_weight_g",
+      "value": 88.9
+    },
+    {
+      "product_id": "ADA:5985",
+      "field": "shipping_weight_g",
+      "value": 82.6
+    },
+    {
+      "product_id": "ADA:4865",
+      "field": "shipping_weight_g",
+      "value": 76.2
+    },
+    {
+      "product_id": "ADA:2967",
+      "field": "shipping_weight_g",
+      "value": 90.2
+    },
+    {
+      "product_id": "ADA:4310",
+      "field": "shipping_weight_g",
+      "value": 139.7
+    },
+    {
+      "product_id": "ADA:2837",
+      "field": "shipping_weight_g",
+      "value": 317.5
+    },
+    {
+      "product_id": "ADA:2953",
+      "field": "shipping_weight_g",
+      "value": 38.1
+    },
+    {
+      "product_id": "ADA:2553",
+      "field": "shipping_weight_g",
+      "value": 349.3
+    },
+    {
+      "product_id": "ADA:4915",
+      "field": "shipping_weight_g",
+      "value": 139.7
+    },
+    {
+      "product_id": "ADA:2561",
+      "field": "shipping_weight_g",
+      "value": 444.5
+    },
+    {
+      "product_id": "ADA:6016",
+      "field": "shipping_weight_g",
+      "value": 120.7
+    },
+    {
+      "product_id": "ADA:2840",
+      "field": "shipping_weight_g",
+      "value": 120.7
+    },
+    {
+      "product_id": "ADA:2835",
+      "field": "shipping_weight_g",
+      "value": 107.9
+    },
+    {
+      "product_id": "ADA:2966",
+      "field": "shipping_weight_g",
+      "value": 165.1
+    },
+    {
+      "product_id": "ADA:2951",
+      "field": "shipping_weight_g",
+      "value": 101.6
+    },
+    {
+      "product_id": "ADA:2549",
+      "field": "shipping_weight_g",
+      "value": 298.5
+    },
+    {
+      "product_id": "ADA:2562",
+      "field": "shipping_weight_g",
+      "value": 393.7
+    },
+    {
+      "product_id": "ADA:1506",
+      "field": "shipping_weight_g",
+      "value": 158.8
+    },
+    {
+      "product_id": "ADA:2552",
+      "field": "shipping_weight_g",
+      "value": 127
+    },
+    {
+      "product_id": "ADA:1460",
+      "field": "shipping_weight_g",
+      "value": 361.9
+    },
+    {
+      "product_id": "ADA:2827",
+      "field": "shipping_weight_g",
+      "value": 120.7
+    },
+    {
+      "product_id": "ADA:3851",
+      "field": "shipping_weight_g",
+      "value": 111.2
+    },
+    {
+      "product_id": "ADA:3635",
+      "field": "shipping_weight_g",
+      "value": 79.4
+    },
+    {
+      "product_id": "ADA:5722",
+      "field": "shipping_weight_g",
+      "value": 120.7
+    },
+    {
+      "product_id": "ADA:2970",
+      "field": "shipping_weight_g",
+      "value": 95.2
+    },
+    {
+      "product_id": "ADA:4368",
+      "field": "shipping_weight_g",
+      "value": 44.5
+    },
+    {
+      "product_id": "ADA:2949",
+      "field": "shipping_weight_g",
+      "value": 215.9
+    },
+    {
+      "product_id": "ADA:3812",
+      "field": "shipping_weight_g",
+      "value": 107.9
+    },
+    {
+      "product_id": "ADA:2963",
+      "field": "shipping_weight_g",
+      "value": 80.1
+    },
+    {
+      "product_id": "ADA:2826",
+      "field": "shipping_weight_g",
+      "value": 165.1
+    },
+    {
+      "product_id": "ADA:2955",
+      "field": "shipping_weight_g",
+      "value": 203.1
+    },
+    {
+      "product_id": "ADA:2867",
+      "field": "shipping_weight_g",
+      "value": 6.3
+    },
+    {
+      "product_id": "ADA:2968",
+      "field": "shipping_weight_g",
+      "value": 31.8
+    },
+    {
+      "product_id": "ADA:2555",
+      "field": "shipping_weight_g",
+      "value": 184.1
+    },
+    {
+      "product_id": "ADA:2969",
+      "field": "shipping_weight_g",
+      "value": 95.2
+    },
+    {
+      "product_id": "ADA:2834",
+      "field": "shipping_weight_g",
+      "value": 158.8
+    },
+    {
+      "product_id": "ADA:3636",
+      "field": "shipping_weight_g",
+      "value": 63.6
+    },
+    {
+      "product_id": "ADA:2535",
+      "field": "shipping_weight_g",
+      "value": 304.8
+    },
+    {
+      "product_id": "ADA:2954",
+      "field": "shipping_weight_g",
+      "value": 215.9
+    },
+    {
+      "product_id": "ADA:2538",
+      "field": "shipping_weight_g",
+      "value": 127
+    },
+    {
+      "product_id": "ADA:2842",
+      "field": "shipping_weight_g",
+      "value": 317.5
+    },
+    {
+      "product_id": "ADA:4689",
+      "field": "shipping_weight_g",
+      "value": 355.6
+    },
+    {
+      "product_id": "ADA:2536",
+      "field": "shipping_weight_g",
+      "value": 222.3
+    },
+    {
+      "product_id": "ADA:1461",
+      "field": "shipping_weight_g",
+      "value": 304.8
+    },
+    {
+      "product_id": "ADA:2556",
+      "field": "shipping_weight_g",
+      "value": 97.9
+    },
+    {
+      "product_id": "ADA:2833",
+      "field": "shipping_weight_g",
+      "value": 254
+    },
+    {
+      "product_id": "ADA:2825",
+      "field": "shipping_weight_g",
+      "value": 285.7
+    },
+    {
+      "product_id": "ADA:3919",
+      "field": "shipping_weight_g",
+      "value": 67.3
+    },
+    {
+      "product_id": "ADA:2508",
+      "field": "shipping_weight_g",
+      "value": 127
+    },
+    {
+      "product_id": "ADA:2832",
+      "field": "shipping_weight_g",
+      "value": 317.5
+    },
+    {
+      "product_id": "ADA:2541",
+      "field": "shipping_weight_g",
+      "value": 57.1
+    },
+    {
+      "product_id": "ADA:1138",
+      "field": "shipping_weight_g",
+      "value": 298.5
+    },
+    {
+      "product_id": "ADA:3634",
+      "field": "shipping_weight_g",
+      "value": 95.2
+    },
+    {
+      "product_id": "ADA:2551",
+      "field": "shipping_weight_g",
+      "value": 127
+    },
+    {
+      "product_id": "ADA:2964",
+      "field": "shipping_weight_g",
+      "value": 190.5
+    },
+    {
+      "product_id": "ADA:2537",
+      "field": "shipping_weight_g",
+      "value": 158.8
+    },
+    {
+      "product_id": "ADA:2962",
+      "field": "shipping_weight_g",
+      "value": 106.7
+    },
+    {
+      "product_id": "ADA:4911",
+      "field": "shipping_weight_g",
+      "value": 114.2
+    },
+    {
+      "product_id": "ADA:1376",
+      "field": "shipping_weight_g",
+      "value": 355.6
+    },
+    {
+      "product_id": "ADA:2848",
+      "field": "shipping_weight_g",
+      "value": 146
+    },
+    {
+      "product_id": "ADA:3869",
+      "field": "shipping_weight_g",
+      "value": 425.5
+    },
+    {
+      "product_id": "ADA:3729",
+      "field": "shipping_weight_g",
+      "value": 44.5
+    },
+    {
+      "product_id": "ADA:2959",
+      "field": "shipping_weight_g",
+      "value": 215.9
+    },
+    {
+      "product_id": "ADA:2839",
+      "field": "shipping_weight_g",
+      "value": 254
+    },
+    {
+      "product_id": "ADA:1644",
+      "field": "shipping_weight_g",
+      "value": 6.3
+    },
+    {
+      "product_id": "ADA:2956",
+      "field": "shipping_weight_g",
+      "value": 165.1
+    },
+    {
+      "product_id": "ADA:4801",
+      "field": "shipping_weight_g",
+      "value": 101.6
+    },
+    {
+      "product_id": "ADA:2952",
+      "field": "shipping_weight_g",
+      "value": 78.7
+    }
+  ]
+}

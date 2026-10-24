@@ -1,0 +1,64 @@
+record_id,product_id,property,value,unit
+spec-1,ADA6130,flash,4,MB
+spec-2,0006398,flash,8,MB
+spec-3, 271 ,sram,32,kB
+spec-4,2926,flash,2,MB
+spec-5, 5437 ,clock,133,MHz
+spec-6,https://www.adafruit.com/product/2971,sram,32,kB
+spec-7,https://www.adafruit.com/product/3232,flash,2,MB
+spec-8,adafruit:5164,flash,2,MB
+spec-9, 3357 ,flash,2,MB
+spec-10,ADA3382,flash,2,MB
+spec-11,ADA5672,sram,520,KB
+spec-12,https://www.adafruit.com/product/5960,sram,32,KB
+spec-13, 3152 ,sram,32,KB
+spec-14,ADA5041,sram,264,KB
+spec-15,adafruit:5336,flash,8,MB
+spec-16,https://www.adafruit.com/product/2843,sram,32,KB
+spec-17,5835,clock,240000000,Hz
+spec-18,2927,flash,2,MB
+spec-19,adafruit:1078,sram,32,KB
+spec-20,https://www.adafruit.com/product/6246,clock,150,MHz
+spec-21,adafruit:2468,sram,32,KB
+spec-22,adafruit:5955,clock,240,MHz
+spec-23, 3588 ,flash,2,MB
+spec-24,ADA5946,sram,264,KB
+spec-25,https://www.adafruit.com/product/1947,clock,48,MHz
+spec-26,0005800,clock,240,MHz
+spec-27,adafruit:5629,sram,320,kB
+spec-28,https://www.adafruit.com/product/6183,flash,4,MB
+spec-29,0002821,sram,32,KB
+spec-30,ADA4884,clock,133000000,Hz
+spec-pico2-clock,ADA6006,clock,160,MHz
+spec-dispute-a,6130,flash,4,MB
+spec-dispute-b,6130,flash,8,MB
+spec-unknown-1,99990333,sram,64,kB
+spec-unknown-2,99999917,sram,64,kB
+spec-unknown-3,99999901,sram,64,kB
+spec-unknown-4,77770005,sram,64,kB
+spec-unknown-5,88880042,sram,64,kB
+spec-unknown-6,66660021,sram,64,kB
+spec-5, 5437 ,clock,133,MHz
+spec-3, 271 ,sram,32,kB
+spec-15,adafruit:5336,flash,8,MB
+spec-28,https://www.adafruit.com/product/6183,flash,4,MB
+spec-unknown-3,99999901,sram,64,kB
+spec-1,ADA6130,flash,4,MB
+spec-2,0006398,flash,8,MB
+spec-22,adafruit:5955,clock,240,MHz
+spec-21,adafruit:2468,sram,32,KB
+spec-23, 3588 ,flash,2,MB
+spec-14,ADA5041,sram,264,KB
+spec-6,https://www.adafruit.com/product/2971,sram,32,kB
+spec-unknown-6,66660021,sram,64,kB
+spec-30,ADA4884,clock,133000000,Hz
+spec-19,adafruit:1078,sram,32,KB
+spec-20,https://www.adafruit.com/product/6246,clock,150,MHz
+spec-16,https://www.adafruit.com/product/2843,sram,32,KB
+spec-unknown-4,77770005,sram,64,kB
+spec-25,https://www.adafruit.com/product/1947,clock,48,MHz
+spec-18,2927,flash,2,MB
+spec-12,https://www.adafruit.com/product/5960,sram,32,KB
+spec-4,2926,flash,2,MB
+spec-unknown-1,99990333,sram,64,kB
+spec-26,0005800,clock,240,MHz

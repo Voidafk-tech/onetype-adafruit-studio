@@ -1,0 +1,26 @@
+record_id,product_id,product_name,subject,excerpt,from,received_at
+msg-1,https://www.adafruit.com/product/3226,,Price increase notice effective next quarter,Unit cost rises 17% due to tariff and substrate surcharges.,logistics@supplier-one.example,2026-10-24
+msg-2,adafruit:1716,,End-of-life notice and last time buy window,Last time buy orders accepted for 5 more weeks; no drop-in replacement yet.,logistics@fab-partner.example,2026-10-24
+msg-3,https://www.adafruit.com/product/2837,,Shipment delay on PO PO-4188,Carrier rolled the container; revised ETA is 9 weeks later than confirmed.,sales@fab-partner.example,2026-10-24
+msg-4,,"Adafruit ""Music Maker"" MP3 Shield for Arduino w/3W Stereo Amp",Updated datasheet and packaging photos,Attached the new revision of the datasheet and packaging photos for listing.,sales@fab-partner.example,2026-10-24
+msg-5,2871,,Updated datasheet and packaging photos,Attached the new revision of the datasheet and packaging photos for listing.,ops@supplier-one.example,2026-10-24
+msg-6,0005313,,End-of-life notice and last time buy window,Last time buy orders accepted for 9 more weeks; no drop-in replacement yet.,logistics@distributor.example,2026-10-24
+msg-7,ADA1459,,Updated datasheet and packaging photos,Attached the new revision of the datasheet and packaging photos for listing.,ops@distributor.example,2026-10-24
+msg-8,ADA486,,Updated datasheet and packaging photos,Attached the new revision of the datasheet and packaging photos for listing.,logistics@distributor.example,2026-10-24
+msg-9,2497,,Price increase notice effective next quarter,Unit cost rises 17% due to tariff and substrate surcharges.,logistics@fab-partner.example,2026-10-24
+msg-10,4749,,Shipment delay on PO PO-4188,Carrier rolled the container; revised ETA is 7 weeks later than confirmed.,logistics@fab-partner.example,2026-10-24
+msg-11,,Adafruit SGP41 Multi-Pixel Gas Sensor Breakout - VOC & NOx,End-of-life notice and last time buy window,Last time buy orders accepted for 7 more weeks; no drop-in replacement yet.,sales@distributor.example,2026-10-24
+msg-12,ADA1977,,Allocation: shortage on wafer supply,We can fill 26% of open quantity this month under allocation.,logistics@fab-partner.example,2026-10-24
+msg-13,https://www.adafruit.com/product/3255,,Shipment delay on PO PO-4188,Carrier rolled the container; revised ETA is 5 weeks later than confirmed.,sales@supplier-one.example,2026-10-24
+msg-14, 2379 ,,Allocation: shortage on wafer supply,We can fill 29% of open quantity this month under allocation.,sales@fab-partner.example,2026-10-24
+msg-15,0004660,,Shipment delay on PO PO-4188,Carrier rolled the container; revised ETA is 7 weeks later than confirmed.,account-team@supplier-one.example,2026-10-24
+msg-16, 5462 ,,Updated datasheet and packaging photos,Attached the new revision of the datasheet and packaging photos for listing.,sales@supplier-one.example,2026-10-24
+msg-17,4455,,Allocation: shortage on wafer supply,We can fill 26% of open quantity this month under allocation.,logistics@supplier-one.example,2026-10-24
+msg-18,,Adafruit FunHouse Starter Kit - IoT Home Automation Exploration,End-of-life notice and last time buy window,Last time buy orders accepted for 7 more weeks; no drop-in replacement yet.,account-team@supplier-one.example,2026-10-24
+msg-19,000152,,Updated datasheet and packaging photos,Attached the new revision of the datasheet and packaging photos for listing.,account-team@supplier-one.example,2026-10-24
+msg-20,4755,,Price increase notice effective next quarter,Unit cost rises 9% due to tariff and substrate surcharges.,account-team@fab-partner.example,2026-10-24
+msg-21,0004034,,End-of-life notice and last time buy window,Last time buy orders accepted for 6 more weeks; no drop-in replacement yet.,logistics@distributor.example,2026-10-24
+msg-22,0005246,,Shipment delay on PO PO-4188,Carrier rolled the container; revised ETA is 10 weeks later than confirmed.,ops@fab-partner.example,2026-10-24
+msg-23,https://www.adafruit.com/product/2246,,Updated datasheet and packaging photos,Attached the new revision of the datasheet and packaging photos for listing.,account-team@supplier-one.example,2026-10-24
+msg-24,ADA4636,,End-of-life notice and last time buy window,Last time buy orders accepted for 5 more weeks; no drop-in replacement yet.,sales@distributor.example,2026-10-24
+msg-unknown,,Mystery Dev Board v9,Allocation: shortage on wafer supply,Board name does not match any catalog listing.,sales@distributor.example,2026-10-24

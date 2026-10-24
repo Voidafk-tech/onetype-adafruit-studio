@@ -1,0 +1,12 @@
+{
+  "name": "onetype-studio",
+  "private": true,
+  "type": "module",
+  "description": "Showcase UI, seeded demo scenarios and tests for the OneType Adafruit engine",
+  "scripts": {
+    "build": "sh build-engine.sh && node scripts/build-studio-catalog.mjs",
+    "scenarios": "node scripts/export-scenarios.mjs",
+    "test": "node --test \"tests/*.test.mjs\"",
+    "start": "sh run-studio.sh"
+  }
+}

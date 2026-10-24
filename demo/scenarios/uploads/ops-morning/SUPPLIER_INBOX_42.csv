@@ -1,0 +1,16 @@
+record_id,product_id,product_name,subject,excerpt,from,received_at
+msg-1,0005657,,Price increase notice effective next quarter,Unit cost rises 24% due to tariff and substrate surcharges.,sales@distributor.example,2026-10-24
+msg-2, 6008 ,,Allocation: shortage on wafer supply,We can fill 17% of open quantity this month under allocation.,ops@supplier-one.example,2026-10-24
+msg-3,0004883,,Shipment delay on PO PO-4145,Carrier rolled the container; revised ETA is 6 weeks later than confirmed.,account-team@supplier-one.example,2026-10-24
+msg-4,,Raspberry Pi High Quality Camera – M12 Lens Mount,Price increase notice effective next quarter,Unit cost rises 17% due to tariff and substrate surcharges.,ops@fab-partner.example,2026-10-24
+msg-5,adafruit:3400,,Updated datasheet and packaging photos,Attached the new revision of the datasheet and packaging photos for listing.,ops@distributor.example,2026-10-24
+msg-6,adafruit:6056,,End-of-life notice and last time buy window,Last time buy orders accepted for 2 more weeks; no drop-in replacement yet.,sales@distributor.example,2026-10-24
+msg-7,6439,,Allocation: shortage on wafer supply,We can fill 17% of open quantity this month under allocation.,ops@distributor.example,2026-10-24
+msg-8,https://www.adafruit.com/product/3442,,Price increase notice effective next quarter,Unit cost rises 33% due to tariff and substrate surcharges.,sales@distributor.example,2026-10-24
+msg-9,https://www.adafruit.com/product/6416,,Price increase notice effective next quarter,Unit cost rises 28% due to tariff and substrate surcharges.,logistics@fab-partner.example,2026-10-24
+msg-10,5813,,End-of-life notice and last time buy window,Last time buy orders accepted for 7 more weeks; no drop-in replacement yet.,account-team@supplier-one.example,2026-10-24
+msg-11,,Raspberry Pi 5 RTC Battery,Price increase notice effective next quarter,Unit cost rises 25% due to tariff and substrate surcharges.,sales@supplier-one.example,2026-10-24
+msg-12,ADA4794,,End-of-life notice and last time buy window,Last time buy orders accepted for 6 more weeks; no drop-in replacement yet.,sales@supplier-one.example,2026-10-24
+msg-13,ADA5525,,Price increase notice effective next quarter,Unit cost rises 35% due to tariff and substrate surcharges.,logistics@distributor.example,2026-10-24
+msg-14,4298,,End-of-life notice and last time buy window,Last time buy orders accepted for 2 more weeks; no drop-in replacement yet.,logistics@distributor.example,2026-10-24
+msg-unknown,,Mystery Dev Board v9,Allocation: shortage on wafer supply,Board name does not match any catalog listing.,sales@distributor.example,2026-10-24

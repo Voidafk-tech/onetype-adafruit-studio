@@ -1,0 +1,865 @@
+{
+  "label": "Sell-through · Adafruit",
+  "base": "workspace",
+  "mode": "simulation",
+  "filters": {
+    "manufacturer": "Adafruit"
+  },
+  "analysis": {
+    "x": "price_value",
+    "y": "public_quantity"
+  },
+  "sources": [],
+  "patches": [
+    {
+      "product_id": "ADA:6353",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:4314",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:802",
+      "field": "public_quantity",
+      "value": 22
+    },
+    {
+      "product_id": "ADA:1651",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:5500",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:1312",
+      "field": "public_quantity",
+      "value": 16
+    },
+    {
+      "product_id": "ADA:2841",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:1325",
+      "field": "public_quantity",
+      "value": 42
+    },
+    {
+      "product_id": "ADA:2835",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:5781",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:6299",
+      "field": "public_quantity",
+      "value": 18
+    },
+    {
+      "product_id": "ADA:2844",
+      "field": "public_quantity",
+      "value": 4
+    },
+    {
+      "product_id": "ADA:4520",
+      "field": "public_quantity",
+      "value": 14
+    },
+    {
+      "product_id": "ADA:4120",
+      "field": "public_quantity",
+      "value": 2
+    },
+    {
+      "product_id": "ADA:6413",
+      "field": "public_quantity",
+      "value": 12
+    },
+    {
+      "product_id": "ADA:5300",
+      "field": "public_quantity",
+      "value": 49
+    },
+    {
+      "product_id": "ADA:3467",
+      "field": "public_quantity",
+      "value": 19
+    },
+    {
+      "product_id": "ADA:1554",
+      "field": "public_quantity",
+      "value": 2
+    },
+    {
+      "product_id": "ADA:6055",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:3109",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:2260",
+      "field": "public_quantity",
+      "value": 15
+    },
+    {
+      "product_id": "ADA:1429",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:1929",
+      "field": "public_quantity",
+      "value": 3
+    },
+    {
+      "product_id": "ADA:4687",
+      "field": "public_quantity",
+      "value": 14
+    },
+    {
+      "product_id": "ADA:2959",
+      "field": "public_quantity",
+      "value": 44
+    },
+    {
+      "product_id": "ADA:3939",
+      "field": "public_quantity",
+      "value": 15
+    },
+    {
+      "product_id": "ADA:6366",
+      "field": "public_quantity",
+      "value": 12
+    },
+    {
+      "product_id": "ADA:3213",
+      "field": "public_quantity",
+      "value": 27
+    },
+    {
+      "product_id": "ADA:4506",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2277",
+      "field": "public_quantity",
+      "value": 11
+    },
+    {
+      "product_id": "ADA:4354",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:959",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:1271",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:5999",
+      "field": "public_quantity",
+      "value": 2
+    },
+    {
+      "product_id": "ADA:5745",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:3149",
+      "field": "public_quantity",
+      "value": 36
+    },
+    {
+      "product_id": "ADA:1551",
+      "field": "public_quantity",
+      "value": 10
+    },
+    {
+      "product_id": "ADA:334",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:4560",
+      "field": "public_quantity",
+      "value": 12
+    },
+    {
+      "product_id": "ADA:4569",
+      "field": "public_quantity",
+      "value": 23
+    },
+    {
+      "product_id": "ADA:4374",
+      "field": "public_quantity",
+      "value": 3
+    },
+    {
+      "product_id": "ADA:2217",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:4886",
+      "field": "public_quantity",
+      "value": 22
+    },
+    {
+      "product_id": "ADA:2220",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:6505",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2543",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:1764",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:1912",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:2828",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:4633",
+      "field": "public_quantity",
+      "value": 42
+    },
+    {
+      "product_id": "ADA:3965",
+      "field": "public_quantity",
+      "value": 25
+    },
+    {
+      "product_id": "ADA:5913",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:764",
+      "field": "public_quantity",
+      "value": 9
+    },
+    {
+      "product_id": "ADA:5832",
+      "field": "public_quantity",
+      "value": 18
+    },
+    {
+      "product_id": "ADA:2052",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:3538",
+      "field": "public_quantity",
+      "value": 6
+    },
+    {
+      "product_id": "ADA:1460",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:4285",
+      "field": "public_quantity",
+      "value": 3
+    },
+    {
+      "product_id": "ADA:2966",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:5779",
+      "field": "public_quantity",
+      "value": 2
+    },
+    {
+      "product_id": "ADA:2842",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:6348",
+      "field": "public_quantity",
+      "value": 41
+    },
+    {
+      "product_id": "ADA:6282",
+      "field": "public_quantity",
+      "value": 22
+    },
+    {
+      "product_id": "ADA:6059",
+      "field": "public_quantity",
+      "value": 19
+    },
+    {
+      "product_id": "ADA:4121",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:358",
+      "field": "public_quantity",
+      "value": 11
+    },
+    {
+      "product_id": "ADA:2854",
+      "field": "public_quantity",
+      "value": 46
+    },
+    {
+      "product_id": "ADA:2949",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:2360",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2865",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:6301",
+      "field": "public_quantity",
+      "value": 19
+    },
+    {
+      "product_id": "ADA:5159",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2569",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:5870",
+      "field": "public_quantity",
+      "value": 13
+    },
+    {
+      "product_id": "ADA:6066",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:399",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:3422",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:1932",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:2545",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:6091",
+      "field": "public_quantity",
+      "value": 30
+    },
+    {
+      "product_id": "ADA:1272",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2856",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:5778",
+      "field": "public_quantity",
+      "value": 9
+    },
+    {
+      "product_id": "ADA:4888",
+      "field": "public_quantity",
+      "value": 16
+    },
+    {
+      "product_id": "ADA:4800",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:1856",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:4627",
+      "field": "public_quantity",
+      "value": 4
+    },
+    {
+      "product_id": "ADA:1260",
+      "field": "public_quantity",
+      "value": 6
+    },
+    {
+      "product_id": "ADA:2948",
+      "field": "public_quantity",
+      "value": 7
+    },
+    {
+      "product_id": "ADA:6536",
+      "field": "public_quantity",
+      "value": 12
+    },
+    {
+      "product_id": "ADA:2241",
+      "field": "public_quantity",
+      "value": 2
+    },
+    {
+      "product_id": "ADA:6455",
+      "field": "public_quantity",
+      "value": 17
+    },
+    {
+      "product_id": "ADA:1141",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:4313",
+      "field": "public_quantity",
+      "value": 16
+    },
+    {
+      "product_id": "ADA:4383",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:4746",
+      "field": "public_quantity",
+      "value": 2
+    },
+    {
+      "product_id": "ADA:3114",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:3127",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2540",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:4950",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:5996",
+      "field": "public_quantity",
+      "value": 12
+    },
+    {
+      "product_id": "ADA:6176",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:5221",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:2242",
+      "field": "public_quantity",
+      "value": 24
+    },
+    {
+      "product_id": "ADA:1602",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:789",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:3938",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:6126",
+      "field": "public_quantity",
+      "value": 19
+    },
+    {
+      "product_id": "ADA:4333",
+      "field": "public_quantity",
+      "value": 49
+    },
+    {
+      "product_id": "ADA:6494",
+      "field": "public_quantity",
+      "value": 4
+    },
+    {
+      "product_id": "ADA:4481",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2361",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:2633",
+      "field": "public_quantity",
+      "value": 29
+    },
+    {
+      "product_id": "ADA:943",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2947",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:4534",
+      "field": "public_quantity",
+      "value": 2
+    },
+    {
+      "product_id": "ADA:6000",
+      "field": "public_quantity",
+      "value": 18
+    },
+    {
+      "product_id": "ADA:2238",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:1018",
+      "field": "public_quantity",
+      "value": 39
+    },
+    {
+      "product_id": "ADA:5477",
+      "field": "public_quantity",
+      "value": 6
+    },
+    {
+      "product_id": "ADA:2546",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:757",
+      "field": "public_quantity",
+      "value": 2
+    },
+    {
+      "product_id": "ADA:3243",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:3650",
+      "field": "public_quantity",
+      "value": 4
+    },
+    {
+      "product_id": "ADA:2578",
+      "field": "public_quantity",
+      "value": 9
+    },
+    {
+      "product_id": "ADA:6015",
+      "field": "public_quantity",
+      "value": 10
+    },
+    {
+      "product_id": "ADA:2160",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:5907",
+      "field": "public_quantity",
+      "value": 20
+    },
+    {
+      "product_id": "ADA:2883",
+      "field": "public_quantity",
+      "value": 13
+    },
+    {
+      "product_id": "ADA:2269",
+      "field": "public_quantity",
+      "value": 12
+    },
+    {
+      "product_id": "ADA:3630",
+      "field": "public_quantity",
+      "value": 19
+    },
+    {
+      "product_id": "ADA:1559",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:1893",
+      "field": "public_quantity",
+      "value": 7
+    },
+    {
+      "product_id": "ADA:1580",
+      "field": "public_quantity",
+      "value": 19
+    },
+    {
+      "product_id": "ADA:4132",
+      "field": "public_quantity",
+      "value": 7
+    },
+    {
+      "product_id": "ADA:163",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2568",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:2432",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:2340",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:647",
+      "field": "public_quantity",
+      "value": 3
+    },
+    {
+      "product_id": "ADA:3817",
+      "field": "public_quantity",
+      "value": 15
+    },
+    {
+      "product_id": "ADA:4116",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:2570",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:1680",
+      "field": "public_quantity",
+      "value": 6
+    },
+    {
+      "product_id": "ADA:5021",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:462",
+      "field": "public_quantity",
+      "value": 13
+    },
+    {
+      "product_id": "ADA:3199",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2945",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:3242",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:6057",
+      "field": "public_quantity",
+      "value": 4
+    },
+    {
+      "product_id": "ADA:4646",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:3079",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:4920",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:5811",
+      "field": "public_quantity",
+      "value": 20
+    },
+    {
+      "product_id": "ADA:4072",
+      "field": "public_quantity",
+      "value": 6
+    },
+    {
+      "product_id": "ADA:4028",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:4565",
+      "field": "public_quantity",
+      "value": 12
+    },
+    {
+      "product_id": "ADA:5295",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:3606",
+      "field": "public_quantity",
+      "value": 14
+    },
+    {
+      "product_id": "ADA:5710",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:2280",
+      "field": "public_quantity",
+      "value": 5
+    },
+    {
+      "product_id": "ADA:3387",
+      "field": "public_quantity",
+      "value": 11
+    },
+    {
+      "product_id": "ADA:2559",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:6388",
+      "field": "public_quantity",
+      "value": 20
+    },
+    {
+      "product_id": "ADA:714",
+      "field": "public_quantity",
+      "value": 4
+    },
+    {
+      "product_id": "ADA:5709",
+      "field": "public_quantity",
+      "value": 8
+    },
+    {
+      "product_id": "ADA:3502",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:4201",
+      "field": "public_quantity",
+      "value": 0
+    },
+    {
+      "product_id": "ADA:3022",
+      "field": "public_quantity",
+      "value": 1
+    },
+    {
+      "product_id": "ADA:1362",
+      "field": "public_quantity",
+      "value": 3
+    }
+  ]
+}

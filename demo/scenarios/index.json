@@ -1,0 +1,279 @@
+[
+  {
+    "id": "baseline",
+    "title": "Live catalog baseline",
+    "request": "baseline.request.json",
+    "uploads": [],
+    "patches": 0,
+    "planted": {}
+  },
+  {
+    "id": "spec-feed",
+    "title": "Messy distributor spec feed",
+    "request": "spec-feed.request.json",
+    "uploads": [
+      "spec-feed/DISTRIBUTOR_SPECS_42.csv"
+    ],
+    "patches": 0,
+    "planted": {
+      "duplicates": 32,
+      "unknown_ids": 6,
+      "reference_conflicts": 1,
+      "open_conflicts": 1,
+      "disputed_product": "ADA:6130"
+    }
+  },
+  {
+    "id": "tariff-shock",
+    "title": "Tariff price shock",
+    "request": "tariff-shock.request.json",
+    "uploads": [],
+    "patches": 55,
+    "planted": {
+      "price_patches": 55
+    }
+  },
+  {
+    "id": "packaging",
+    "title": "Packaging redesign",
+    "request": "packaging.request.json",
+    "uploads": [],
+    "patches": 71,
+    "planted": {
+      "weight_patches": 71
+    }
+  },
+  {
+    "id": "warehouse",
+    "title": "Warehouse cycle count",
+    "request": "warehouse.request.json",
+    "uploads": [
+      "warehouse/WMS_COUNT_42.csv"
+    ],
+    "patches": 0,
+    "planted": {
+      "duplicates": 3,
+      "unknown_ids": 2,
+      "listed_but_empty": [
+        "ADA:3255",
+        "ADA:2055",
+        "ADA:289",
+        "ADA:4833"
+      ],
+      "stocked_but_unlisted": [
+        "ADA:1812",
+        "ADA:3230",
+        "ADA:3308",
+        "ADA:6167"
+      ],
+      "low_stock": [
+        "ADA:4301",
+        "ADA:1969",
+        "ADA:1092",
+        "ADA:670"
+      ]
+    }
+  },
+  {
+    "id": "purchase-orders",
+    "title": "Open purchase orders",
+    "request": "purchase-orders.request.json",
+    "uploads": [
+      "purchase-orders/ERP_OPEN_POS_42.csv"
+    ],
+    "patches": 0,
+    "planted": {
+      "duplicates": 1,
+      "unknown_ids": 1,
+      "covers_stockout": [
+        "ADA:5655",
+        "ADA:5893",
+        "ADA:2380",
+        "ADA:263",
+        "ADA:1632",
+        "ADA:2557",
+        "ADA:4227",
+        "ADA:1994",
+        "ADA:610",
+        "ADA:5405",
+        "ADA:5112",
+        "ADA:1560",
+        "ADA:270",
+        "ADA:4030",
+        "ADA:6005",
+        "ADA:1938",
+        "ADA:3424",
+        "ADA:951"
+      ],
+      "overstock_risk": [
+        "ADA:4563",
+        "ADA:3124",
+        "ADA:775",
+        "ADA:3949",
+        "ADA:2360",
+        "ADA:4416"
+      ]
+    }
+  },
+  {
+    "id": "supplier-inbox",
+    "title": "Supplier inbox",
+    "request": "supplier-inbox.request.json",
+    "uploads": [
+      "supplier-inbox/SUPPLIER_INBOX_42.csv"
+    ],
+    "patches": 0,
+    "planted": {
+      "name_only_rows": 4,
+      "unmatched_names": 1
+    }
+  },
+  {
+    "id": "sell-through",
+    "title": "Weekend sell-through",
+    "request": "sell-through.request.json",
+    "uploads": [],
+    "patches": 170,
+    "planted": {
+      "quantity_patches": 170,
+      "sold_out": [
+        "ADA:5159",
+        "ADA:2835",
+        "ADA:789",
+        "ADA:6353",
+        "ADA:2540",
+        "ADA:334",
+        "ADA:3199",
+        "ADA:2238",
+        "ADA:5781",
+        "ADA:5913",
+        "ADA:2052",
+        "ADA:3422",
+        "ADA:1602",
+        "ADA:2160",
+        "ADA:4201",
+        "ADA:4481",
+        "ADA:4506",
+        "ADA:2569",
+        "ADA:6055",
+        "ADA:3502",
+        "ADA:2543",
+        "ADA:3127",
+        "ADA:2546",
+        "ADA:1141",
+        "ADA:5745",
+        "ADA:2217",
+        "ADA:1764",
+        "ADA:5710",
+        "ADA:5021",
+        "ADA:2559",
+        "ADA:3242",
+        "ADA:2842",
+        "ADA:2545",
+        "ADA:5500",
+        "ADA:2220",
+        "ADA:4121",
+        "ADA:1460",
+        "ADA:6505",
+        "ADA:943",
+        "ADA:4646",
+        "ADA:1429",
+        "ADA:3243",
+        "ADA:2360",
+        "ADA:399",
+        "ADA:1559",
+        "ADA:1272",
+        "ADA:6176",
+        "ADA:163",
+        "ADA:2947",
+        "ADA:4314",
+        "ADA:4354"
+      ]
+    }
+  },
+  {
+    "id": "next-capture",
+    "title": "Next month’s catalog",
+    "request": "next-capture.request.json",
+    "uploads": [
+      "next-capture/CATALOG_NEXT_CAPTURE_42.json"
+    ],
+    "patches": 0,
+    "planted": {
+      "price_moves": 832,
+      "dropped_from_capture": [
+        "ADA:1934",
+        "ADA:153",
+        "ADA:6301",
+        "ADA:4326",
+        "ADA:5396",
+        "ADA:2070",
+        "ADA:1827",
+        "ADA:3629"
+      ]
+    }
+  },
+  {
+    "id": "ops-morning",
+    "title": "Monday operations review",
+    "request": "ops-morning.request.json",
+    "uploads": [
+      "ops-morning/WMS_COUNT_42.csv",
+      "ops-morning/ERP_OPEN_POS_42.csv",
+      "ops-morning/SUPPLIER_INBOX_42.csv",
+      "ops-morning/DISTRIBUTOR_SPECS_42.csv"
+    ],
+    "patches": 0,
+    "planted": {
+      "inventory": {
+        "duplicates": 3,
+        "unknown_ids": 2,
+        "listed_but_empty": [
+          "ADA:4501",
+          "ADA:5979",
+          "ADA:5816"
+        ],
+        "stocked_but_unlisted": [
+          "ADA:4027",
+          "ADA:3708",
+          "ADA:6006"
+        ],
+        "low_stock": [
+          "ADA:5288",
+          "ADA:4564",
+          "ADA:5817"
+        ]
+      },
+      "purchase_orders": {
+        "duplicates": 1,
+        "unknown_ids": 1,
+        "covers_stockout": [
+          "ADA:6328",
+          "ADA:4092",
+          "ADA:5525",
+          "ADA:3925",
+          "ADA:6416",
+          "ADA:3400",
+          "ADA:6439",
+          "ADA:4299",
+          "ADA:3708"
+        ],
+        "overstock_risk": [
+          "ADA:4564",
+          "ADA:5287"
+        ]
+      },
+      "inbox": {
+        "name_only_rows": 3,
+        "unmatched_names": 1
+      },
+      "specs": {
+        "duplicates": 24,
+        "unknown_ids": 6,
+        "reference_conflicts": 1,
+        "open_conflicts": 1,
+        "disputed_product": "ADA:6130"
+      }
+    }
+  }
+]
