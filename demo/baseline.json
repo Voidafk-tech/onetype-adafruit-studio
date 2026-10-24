@@ -1,0 +1,9 @@
+{
+  "label": "Real Adafruit baseline",
+  "base": "workspace",
+  "mode": "observed",
+  "filters": {},
+  "analysis": { "x": "shipping_weight_g", "y": "price_value" },
+  "sources": [],
+  "patches": []
+}

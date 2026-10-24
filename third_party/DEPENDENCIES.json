@@ -1,0 +1,26 @@
+{
+  "nlohmann_json": "v3.12.0",
+  "cpp_httplib": "v0.63.0",
+  "files": [
+    {
+      "path": "nlohmann/json.hpp",
+      "url": "https://raw.githubusercontent.com/nlohmann/json/v3.12.0/single_include/nlohmann/json.hpp",
+      "sha256": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63"
+    },
+    {
+      "path": "LICENSE.nlohmann",
+      "url": "https://raw.githubusercontent.com/nlohmann/json/v3.12.0/LICENSE.MIT",
+      "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603"
+    },
+    {
+      "path": "httplib.h",
+      "url": "https://raw.githubusercontent.com/yhirose/cpp-httplib/v0.63.0/httplib.h",
+      "sha256": "9021001a719768893a8a6e4051c56107690e8b8e49b41e5f903534fa19ae9afb"
+    },
+    {
+      "path": "LICENSE.httplib",
+      "url": "https://raw.githubusercontent.com/yhirose/cpp-httplib/v0.63.0/LICENSE",
+      "sha256": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b"
+    }
+  ]
+}

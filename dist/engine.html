@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OneType — Adafruit processing engine</title><link rel="stylesheet" href="/assets/engine.css"></head>
+<body><main>
+<header class="masthead"><div class="wordmark">OneType <span>Adafruit engine</span></div><span id="connection">Connecting to C++…</span></header>
+<section class="opening"><p class="eyebrow">INPUT → CONNECTED MODEL → EXCEL</p><h1>Test the data engine.</h1><p>Choose inputs, run the model, and inspect the numbers. Every run keeps its own inputs and outputs.</p><p id="capture" class="muted"></p></section>
+<div id="message" role="status" hidden></div>
+<form id="run-form"><fieldset id="controls">
+<div class="presets"><span class="muted">Judge demo</span><button type="button" data-preset="baseline">Real catalog baseline</button><button type="button" data-preset="scenario">Pico 2 what-if</button><button type="button" data-preset="messy">Messy CSV test</button></div>
+<div class="input-grid">
+<section class="panel"><div class="section-title"><span class="step">1</span><h2>Select the data</h2></div>
+<label>Run name<input id="label" maxlength="140" required value="Real Adafruit baseline"></label>
+<div class="two"><label>Starting dataset<select id="base"><option value="workspace">Current Adafruit workspace</option><option value="uploads_only">Uploaded sources only</option></select></label><label>Run type<select id="mode"><option value="observed">Real / user-supplied data</option><option value="simulation">Simulation / hypothetical data</option></select></label></div>
+<div class="two"><label>Manufacturer<select id="manufacturer"><option value="">All manufacturers</option></select></label><label>Primary category<select id="category"><option value="">All categories</option></select></label></div>
+<div class="two"><label>Availability<select id="availability"><option value="">All statuses</option><option value="in_stock">In stock</option><option value="out_of_stock">Out of stock</option><option value="unknown">Unknown</option><option value="no_longer_stocked">No longer stocked</option><option value="backorder">Backorder</option></select></label><label>Minimum catalog price<input id="min-price" type="number" min="0" step="any" placeholder="No minimum"></label></div>
+<div class="two"><label>Maximum catalog price<input id="max-price" type="number" min="0" step="any" placeholder="No maximum"></label><span></span></div>
+<div class="two"><label>Analyze X<select id="metric-x"></select></label><label>Analyze Y<select id="metric-y"></select></label></div>
+<p class="note">Price units have no confirmed currency code. A correlation needs at least 8 complete pairs with variation.</p>
+</section>
+<section class="panel"><div class="section-title"><span class="step">2</span><h2>Add inputs or a scenario</h2></div>
+<details><summary>Upload CSV / JSON sources <span id="source-count">0 added</span></summary>
+<div class="two"><label>CSV source type<select id="csv-kind"><option value="specifications">Specifications</option><option value="catalog">Catalog</option><option value="observations">Public observations</option><option value="documents">Document references</option><option value="inventory">Your warehouse inventory</option><option value="purchase_orders">Your purchase orders</option><option value="communications">Your communications export</option></select></label><label>CSV capture date<input id="csv-date" type="date" required></label></div>
+<label>Add files<input id="source-files" type="file" multiple accept=".csv,.json,text/csv,application/json"></label>
+<p class="note">CSV headers follow the selected source type. JSON files contain source envelopes. PDFs and emails need structured extracts for this prototype.</p>
+</details>
+<label>Additional sources (JSON array)<textarea id="sources" rows="7" spellcheck="false">[]</textarea></label>
+<details id="scenario-box"><summary>Hypothetical product changes</summary><p class="note">These values affect this simulation only. The real workspace stays unchanged.</p>
+<label>Adafruit product ID<input id="patch-id" value="6006" placeholder="6006 or ADA6006"></label>
+<div class="three"><label>New catalog price<input id="patch-price" type="number" min="0" step="any" placeholder="Keep original"></label><label>New shipping weight (g)<input id="patch-weight" type="number" min="0" step="any" placeholder="Keep original"></label><label>New public quantity<input id="patch-quantity" type="number" min="0" max="1000000000" step="1" placeholder="Keep original"></label></div>
+</details>
+<div class="run-bar"><button class="primary" id="run" type="submit">Run engine</button><span class="note">C++ processes the full dataset.</span></div>
+<details><summary>Inspect the request</summary><pre id="request-preview"></pre></details>
+</section></div></fieldset></form>
+
+<section id="output" hidden aria-live="polite">
+<div class="output-heading"><div><p class="eyebrow">SAVED RUN OUTPUT</p><h2 id="result-label"></h2><p id="result-meta" class="muted"></p></div><button class="primary" id="excel">Download Excel workbook</button></div>
+<p id="stale" class="warning" hidden>Inputs changed. These results still belong to the saved run shown above. Run the engine again to process your changes.</p>
+<p id="simulation" class="warning" hidden>SIMULATION — this run contains hypothetical inputs. The original Adafruit records remain unchanged.</p>
+<div class="result-grid"><section class="panel"><h3>Baseline versus this run</h3><div class="table-wrap"><table><thead><tr><th>Metric</th><th>Baseline</th><th>This run</th><th>Difference</th></tr></thead><tbody id="summary"></tbody></table></div><p class="note">Both columns use the chosen filters. Source counts, conflicts and unmatched counts cover the full loaded model.</p></section>
+<section class="panel"><h3 id="analysis-title">Numeric association</h3><p class="coefficient" id="r-value"></p><p id="pair-count"></p><p id="excluded" class="note"></p><p id="interpretation" class="note"></p><p id="cohort" class="note break"></p></section></div>
+<section class="panel"><h3>Field changes</h3><div class="table-wrap"><table><thead><tr><th>Product</th><th>Field</th><th>Before</th><th>After</th><th>Basis</th></tr></thead><tbody id="changes"></tbody></table></div><p id="changes-note" class="note"></p></section>
+<section class="panel"><div class="table-heading"><h3>Simplified products</h3><a id="products-csv">Download full CSV</a></div><div class="table-wrap"><table><thead><tr><th>Product</th><th>Catalog price</th><th>Weight (g)</th><th>SRAM (kB)</th><th>Clock (MHz)</th><th>Availability</th><th>Pair inclusion</th></tr></thead><tbody id="products"></tbody></table></div><p id="products-note" class="note"></p></section>
+<div class="result-grid"><section class="panel"><h3>Conflicting claims in selected products</h3><div id="conflicts"></div></section><section class="panel"><h3>Unmatched input records</h3><div id="unmatched"></div><p class="note">Names alone never trigger a merge. Original rows stay in the saved inputs.</p></section></div>
+<section class="downloads"><h3>Inspect the run</h3><div id="downloads"></div><details><summary>Original request for this saved run</summary><pre id="saved-request"></pre></details></section>
+</section>
+<section class="history"><h2>Recent runs</h2><div id="history"><p class="muted">Loading…</p></div></section>
+<footer>Public Adafruit catalog and selected manufacturer evidence. User uploads retain their provenance. Each run saves a reproducible snapshot locally.</footer>
+</main><script src="/assets/engine.js" defer></script></body></html>

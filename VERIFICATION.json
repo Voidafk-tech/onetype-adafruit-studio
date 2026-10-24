@@ -1,0 +1,27 @@
+{
+  "checks_passed": [
+    "native contract tests",
+    "HTTP validation",
+    "real full-catalog correlation",
+    "browser presets",
+    "CSV file upload",
+    "scenario output differences",
+    "sparse metrics",
+    "duplicate suppression",
+    "exact-ID joins",
+    "quarantine",
+    "reference authority",
+    "stale output labeling",
+    "saved run loading",
+    "Excel download",
+    "mobile layout",
+    "baseline isolation",
+    "full 5587-row Excel export",
+    "exact saved-input replay",
+    "saved XLSX cached values and no formula errors"
+  ],
+  "public_seed_products": 5587,
+  "public_seed_revision": 1,
+  "baseline_r": 0.7251008687474106,
+  "scope": "Only public starter data is packaged. Synthetic demo inputs are labeled simulation."
+}

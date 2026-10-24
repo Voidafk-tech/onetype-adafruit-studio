@@ -1,0 +1,5 @@
+record_id,product_id,property,value,unit
+claim-1, ADA6006 ,clock,160,MHz
+claim-1, ADA6006 ,clock,160,MHz
+claim-2,https://www.adafruit.com/product/4864,sram,264,kB
+claim-3,99999999,sram,64,kB

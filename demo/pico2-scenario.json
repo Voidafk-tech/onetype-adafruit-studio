@@ -1,0 +1,12 @@
+{
+  "label": "Pico 2 price and weight what-if",
+  "base": "workspace",
+  "mode": "simulation",
+  "filters": { "manufacturer": "Raspberry Pi Foundation" },
+  "analysis": { "x": "shipping_weight_g", "y": "price_value" },
+  "sources": [],
+  "patches": [
+    { "product_id": "ADA6006", "field": "price_value", "value": 12.5 },
+    { "product_id": "6006", "field": "shipping_weight_g", "value": 8.2 }
+  ]
+}

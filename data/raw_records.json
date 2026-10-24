@@ -1,0 +1,89 @@
+{
+  "dataset_id": "onetype-public-electronics-pilot-2026-10-23",
+  "schema_version": "0.1.0",
+  "capture_notes": {
+    "method": "Selected factual fields manually transcribed from official sources returned by the web research tool; reviewed by Codex.",
+    "captured_on": "2026-10-23",
+    "time_precision": "date",
+    "full_http_responses_archived": false,
+    "original_server_capture_time_known": false,
+    "source_valid_at": null,
+    "scope": "Three deliberately selected board models with potential cross-retailer correspondences; this is not a complete catalog or a representative sample.",
+    "meaning_of_raw": "Original field spellings and displayed values, not original page HTML or API responses. Factual selections and evidence locations are retained; full copyrighted pages and PDFs are linked rather than republished.",
+    "direct_http_check": "A separate direct request for Adafruit 6006 returned HTTP 403; hidden currency metadata was not verified. The accessible rendered page remains the evidence for its displayed fields."
+  },
+  "sources": [
+    {"id":"S01","publisher":"Adafruit","title":"PJRC Teensy 4.0 USB Development Board","url":"https://www.adafruit.com/product/4323","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null},
+    {"id":"S02","publisher":"SparkFun","title":"Teensy 4.0","url":"https://www.sparkfun.com/teensy-4-0.html","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null},
+    {"id":"S03","publisher":"Adafruit","title":"Raspberry Pi Pico RP2040","url":"https://www.adafruit.com/product/4864","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null},
+    {"id":"S04","publisher":"SparkFun","title":"Raspberry Pi Pico","url":"https://www.sparkfun.com/raspberry-pi-pico.html","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null},
+    {"id":"S05","publisher":"Adafruit","title":"Raspberry Pi Pico 2 - RP2350","url":"https://www.adafruit.com/product/6006","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null},
+    {"id":"S06","publisher":"SparkFun","title":"Raspberry Pi Pico 2","url":"https://www.sparkfun.com/raspberry-pi-pico-2.html","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null},
+    {"id":"S07","publisher":"PJRC","title":"Teensy 4.0 Development Board","url":"https://www.pjrc.com/store/teensy40.html","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null},
+    {"id":"S08","publisher":"Raspberry Pi","title":"Pico microcontroller boards","url":"https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null},
+    {"id":"S09","publisher":"Raspberry Pi Ltd","title":"Raspberry Pi Pico 2 Datasheet","url":"https://pip.raspberrypi.com/documents/RP-008299-DS","media_type":"application/pdf","captured_on":"2026-10-23","source_valid_at":null,"page_count":24,"release_raw":"Release 5","build_date_raw":"03/07/2026","build_version_raw":"d4e0f1799616"},
+    {"id":"S10","publisher":"SparkFun","title":"Customer Support - Currency Conversion","url":"https://www.sparkfun.com/support","media_type":"text/html","captured_on":"2026-10-23","source_valid_at":null}
+  ],
+  "records": [
+    {
+      "id":"R01","source_id":"S01","record_type":"retailer_listing_extract",
+      "locator":"Main product heading, Product ID and price; Description first paragraph; final purchase/status panel.",
+      "fields":{"product_name":"PJRC Teensy 4.0 USB Development Board","Product ID":"4323","price":"$19.95","availability":"No longer stocked","processor":"NXP iMXRT1062","clock":"600 MHz","headers_explicitly_stated":null},
+      "notes":"The retained price is a displayed listing price; no current purchase availability is implied. A retailer's status is not a global product discontinuation."
+    },
+    {
+      "id":"R02","source_id":"S02","record_type":"retailer_listing_extract",
+      "locator":"Product heading and purchase panel; Does not include; Features & Specs; Available Discounts.",
+      "fields":{"product_name":"Teensy 4.0","SKU":"DEV-15583","price":"$23.80","availability":"In stock","does_not_include":"Headers","clock":"600MHz","discounts":[{"price":"$21.49","quantity":"25+ units"},{"price":"$19.95","quantity":"100+ units"}]},
+      "notes":"Numeric available quantity is not published in the selected evidence. Product-page navigation carousels contain unrelated prices and availability and were excluded."
+    },
+    {
+      "id":"R03","source_id":"S03","record_type":"retailer_listing_extract",
+      "locator":"Product heading and Product ID; final price/status panel; selected version in variant selector.",
+      "fields":{"product_name":"Raspberry Pi Pico RP2040","Product ID":"4864","price":"$4.00","availability":"Out of stock","selected_variant":"Pico without Headers","processor":"RP2040"},
+      "notes":"Other selector entries refer to different products; their prices were not attributed to 4864."
+    },
+    {
+      "id":"R04","source_id":"S04","record_type":"retailer_listing_extract",
+      "locator":"Product heading and purchase panel; Features & Specs; overview packaging note.",
+      "fields":{"product_name":"Raspberry Pi Pico","SKU":"DEV-17829","price":"$4.60","availability":"In stock","processor":"RP2040","clock":"up to 133 MHz","sram":"264kB","flash":"2MB","form":"Castellated module"},
+      "notes":"The overview describes tape-and-reel sourcing and separately discusses a full reel of 2400 units; that number is not a stock count or the default listing pack quantity."
+    },
+    {
+      "id":"R05","source_id":"S05","record_type":"retailer_listing_extract",
+      "locator":"Product ID and final purchase panel; No Header selection; Description paragraphs 2 and 4; Technical Details memory bullet; dated silicon note.",
+      "fields":{"product_name":"Raspberry Pi Pico 2 - RP2350","Product ID":"6006","price":"$6.25","availability":"1 in stock","selected_variant":"No Header","processor":"RP2350","sram_description_first":"512KB","sram_description_later":"520KB","sram_technical_details":"520 KB","clock":"150MHz","flash":"4 MB","silicon_note_revision":"A2","silicon_note_date_raw":"Sept 9 2024"},
+      "notes":"The page contradicts itself on SRAM. Its old dated A2 note does not verify the silicon revision shipping at capture time."
+    },
+    {
+      "id":"R06","source_id":"S06","record_type":"retailer_listing_extract",
+      "locator":"Product heading and purchase panel; Features & Specs memory and CPU bullets.",
+      "fields":{"product_name":"Raspberry Pi Pico 2","SKU":"DEV-26124","price":"$5.75","availability":"In stock","processor":"RP2350","clock":"150MHz","sram":"520 KB","flash":"4 MB","cpu_choice":"Dual Arm Cortex-M33 or dual RISC-V Hazard3"},
+      "notes":"An older $5 description is marketing text, not the $5.75 purchase-panel price. The model title is the plain Pico 2, not W or with headers."
+    },
+    {
+      "id":"R07","source_id":"S07","record_type":"manufacturer_design_extract",
+      "locator":"Opening product-code table; recommended accessories; Specifications; Design Changes; Regulatory Compliance.",
+      "fields":{"product_name":"Teensy 4.0","standard_design_code":"TEENSY40","separate_lockable_design_code":"TEENSY40_LOCK","clock":"600 MHz","flash_physical":"2 Mbyte","current_manufacturing_organization":"SparkFun","previous_manufacturing_organization":"PJRC","manufacturing_transition_month":"March 2025","newer_U1_part":"MIMXRT1062DVL6B","newer_U1_applicability":"after December 2021"},
+      "notes":"Current manufacturing is a design-level role, not proof of who produced any particular retailer unit. The physical MCU suffix depends on manufacture date. TEENSY40 is PJRC's design code; it was not extracted as a SparkFun MPN."
+    },
+    {
+      "id":"R08","source_id":"S08","record_type":"manufacturer_variant_extract",
+      "locator":"Models table; Raspberry Pi Pico variants table; Key features for non-wireless boards; Raspberry Pi Pico 2 variants table and key features.",
+      "fields":{"Pico":{"SoC":"RP2040","Wireless":"No","Headers":"No","clock":"up to 133 MHz","sram":"264 kB","flash":"2 MB"},"Pico 2":{"SoC":"RP2350","Wireless":"No","Headers":"No","clock":"up to 150 MHz","sram":"520 kB","flash":"4 MB"}},
+      "notes":"Only the two named non-wireless variants are extracted. H / with headers and W variants are separate identities. Unrelated wireless specifications elsewhere on the page are not applied to these boards."
+    },
+    {
+      "id":"R09","source_id":"S09","record_type":"pdf_design_specification_extract",
+      "locator":"Colophon: PDF page 2 (index 1). About Raspberry Pi Pico 2: PDF page 5 (index 4), printed page 4. Differences from Raspberry Pi Pico: PDF page 7 (index 6), printed page 6.",
+      "fields":{"document_title":"Raspberry Pi Pico 2 Datasheet","release":"5","build_date":"03/07/2026","build_version":"d4e0f1799616","clock":"up to 150 MHz","sram":"520 kB","onboard_flash":"4 MB","processor_design":"RP2350A"},
+      "notes":"RP2350A here is a chip/package design designation, not proof of A2 silicon stepping in either retailer's current stock. The ambiguous numeric build date is retained without an invented ISO date."
+    },
+    {
+      "id":"R10","source_id":"S10","record_type":"retailer_currency_policy_extract",
+      "locator":"Currency Conversion section.",
+      "fields":{"website_currency":"USD","policy_effective_date_raw":"January 20, 2017"},
+      "notes":"SparkFun explicitly states that its website uses USD. This corroborates currency for S02, S04 and S06; it does not establish Adafruit currency."
+    }
+  ]
+}

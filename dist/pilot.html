@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore a connected company model, its source records, and the evidence behind each fact.">
+  <title>OneType · Company model</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="OneType home"><span class="brand-mark">O</span>OneType<span class="pilot-label">PILOT</span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <nav aria-label="Main navigation">
+      <button class="nav-item active" data-view="explore"><span>◈</span>Entity explorer</button>
+      <button class="nav-item" data-view="graph"><span>⌘</span>Connections</button>
+      <button class="nav-item" data-view="learn"><span>≡</span>How it works</button>
+    </nav>
+    <div class="workspace-note"><span class="status-dot"></span> Public data pilot<strong>Maker electronics retailers</strong><p>Adafruit + SparkFun<br>Manufacturer evidence included</p></div>
+    <div class="backend-note" id="backend-note">Connecting to C++…</div>
+  </aside>
+
+  <main>
+    <header class="topbar"><span>Workspace <span class="slash">/</span> Company model</span><span class="snapshot"><span class="status-dot"></span> Fixed source snapshot</span></header>
+    <div class="page-heading"><div><p class="eyebrow">CONNECTED COMPANY DATA</p><h1>One model. Every source.</h1><p class="intro">Explore the entities, relationships, and evidence behind your data.</p></div><span class="date-tag" id="capture-date">Loading source date…</span></div>
+    <div id="error" role="alert" hidden></div>
+    <section class="metrics" aria-label="Model overview" id="metrics"></section>
+
+    <section id="explore-view" class="view">
+      <div class="demo-bar"><span>Start with a real example</span><button data-demo="V_PICO2">Inspect Pico 2 <span>↗</span></button><button data-demo="Q_SRAM">Trace the SRAM conflict <span>↗</span></button></div>
+      <div class="explorer">
+        <section class="catalog" aria-label="Search entities">
+          <div class="catalog-heading"><h2>Entities</h2><span class="count" id="result-count">…</span></div>
+          <label class="sr-only" for="search">Search records</label><input id="search" type="search" placeholder="Search names, IDs, or facts…" autocomplete="off">
+          <label class="sr-only" for="entity-type">Record type</label><select id="entity-type">
+            <option value="product_variants">Product designs</option><option value="listings">Retailer listings</option><option value="companies">Companies</option><option value="components">Components</option><option value="documents">Documents</option><option value="sources">Sources</option><option value="quality_issues">Data quality</option><option value="specification_claims">Source claims</option><option value="raw_records">Original records</option><option value="all">All record types</option>
+          </select>
+          <div id="entity-list" aria-live="polite"></div>
+          <p class="catalog-foot">IDs connect records across sources.<br>Proposed matches stay visible for review.</p>
+        </section>
+        <section class="inspector" id="inspector" aria-label="Selected record"><p class="empty">Select an entity to inspect its evidence.</p></section>
+      </div>
+    </section>
+
+    <section id="graph-view" class="view" hidden>
+      <div class="section-header"><div><h2>The connected model</h2><p>Follow a listing to its design, processor, and manufacturer evidence. Select any node to inspect it.</p></div><label class="toggle"><input id="show-proposed" type="checkbox"> Include proposed matches</label></div>
+      <div class="graph-wrap" id="graph" aria-live="polite"></div><p class="graph-caption">Solid lines show recorded relationships. Dashed lines show proposed configuration matches. All links were agent reviewed; team confirmation is pending.</p>
+    </section>
+
+    <section id="learn-view" class="view" hidden>
+      <div class="section-header"><div><h2>From scattered records to a connected model</h2><p>This running demo reads three JSON files and answers queries in C++. HTML displays the results.</p></div></div>
+      <div class="learn-grid">
+        <article class="learn-card"><span class="step">01 · PRESERVE</span><h3>Keep the original evidence</h3><p>Each source has a URL, capture date, and original field values. Adafruit’s Pico 2 description says both 512KB and 520KB.</p><code>data/raw_records.json → R05</code><button class="text-button" data-demo="R05">Inspect the original record ↗</button></article>
+        <article class="learn-card"><span class="step">02 · ORGANIZE</span><h3>Give each thing an identity</h3><p>A retailer listing and a board design get different IDs. Each listing keeps its own prices and availability.</p><code>L_ADA_6006 → V_PICO2</code><button class="text-button" data-demo="L_ADA_6006">Inspect a retailer listing ↗</button></article>
+        <article class="learn-card"><span class="step">03 · CONNECT</span><h3>Link the evidence</h3><p>Both Pico 2 listings connect to a shared design. That design connects to RP2350 and a manufacturer datasheet.</p><code>data/relationships.json</code><button class="text-button" id="learn-graph">Explore connections ↗</button></article>
+        <article class="learn-card"><span class="step">04 · QUERY</span><h3>Answer with a traceable result</h3><p>C++ groups accepted listing mappings by product and retailer. It finds two shared designs and leaves Teensy as a candidate.</p><code>cpp/server.cpp → summary()</code><a class="text-button" href="/api/summary" target="_blank" rel="noopener">Open the actual API response ↗</a></article>
+      </div>
+      <div class="code-example"><div><p class="eyebrow">WHAT HAPPENS WHEN YOU SELECT PICO 2</p><h3>The browser asks. C++ follows the IDs.</h3><p>JavaScript sends an HTTP request. The C++ <code>inspect()</code> function collects related listings, claims, source records, and unresolved issues. The browser renders that JSON.</p></div><pre><code>// dist/app.js
+const detail = await api(
+  '/api/entity?id=V_PICO2'
+);
+
+// C++ HTTP route calls:
+model.inspect("V_PICO2");</code></pre></div>
+      <div class="scope-note"><strong>What works today</strong><p>Local search, linked records, evidence inspection, a relationship graph, and repeatable model queries. Source collection and normalization in this pilot were prepared manually. Automatic database connections, continuous refresh, data uploads, and AI-agent integration are future work.</p></div>
+    </section>
+    <footer>Public catalog evidence · Source capture 2026-10-23 · Agent review complete; team confirmation pending</footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>

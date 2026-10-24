@@ -1,0 +1,311 @@
+{
+  "dataset_id": "onetype-public-electronics-pilot-2026-10-23",
+  "schema_version": "0.1.0",
+  "review": {
+    "review_author": "Codex",
+    "review_status": "agent_reviewed",
+    "user_confirmation": "pending"
+  },
+  "relationships": [
+    {
+      "id": "E_OFFERS_01",
+      "from_id": "C_ADA",
+      "predicate": "offers",
+      "to_id": "L_ADA_4323",
+      "applicability": "Retailer lists this item; offers denotes listing ownership and does not assert it can currently be purchased.",
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_REPRESENTS_01",
+      "from_id": "L_ADA_4323",
+      "predicate": "represents",
+      "to_id": "V_TEENSY40",
+      "applicability": "Named-design match only; no complete-package, physical-revision, batch or current-stock silicon equivalence.",
+      "source_ids": [
+        "S01",
+        "S07"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "mapping_status": "proposed"
+    },
+    {
+      "id": "E_OFFERS_02",
+      "from_id": "C_SF",
+      "predicate": "offers",
+      "to_id": "L_SF_DEV15583",
+      "applicability": "Retailer lists this item; offers denotes listing ownership and does not assert it can currently be purchased.",
+      "source_ids": [
+        "S02"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_REPRESENTS_02",
+      "from_id": "L_SF_DEV15583",
+      "predicate": "represents",
+      "to_id": "V_TEENSY40",
+      "applicability": "Named-design match only; no complete-package, physical-revision, batch or current-stock silicon equivalence.",
+      "source_ids": [
+        "S02",
+        "S07"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "mapping_status": "proposed"
+    },
+    {
+      "id": "E_OFFERS_03",
+      "from_id": "C_ADA",
+      "predicate": "offers",
+      "to_id": "L_ADA_4864",
+      "applicability": "Retailer lists this item; offers denotes listing ownership and does not assert it can currently be purchased.",
+      "source_ids": [
+        "S03"
+      ],
+      "raw_record_id": "R03",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_REPRESENTS_03",
+      "from_id": "L_ADA_4864",
+      "predicate": "represents",
+      "to_id": "V_PICO",
+      "applicability": "Named-design match only; no complete-package, physical-revision, batch or current-stock silicon equivalence.",
+      "source_ids": [
+        "S03",
+        "S08"
+      ],
+      "raw_record_id": "R03",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "mapping_status": "accepted"
+    },
+    {
+      "id": "E_OFFERS_04",
+      "from_id": "C_SF",
+      "predicate": "offers",
+      "to_id": "L_SF_DEV17829",
+      "applicability": "Retailer lists this item; offers denotes listing ownership and does not assert it can currently be purchased.",
+      "source_ids": [
+        "S04"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_REPRESENTS_04",
+      "from_id": "L_SF_DEV17829",
+      "predicate": "represents",
+      "to_id": "V_PICO",
+      "applicability": "Named-design match only; no complete-package, physical-revision, batch or current-stock silicon equivalence.",
+      "source_ids": [
+        "S04",
+        "S08"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "mapping_status": "accepted"
+    },
+    {
+      "id": "E_OFFERS_05",
+      "from_id": "C_ADA",
+      "predicate": "offers",
+      "to_id": "L_ADA_6006",
+      "applicability": "Retailer lists this item; offers denotes listing ownership and does not assert it can currently be purchased.",
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_REPRESENTS_05",
+      "from_id": "L_ADA_6006",
+      "predicate": "represents",
+      "to_id": "V_PICO2",
+      "applicability": "Named-design match only; no complete-package, physical-revision, batch or current-stock silicon equivalence.",
+      "source_ids": [
+        "S05",
+        "S08"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "mapping_status": "accepted"
+    },
+    {
+      "id": "E_OFFERS_06",
+      "from_id": "C_SF",
+      "predicate": "offers",
+      "to_id": "L_SF_DEV26124",
+      "applicability": "Retailer lists this item; offers denotes listing ownership and does not assert it can currently be purchased.",
+      "source_ids": [
+        "S06"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_REPRESENTS_06",
+      "from_id": "L_SF_DEV26124",
+      "predicate": "represents",
+      "to_id": "V_PICO2",
+      "applicability": "Named-design match only; no complete-package, physical-revision, batch or current-stock silicon equivalence.",
+      "source_ids": [
+        "S06",
+        "S08"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "mapping_status": "accepted"
+    },
+    {
+      "id": "E_COMPONENT_T",
+      "from_id": "V_TEENSY40",
+      "predicate": "uses_component",
+      "to_id": "CP_IMXRT1062",
+      "applicability": "Broad processor family/design, not a complete BOM or exact chip suffix/stepping for a retailer unit.",
+      "source_ids": [
+        "S01",
+        "S07"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_COMPONENT_P",
+      "from_id": "V_PICO",
+      "predicate": "uses_component",
+      "to_id": "CP_RP2040",
+      "applicability": "Broad processor family/design, not a complete BOM or exact chip suffix/stepping for a retailer unit.",
+      "source_ids": [
+        "S08",
+        "S03",
+        "S04"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_COMPONENT_P2",
+      "from_id": "V_PICO2",
+      "predicate": "uses_component",
+      "to_id": "CP_RP2350",
+      "applicability": "Broad processor family/design, not a complete BOM or exact chip suffix/stepping for a retailer unit.",
+      "source_ids": [
+        "S08",
+        "S09",
+        "S05",
+        "S06"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_BRAND_T",
+      "from_id": "V_TEENSY40",
+      "predicate": "brand_or_designer",
+      "to_id": "C_PJRC",
+      "applicability": "Design/brand association; does not assign one immutable current manufacturer to all historical physical units.",
+      "source_ids": [
+        "S07",
+        "S01"
+      ],
+      "raw_record_id": "R07",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_BRAND_P",
+      "from_id": "V_PICO",
+      "predicate": "brand_or_designer",
+      "to_id": "C_RPI",
+      "applicability": "Design/brand association; does not assign one immutable current manufacturer to all historical physical units.",
+      "source_ids": [
+        "S08"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_BRAND_P2",
+      "from_id": "V_PICO2",
+      "predicate": "brand_or_designer",
+      "to_id": "C_RPI",
+      "applicability": "Design/brand association; does not assign one immutable current manufacturer to all historical physical units.",
+      "source_ids": [
+        "S08",
+        "S09"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_DOC_P2",
+      "from_id": "V_PICO2",
+      "predicate": "documented_by",
+      "to_id": "D_PICO2_DS_R5",
+      "applicability": "Pico 2 datasheet Release 5 describes the design; applicability to any exact retailer revision is not proven.",
+      "source_ids": [
+        "S09"
+      ],
+      "raw_record_id": "R09",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "E_MANUFACTURE_T_CURRENT",
+      "from_id": "V_TEENSY40",
+      "predicate": "manufactured_by_current_design",
+      "to_id": "C_SF",
+      "applicability": "PJRC describes a transition to SparkFun in March 2025. This is the current design-level manufacturing role, not attribution of unknown-aged retailer stock.",
+      "source_ids": [
+        "S07"
+      ],
+      "raw_record_id": "R07",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ]
+}

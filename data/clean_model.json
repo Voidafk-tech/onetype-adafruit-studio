@@ -1,0 +1,1714 @@
+{
+  "dataset_id": "onetype-public-electronics-pilot-2026-10-23",
+  "schema_version": "0.1.0",
+  "observed_on": "2026-10-23",
+  "time_precision": "date",
+  "source_valid_at": null,
+  "review": {
+    "review_author": "Codex",
+    "review_status": "agent_reviewed",
+    "user_confirmation": "pending"
+  },
+  "scope": "Three selected design/configuration candidates across six listings. Public evidence only; private ERP and live connectors are unavailable.",
+  "companies": [
+    {
+      "id": "C_ADA",
+      "name": "Adafruit",
+      "official_domain": "adafruit.com",
+      "source_ids": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "C_SF",
+      "name": "SparkFun",
+      "official_domain": "sparkfun.com",
+      "source_ids": [
+        "S02",
+        "S04",
+        "S06",
+        "S07",
+        "S10"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "C_PJRC",
+      "name": "PJRC",
+      "official_domain": "pjrc.com",
+      "source_ids": [
+        "S07",
+        "S01"
+      ],
+      "raw_record_id": "R07",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "C_RPI",
+      "name": "Raspberry Pi",
+      "official_domain": "raspberrypi.com",
+      "source_ids": [
+        "S08",
+        "S09"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "C_NXP",
+      "name": "NXP",
+      "official_domain": null,
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "product_variants": [
+    {
+      "id": "V_TEENSY40",
+      "name": "Teensy 4.0 standard design, no fitted headers",
+      "design_code": "TEENSY40",
+      "design_code_issuer_id": "C_PJRC",
+      "processor_family": "iMXRT1062",
+      "headers_fitted": false,
+      "wireless": null,
+      "security_configuration": "standard",
+      "revision": null,
+      "identity_scope": "Design-level standard configuration; physical revision, batch and full package contents are not established for retailer units.",
+      "source_ids": [
+        "S07",
+        "S02"
+      ],
+      "raw_record_id": "R07",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "V_PICO",
+      "name": "Raspberry Pi Pico RP2040, no fitted headers",
+      "design_code": null,
+      "design_code_issuer_id": "C_RPI",
+      "processor_family": "RP2040",
+      "headers_fitted": false,
+      "wireless": false,
+      "security_configuration": null,
+      "revision": null,
+      "identity_scope": "Named non-wireless Pico design without headers, distinct from Pico H and Pico W; physical revision and full package contents unknown.",
+      "source_ids": [
+        "S08",
+        "S03",
+        "S04"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "V_PICO2",
+      "name": "Raspberry Pi Pico 2 RP2350, no fitted headers",
+      "design_code": null,
+      "design_code_issuer_id": "C_RPI",
+      "processor_family": "RP2350",
+      "headers_fitted": false,
+      "wireless": false,
+      "security_configuration": null,
+      "revision": null,
+      "identity_scope": "Named non-wireless Pico 2 design without headers; exact silicon stepping, physical revision and full package contents unknown.",
+      "source_ids": [
+        "S08",
+        "S09",
+        "S05",
+        "S06"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "components": [
+    {
+      "id": "CP_IMXRT1062",
+      "name": "NXP iMXRT1062 family",
+      "company_id": "C_NXP",
+      "part_family": "iMXRT1062",
+      "exact_part_number": null,
+      "identity_scope": "Broad processor family; MIMXRT1062DVL6B applicability depends on manufacture date and is not assigned to unknown retailer stock.",
+      "source_ids": [
+        "S01",
+        "S07"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "CP_RP2040",
+      "name": "Raspberry Pi RP2040",
+      "company_id": "C_RPI",
+      "part_family": "RP2040",
+      "exact_part_number": null,
+      "identity_scope": "Processor design/family; no silicon stepping or lot inferred.",
+      "source_ids": [
+        "S08",
+        "S03",
+        "S04"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "CP_RP2350",
+      "name": "Raspberry Pi RP2350 family",
+      "company_id": "C_RPI",
+      "part_family": "RP2350",
+      "exact_part_number": null,
+      "identity_scope": "Broad family. RP2350A in the datasheet denotes chip/package design and does not establish A2 silicon stepping for current retailer units.",
+      "source_ids": [
+        "S08",
+        "S09",
+        "S05",
+        "S06"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "documents": [
+    {
+      "id": "D_PICO2_DS_R5",
+      "title": "Raspberry Pi Pico 2 Datasheet",
+      "company_id": "C_RPI",
+      "url": "https://pip.raspberrypi.com/documents/RP-008299-DS",
+      "media_type": "application/pdf",
+      "release": "5",
+      "build_date_raw": "03/07/2026",
+      "build_date_iso": null,
+      "build_version": "d4e0f1799616",
+      "page_count": 24,
+      "applicability": "Pico 2 design; document evidence does not establish the manufacturing date or silicon stepping of a retailer unit.",
+      "source_ids": [
+        "S09"
+      ],
+      "raw_record_id": "R09",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "listings": [
+    {
+      "id": "L_ADA_4323",
+      "company_id": "C_ADA",
+      "native_sku": "4323",
+      "title": "PJRC Teensy 4.0 USB Development Board",
+      "url": "https://www.adafruit.com/product/4323",
+      "variant_id": "V_TEENSY40",
+      "mapping_status": "proposed",
+      "mapping_scope": "Named design/configuration candidate only; not physical revision, lot or complete package equivalence.",
+      "mapping_rationale": "Listing extract does not explicitly confirm headers or standard-versus-lockable security configuration.",
+      "headers_fitted": null,
+      "security_configuration": null,
+      "revision": null,
+      "market": null,
+      "condition": null,
+      "pack_count": null,
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "headers_evidence_status": "unknown"
+    },
+    {
+      "id": "L_SF_DEV15583",
+      "company_id": "C_SF",
+      "native_sku": "DEV-15583",
+      "title": "Teensy 4.0",
+      "url": "https://www.sparkfun.com/teensy-4-0.html",
+      "variant_id": "V_TEENSY40",
+      "mapping_status": "proposed",
+      "mapping_scope": "Named design/configuration candidate only; not physical revision, lot or complete package equivalence.",
+      "mapping_rationale": "Headers excluded explicitly, but standard-versus-lockable security configuration is not explicit in the selected listing fields.",
+      "headers_fitted": false,
+      "security_configuration": null,
+      "revision": null,
+      "market": null,
+      "condition": null,
+      "pack_count": null,
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S02"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "headers_evidence_status": "explicitly_excluded"
+    },
+    {
+      "id": "L_ADA_4864",
+      "company_id": "C_ADA",
+      "native_sku": "4864",
+      "title": "Raspberry Pi Pico RP2040",
+      "url": "https://www.adafruit.com/product/4864",
+      "variant_id": "V_PICO",
+      "mapping_status": "accepted",
+      "mapping_scope": "Named design/configuration candidate only; not physical revision, lot or complete package equivalence.",
+      "mapping_rationale": "Named plain non-wireless design aligns with manufacturer variants table; fitted-header or wireless variants remain separate.",
+      "headers_fitted": false,
+      "security_configuration": null,
+      "revision": null,
+      "market": null,
+      "condition": null,
+      "pack_count": null,
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S03"
+      ],
+      "raw_record_id": "R03",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "headers_evidence_status": "explicit_selected_variant"
+    },
+    {
+      "id": "L_SF_DEV17829",
+      "company_id": "C_SF",
+      "native_sku": "DEV-17829",
+      "title": "Raspberry Pi Pico",
+      "url": "https://www.sparkfun.com/raspberry-pi-pico.html",
+      "variant_id": "V_PICO",
+      "mapping_status": "accepted",
+      "mapping_scope": "Named design/configuration candidate only; not physical revision, lot or complete package equivalence.",
+      "mapping_rationale": "Named plain non-wireless design aligns with manufacturer variants table; fitted-header or wireless variants remain separate.",
+      "headers_fitted": false,
+      "security_configuration": null,
+      "revision": null,
+      "market": null,
+      "condition": null,
+      "pack_count": null,
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S04"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "headers_evidence_status": "inferred_from_named_plain_design; package not independently confirmed"
+    },
+    {
+      "id": "L_ADA_6006",
+      "company_id": "C_ADA",
+      "native_sku": "6006",
+      "title": "Raspberry Pi Pico 2 - RP2350",
+      "url": "https://www.adafruit.com/product/6006",
+      "variant_id": "V_PICO2",
+      "mapping_status": "accepted",
+      "mapping_scope": "Named design/configuration candidate only; not physical revision, lot or complete package equivalence.",
+      "mapping_rationale": "Named plain non-wireless design aligns with manufacturer variants table; fitted-header or wireless variants remain separate.",
+      "headers_fitted": false,
+      "security_configuration": null,
+      "revision": null,
+      "market": null,
+      "condition": null,
+      "pack_count": null,
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "headers_evidence_status": "explicit_selected_variant"
+    },
+    {
+      "id": "L_SF_DEV26124",
+      "company_id": "C_SF",
+      "native_sku": "DEV-26124",
+      "title": "Raspberry Pi Pico 2",
+      "url": "https://www.sparkfun.com/raspberry-pi-pico-2.html",
+      "variant_id": "V_PICO2",
+      "mapping_status": "accepted",
+      "mapping_scope": "Named design/configuration candidate only; not physical revision, lot or complete package equivalence.",
+      "mapping_rationale": "Named plain non-wireless design aligns with manufacturer variants table; fitted-header or wireless variants remain separate.",
+      "headers_fitted": false,
+      "security_configuration": null,
+      "revision": null,
+      "market": null,
+      "condition": null,
+      "pack_count": null,
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S06"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending",
+      "headers_evidence_status": "inferred_from_named_plain_design; package not independently confirmed"
+    }
+  ],
+  "price_observations": [
+    {
+      "id": "P01",
+      "listing_id": "L_ADA_4323",
+      "amount_decimal": "19.95",
+      "amount_minor": null,
+      "currency": null,
+      "currency_status": "UNCONFIRMED",
+      "currency_raw_record_id": null,
+      "min_quantity": 1,
+      "min_quantity_basis": "inferred_default_listing_unit; no explicit minimum captured",
+      "unit_basis": "per displayed listing unit; full pack contents not independently confirmed",
+      "price_kind": "displayed_base",
+      "tax_included": null,
+      "shipping_included": null,
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "raw_price": "$19.95",
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "P02",
+      "listing_id": "L_SF_DEV15583",
+      "amount_decimal": "23.80",
+      "amount_minor": 2380,
+      "currency": "USD",
+      "currency_status": "confirmed_by_retailer_policy",
+      "currency_raw_record_id": "R10",
+      "min_quantity": 1,
+      "min_quantity_basis": "inferred_default_listing_unit; no explicit minimum captured",
+      "unit_basis": "per displayed listing unit; full pack contents not independently confirmed",
+      "price_kind": "displayed_base",
+      "tax_included": null,
+      "shipping_included": null,
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "raw_price": "$23.80",
+      "source_ids": [
+        "S02",
+        "S10"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "P03",
+      "listing_id": "L_ADA_4864",
+      "amount_decimal": "4.00",
+      "amount_minor": null,
+      "currency": null,
+      "currency_status": "UNCONFIRMED",
+      "currency_raw_record_id": null,
+      "min_quantity": 1,
+      "min_quantity_basis": "inferred_default_listing_unit; no explicit minimum captured",
+      "unit_basis": "per displayed listing unit; full pack contents not independently confirmed",
+      "price_kind": "displayed_base",
+      "tax_included": null,
+      "shipping_included": null,
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "raw_price": "$4.00",
+      "source_ids": [
+        "S03"
+      ],
+      "raw_record_id": "R03",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "P04",
+      "listing_id": "L_SF_DEV17829",
+      "amount_decimal": "4.60",
+      "amount_minor": 460,
+      "currency": "USD",
+      "currency_status": "confirmed_by_retailer_policy",
+      "currency_raw_record_id": "R10",
+      "min_quantity": 1,
+      "min_quantity_basis": "inferred_default_listing_unit; no explicit minimum captured",
+      "unit_basis": "per displayed listing unit; full pack contents not independently confirmed",
+      "price_kind": "displayed_base",
+      "tax_included": null,
+      "shipping_included": null,
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "raw_price": "$4.60",
+      "source_ids": [
+        "S04",
+        "S10"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "P05",
+      "listing_id": "L_ADA_6006",
+      "amount_decimal": "6.25",
+      "amount_minor": null,
+      "currency": null,
+      "currency_status": "UNCONFIRMED",
+      "currency_raw_record_id": null,
+      "min_quantity": 1,
+      "min_quantity_basis": "inferred_default_listing_unit; no explicit minimum captured",
+      "unit_basis": "per displayed listing unit; full pack contents not independently confirmed",
+      "price_kind": "displayed_base",
+      "tax_included": null,
+      "shipping_included": null,
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "raw_price": "$6.25",
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "P06",
+      "listing_id": "L_SF_DEV26124",
+      "amount_decimal": "5.75",
+      "amount_minor": 575,
+      "currency": "USD",
+      "currency_status": "confirmed_by_retailer_policy",
+      "currency_raw_record_id": "R10",
+      "min_quantity": 1,
+      "min_quantity_basis": "inferred_default_listing_unit; no explicit minimum captured",
+      "unit_basis": "per displayed listing unit; full pack contents not independently confirmed",
+      "price_kind": "displayed_base",
+      "tax_included": null,
+      "shipping_included": null,
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "raw_price": "$5.75",
+      "source_ids": [
+        "S06",
+        "S10"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "P07",
+      "listing_id": "L_SF_DEV15583",
+      "amount_decimal": "21.49",
+      "amount_minor": 2149,
+      "currency": "USD",
+      "currency_status": "confirmed_by_retailer_policy",
+      "currency_raw_record_id": "R10",
+      "min_quantity": 25,
+      "min_quantity_basis": "explicit quantity discount tier",
+      "unit_basis": "per displayed listing unit at quantity tier",
+      "price_kind": "displayed_quantity_tier",
+      "tax_included": null,
+      "shipping_included": null,
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "raw_price": "$21.49",
+      "source_ids": [
+        "S02",
+        "S10"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "P08",
+      "listing_id": "L_SF_DEV15583",
+      "amount_decimal": "19.95",
+      "amount_minor": 1995,
+      "currency": "USD",
+      "currency_status": "confirmed_by_retailer_policy",
+      "currency_raw_record_id": "R10",
+      "min_quantity": 100,
+      "min_quantity_basis": "explicit quantity discount tier",
+      "unit_basis": "per displayed listing unit at quantity tier",
+      "price_kind": "displayed_quantity_tier",
+      "tax_included": null,
+      "shipping_included": null,
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "raw_price": "$19.95",
+      "source_ids": [
+        "S02",
+        "S10"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "availability_observations": [
+    {
+      "id": "A01",
+      "listing_id": "L_ADA_4323",
+      "status": "no_longer_stocked",
+      "raw_status": "No longer stocked",
+      "reported_quantity": null,
+      "quantity_basis": "not stated in selected evidence; not inferred from status",
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "A02",
+      "listing_id": "L_SF_DEV15583",
+      "status": "in_stock",
+      "raw_status": "In stock",
+      "reported_quantity": null,
+      "quantity_basis": "not stated in selected evidence; not inferred from status",
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "source_ids": [
+        "S02"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "A03",
+      "listing_id": "L_ADA_4864",
+      "status": "out_of_stock",
+      "raw_status": "Out of stock",
+      "reported_quantity": null,
+      "quantity_basis": "not stated in selected evidence; not inferred from status",
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "source_ids": [
+        "S03"
+      ],
+      "raw_record_id": "R03",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "A04",
+      "listing_id": "L_SF_DEV17829",
+      "status": "in_stock",
+      "raw_status": "In stock",
+      "reported_quantity": null,
+      "quantity_basis": "not stated in selected evidence; not inferred from status",
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "source_ids": [
+        "S04"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "A05",
+      "listing_id": "L_ADA_6006",
+      "status": "in_stock",
+      "raw_status": "1 in stock",
+      "reported_quantity": 1,
+      "quantity_basis": "explicit visible stock claim",
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "A06",
+      "listing_id": "L_SF_DEV26124",
+      "status": "in_stock",
+      "raw_status": "In stock",
+      "reported_quantity": null,
+      "quantity_basis": "not stated in selected evidence; not inferred from status",
+      "observed_on": "2026-10-23",
+      "time_precision": "date",
+      "source_valid_at": null,
+      "source_ids": [
+        "S06"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "specification_claims": [
+    {
+      "id": "SC_T_CLK_ADA",
+      "variant_id": "V_TEENSY40",
+      "listing_id": "L_ADA_4323",
+      "property": "clock_hz",
+      "value": 600000000,
+      "unit": "Hz",
+      "raw_value": "600 MHz",
+      "qualifier": null,
+      "locator": "clock",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_T_CLK_SF",
+      "variant_id": "V_TEENSY40",
+      "listing_id": "L_SF_DEV15583",
+      "property": "clock_hz",
+      "value": 600000000,
+      "unit": "Hz",
+      "raw_value": "600MHz",
+      "qualifier": null,
+      "locator": "clock",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S02"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_T_CLK_PJRC",
+      "variant_id": "V_TEENSY40",
+      "listing_id": null,
+      "property": "clock_hz",
+      "value": 600000000,
+      "unit": "Hz",
+      "raw_value": "600 MHz",
+      "qualifier": null,
+      "locator": "clock",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S07"
+      ],
+      "raw_record_id": "R07",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P_CLK_SF",
+      "variant_id": "V_PICO",
+      "listing_id": "L_SF_DEV17829",
+      "property": "clock_hz",
+      "value": 133000000,
+      "unit": "Hz",
+      "raw_value": "up to 133 MHz",
+      "qualifier": "up_to",
+      "locator": "clock",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S04"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P_CLK_RPI",
+      "variant_id": "V_PICO",
+      "listing_id": null,
+      "property": "clock_hz",
+      "value": 133000000,
+      "unit": "Hz",
+      "raw_value": "up to 133 MHz",
+      "qualifier": "up_to",
+      "locator": "Pico.clock",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S08"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_CLK_ADA",
+      "variant_id": "V_PICO2",
+      "listing_id": "L_ADA_6006",
+      "property": "clock_hz",
+      "value": 150000000,
+      "unit": "Hz",
+      "raw_value": "150MHz",
+      "qualifier": null,
+      "locator": "clock",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_CLK_SF",
+      "variant_id": "V_PICO2",
+      "listing_id": "L_SF_DEV26124",
+      "property": "clock_hz",
+      "value": 150000000,
+      "unit": "Hz",
+      "raw_value": "150MHz",
+      "qualifier": null,
+      "locator": "clock",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S06"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_CLK_RPI",
+      "variant_id": "V_PICO2",
+      "listing_id": null,
+      "property": "clock_hz",
+      "value": 150000000,
+      "unit": "Hz",
+      "raw_value": "up to 150 MHz",
+      "qualifier": "up_to",
+      "locator": "Pico 2.clock",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S08"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_CLK_PDF",
+      "variant_id": "V_PICO2",
+      "listing_id": null,
+      "property": "clock_hz",
+      "value": 150000000,
+      "unit": "Hz",
+      "raw_value": "up to 150 MHz",
+      "qualifier": "up_to",
+      "locator": "clock; PDF page5/index4, printed page4",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S09"
+      ],
+      "raw_record_id": "R09",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_T_FLASH_PJRC",
+      "variant_id": "V_TEENSY40",
+      "listing_id": null,
+      "property": "onboard_flash_mb",
+      "value": 2,
+      "unit": "MB",
+      "raw_value": "2 Mbyte",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "locator": "flash_physical",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S07"
+      ],
+      "raw_record_id": "R07",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P_FLASH_SF",
+      "variant_id": "V_PICO",
+      "listing_id": "L_SF_DEV17829",
+      "property": "onboard_flash_mb",
+      "value": 2,
+      "unit": "MB",
+      "raw_value": "2MB",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "locator": "flash",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S04"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P_FLASH_RPI",
+      "variant_id": "V_PICO",
+      "listing_id": null,
+      "property": "onboard_flash_mb",
+      "value": 2,
+      "unit": "MB",
+      "raw_value": "2 MB",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "locator": "Pico.flash",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S08"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_FLASH_ADA",
+      "variant_id": "V_PICO2",
+      "listing_id": "L_ADA_6006",
+      "property": "onboard_flash_mb",
+      "value": 4,
+      "unit": "MB",
+      "raw_value": "4 MB",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "locator": "flash",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_FLASH_SF",
+      "variant_id": "V_PICO2",
+      "listing_id": "L_SF_DEV26124",
+      "property": "onboard_flash_mb",
+      "value": 4,
+      "unit": "MB",
+      "raw_value": "4 MB",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "locator": "flash",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S06"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_FLASH_RPI",
+      "variant_id": "V_PICO2",
+      "listing_id": null,
+      "property": "onboard_flash_mb",
+      "value": 4,
+      "unit": "MB",
+      "raw_value": "4 MB",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "locator": "Pico 2.flash",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S08"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_FLASH_PDF",
+      "variant_id": "V_PICO2",
+      "listing_id": null,
+      "property": "onboard_flash_mb",
+      "value": 4,
+      "unit": "MB",
+      "raw_value": "4 MB",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "locator": "onboard_flash; PDF page5/index4, printed page4",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S09"
+      ],
+      "raw_record_id": "R09",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P_SRAM_SF",
+      "variant_id": "V_PICO",
+      "listing_id": "L_SF_DEV17829",
+      "property": "sram_kb",
+      "value": 264,
+      "unit": "kB",
+      "raw_value": "264kB",
+      "qualifier": "source memory-unit notation; no conversion to bytes",
+      "locator": "sram",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S04"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P_SRAM_RPI",
+      "variant_id": "V_PICO",
+      "listing_id": null,
+      "property": "sram_kb",
+      "value": 264,
+      "unit": "kB",
+      "raw_value": "264 kB",
+      "qualifier": "source memory-unit notation; no conversion to bytes",
+      "locator": "Pico.sram",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S08"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_SRAM_ADA_FIRST",
+      "variant_id": "V_PICO2",
+      "listing_id": "L_ADA_6006",
+      "property": "sram_kb",
+      "value": 512,
+      "unit": "kB",
+      "raw_value": "512KB",
+      "qualifier": "source memory-unit notation; no conversion to bytes",
+      "locator": "sram_description_first",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_SRAM_ADA_LATER",
+      "variant_id": "V_PICO2",
+      "listing_id": "L_ADA_6006",
+      "property": "sram_kb",
+      "value": 520,
+      "unit": "kB",
+      "raw_value": "520KB",
+      "qualifier": "source memory-unit notation; no conversion to bytes",
+      "locator": "sram_description_later",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_SRAM_ADA_TECH",
+      "variant_id": "V_PICO2",
+      "listing_id": "L_ADA_6006",
+      "property": "sram_kb",
+      "value": 520,
+      "unit": "kB",
+      "raw_value": "520 KB",
+      "qualifier": "source memory-unit notation; no conversion to bytes",
+      "locator": "sram_technical_details",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_SRAM_SF",
+      "variant_id": "V_PICO2",
+      "listing_id": "L_SF_DEV26124",
+      "property": "sram_kb",
+      "value": 520,
+      "unit": "kB",
+      "raw_value": "520 KB",
+      "qualifier": "source memory-unit notation; no conversion to bytes",
+      "locator": "sram",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S06"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_SRAM_RPI",
+      "variant_id": "V_PICO2",
+      "listing_id": null,
+      "property": "sram_kb",
+      "value": 520,
+      "unit": "kB",
+      "raw_value": "520 kB",
+      "qualifier": "source memory-unit notation; no conversion to bytes",
+      "locator": "Pico 2.sram",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S08"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "SC_P2_SRAM_PDF",
+      "variant_id": "V_PICO2",
+      "listing_id": null,
+      "property": "sram_kb",
+      "value": 520,
+      "unit": "kB",
+      "raw_value": "520 kB",
+      "qualifier": "source memory-unit notation; no conversion to bytes",
+      "locator": "sram; PDF page5/index4, printed page4",
+      "applicability": "Design-level claim; no retailer physical revision or silicon stepping inferred.",
+      "observed_on": "2026-10-23",
+      "source_valid_at": null,
+      "source_ids": [
+        "S09"
+      ],
+      "raw_record_id": "R09",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "resolved_specifications": [
+    {
+      "id": "RS_T_CLK",
+      "variant_id": "V_TEENSY40",
+      "property": "clock_hz",
+      "value": 600000000,
+      "unit": "Hz",
+      "claim_ids": [
+        "SC_T_CLK_PJRC",
+        "SC_T_CLK_ADA",
+        "SC_T_CLK_SF"
+      ],
+      "resolution_rationale": "PJRC design value agrees with both selected retailer fields.",
+      "qualifier": null,
+      "applicability": "Named design; no exact current-stock revision implied.",
+      "source_ids": [
+        "S07",
+        "S01",
+        "S02"
+      ],
+      "raw_record_id": "R07",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "RS_T_FLASH",
+      "variant_id": "V_TEENSY40",
+      "property": "onboard_flash_mb",
+      "value": 2,
+      "unit": "MB",
+      "claim_ids": [
+        "SC_T_FLASH_PJRC"
+      ],
+      "resolution_rationale": "Retain published physical flash capacity, not a user-available program-memory calculation.",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "applicability": "Named design; no exact current-stock revision implied.",
+      "source_ids": [
+        "S07"
+      ],
+      "raw_record_id": "R07",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "RS_P_CLK",
+      "variant_id": "V_PICO",
+      "property": "clock_hz",
+      "value": 133000000,
+      "unit": "Hz",
+      "claim_ids": [
+        "SC_P_CLK_RPI",
+        "SC_P_CLK_SF"
+      ],
+      "resolution_rationale": "Manufacturer and retailer agree on the up-to clock.",
+      "qualifier": "up_to",
+      "applicability": "Named design; no exact current-stock revision implied.",
+      "source_ids": [
+        "S08",
+        "S04"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "RS_P_FLASH",
+      "variant_id": "V_PICO",
+      "property": "onboard_flash_mb",
+      "value": 2,
+      "unit": "MB",
+      "claim_ids": [
+        "SC_P_FLASH_RPI",
+        "SC_P_FLASH_SF"
+      ],
+      "resolution_rationale": "Published onboard flash agrees; byte conversion not asserted.",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "applicability": "Named design; no exact current-stock revision implied.",
+      "source_ids": [
+        "S08",
+        "S04"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "RS_P_SRAM",
+      "variant_id": "V_PICO",
+      "property": "sram_kb",
+      "value": 264,
+      "unit": "kB",
+      "claim_ids": [
+        "SC_P_SRAM_RPI",
+        "SC_P_SRAM_SF"
+      ],
+      "resolution_rationale": "Manufacturer and retailer agree on the displayed capacity; binary/decimal byte interpretation is not supplied.",
+      "qualifier": "as_published; no conversion to bytes",
+      "applicability": "Named design; no exact current-stock revision implied.",
+      "source_ids": [
+        "S08",
+        "S04"
+      ],
+      "raw_record_id": "R08",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "RS_P2_CLK",
+      "variant_id": "V_PICO2",
+      "property": "clock_hz",
+      "value": 150000000,
+      "unit": "Hz",
+      "claim_ids": [
+        "SC_P2_CLK_PDF",
+        "SC_P2_CLK_RPI",
+        "SC_P2_CLK_ADA",
+        "SC_P2_CLK_SF"
+      ],
+      "resolution_rationale": "Use the manufacturer up-to qualifier while retaining retailer wording.",
+      "qualifier": "up_to",
+      "applicability": "Named design; no exact current-stock revision implied.",
+      "source_ids": [
+        "S09",
+        "S08",
+        "S05",
+        "S06"
+      ],
+      "raw_record_id": "R09",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "RS_P2_FLASH",
+      "variant_id": "V_PICO2",
+      "property": "onboard_flash_mb",
+      "value": 4,
+      "unit": "MB",
+      "claim_ids": [
+        "SC_P2_FLASH_PDF",
+        "SC_P2_FLASH_RPI",
+        "SC_P2_FLASH_ADA",
+        "SC_P2_FLASH_SF"
+      ],
+      "resolution_rationale": "Manufacturer document and selected retailer claims agree.",
+      "qualifier": "published_capacity; no conversion to bytes",
+      "applicability": "Named design; no exact current-stock revision implied.",
+      "source_ids": [
+        "S09",
+        "S08",
+        "S05",
+        "S06"
+      ],
+      "raw_record_id": "R09",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "RS_P2_SRAM",
+      "variant_id": "V_PICO2",
+      "property": "sram_kb",
+      "value": 520,
+      "unit": "kB",
+      "claim_ids": [
+        "SC_P2_SRAM_PDF",
+        "SC_P2_SRAM_RPI",
+        "SC_P2_SRAM_SF",
+        "SC_P2_SRAM_ADA_LATER",
+        "SC_P2_SRAM_ADA_TECH"
+      ],
+      "resolution_rationale": "Manufacturer datasheet Release 5 and manufacturer model documentation specify 520 kB. Prefer those direct design sources; retain the conflicting Adafruit 512 KB claim separately.",
+      "qualifier": "as_published; no conversion to bytes",
+      "applicability": "Named design; no exact current-stock revision implied.",
+      "source_ids": [
+        "S09",
+        "S08",
+        "S06",
+        "S05"
+      ],
+      "raw_record_id": "R09",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "quality_issues": [
+    {
+      "id": "Q_SRAM",
+      "category": "conflicting_specification",
+      "status": "resolved_by_source_precedence",
+      "affected_ids": [
+        "V_PICO2",
+        "L_ADA_6006",
+        "SC_P2_SRAM_ADA_FIRST",
+        "RS_P2_SRAM"
+      ],
+      "explanation": "Adafruit states 512 KB and 520 KB on the same page. Resolve design-level SRAM to 520 kB using the Raspberry Pi Release 5 PDF and model documentation; the original claim remains visible.",
+      "resolution_id": "RS_P2_SRAM",
+      "source_ids": [
+        "S05",
+        "S09",
+        "S08",
+        "S06"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_CURRENCY_ADA_4323",
+      "category": "unconfirmed_currency",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_4323",
+        "P01"
+      ],
+      "explanation": "Displayed dollar sign does not establish ISO currency. Currency metadata was not confirmed; a separate direct request to Adafruit 6006 returned 403. No USD assumption or cross-retailer numeric comparison is accepted.",
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_REVISION_ADA_4323",
+      "category": "unknown_physical_revision",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_4323"
+      ],
+      "explanation": "Selected evidence does not establish the physical board revision, manufacturing batch or current-stock silicon stepping. Design-level matches do not remove this uncertainty.",
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_FRESHNESS_ADA_4323",
+      "category": "unknown_effective_time",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_4323"
+      ],
+      "explanation": "Single observation has date precision only; original server capture time and source effective time are unknown. No continuous monitoring or currently executable offer is established.",
+      "source_ids": [
+        "S01"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_REVISION_SF_DEV15583",
+      "category": "unknown_physical_revision",
+      "status": "open",
+      "affected_ids": [
+        "L_SF_DEV15583"
+      ],
+      "explanation": "Selected evidence does not establish the physical board revision, manufacturing batch or current-stock silicon stepping. Design-level matches do not remove this uncertainty.",
+      "source_ids": [
+        "S02"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_FRESHNESS_SF_DEV15583",
+      "category": "unknown_effective_time",
+      "status": "open",
+      "affected_ids": [
+        "L_SF_DEV15583"
+      ],
+      "explanation": "Single observation has date precision only; original server capture time and source effective time are unknown. No continuous monitoring or currently executable offer is established.",
+      "source_ids": [
+        "S02"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_CURRENCY_ADA_4864",
+      "category": "unconfirmed_currency",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_4864",
+        "P03"
+      ],
+      "explanation": "Displayed dollar sign does not establish ISO currency. Currency metadata was not confirmed; a separate direct request to Adafruit 6006 returned 403. No USD assumption or cross-retailer numeric comparison is accepted.",
+      "source_ids": [
+        "S03"
+      ],
+      "raw_record_id": "R03",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_REVISION_ADA_4864",
+      "category": "unknown_physical_revision",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_4864"
+      ],
+      "explanation": "Selected evidence does not establish the physical board revision, manufacturing batch or current-stock silicon stepping. Design-level matches do not remove this uncertainty.",
+      "source_ids": [
+        "S03"
+      ],
+      "raw_record_id": "R03",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_FRESHNESS_ADA_4864",
+      "category": "unknown_effective_time",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_4864"
+      ],
+      "explanation": "Single observation has date precision only; original server capture time and source effective time are unknown. No continuous monitoring or currently executable offer is established.",
+      "source_ids": [
+        "S03"
+      ],
+      "raw_record_id": "R03",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_REVISION_SF_DEV17829",
+      "category": "unknown_physical_revision",
+      "status": "open",
+      "affected_ids": [
+        "L_SF_DEV17829"
+      ],
+      "explanation": "Selected evidence does not establish the physical board revision, manufacturing batch or current-stock silicon stepping. Design-level matches do not remove this uncertainty.",
+      "source_ids": [
+        "S04"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_FRESHNESS_SF_DEV17829",
+      "category": "unknown_effective_time",
+      "status": "open",
+      "affected_ids": [
+        "L_SF_DEV17829"
+      ],
+      "explanation": "Single observation has date precision only; original server capture time and source effective time are unknown. No continuous monitoring or currently executable offer is established.",
+      "source_ids": [
+        "S04"
+      ],
+      "raw_record_id": "R04",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_CURRENCY_ADA_6006",
+      "category": "unconfirmed_currency",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_6006",
+        "P05"
+      ],
+      "explanation": "Displayed dollar sign does not establish ISO currency. Currency metadata was not confirmed; a separate direct request to Adafruit 6006 returned 403. No USD assumption or cross-retailer numeric comparison is accepted.",
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_REVISION_ADA_6006",
+      "category": "unknown_physical_revision",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_6006"
+      ],
+      "explanation": "Selected evidence does not establish the physical board revision, manufacturing batch or current-stock silicon stepping. Design-level matches do not remove this uncertainty.",
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_FRESHNESS_ADA_6006",
+      "category": "unknown_effective_time",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_6006"
+      ],
+      "explanation": "Single observation has date precision only; original server capture time and source effective time are unknown. No continuous monitoring or currently executable offer is established.",
+      "source_ids": [
+        "S05"
+      ],
+      "raw_record_id": "R05",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_REVISION_SF_DEV26124",
+      "category": "unknown_physical_revision",
+      "status": "open",
+      "affected_ids": [
+        "L_SF_DEV26124"
+      ],
+      "explanation": "Selected evidence does not establish the physical board revision, manufacturing batch or current-stock silicon stepping. Design-level matches do not remove this uncertainty.",
+      "source_ids": [
+        "S06"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_FRESHNESS_SF_DEV26124",
+      "category": "unknown_effective_time",
+      "status": "open",
+      "affected_ids": [
+        "L_SF_DEV26124"
+      ],
+      "explanation": "Single observation has date precision only; original server capture time and source effective time are unknown. No continuous monitoring or currently executable offer is established.",
+      "source_ids": [
+        "S06"
+      ],
+      "raw_record_id": "R06",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_MATCH_ADA_4323",
+      "category": "unconfirmed_configuration_match",
+      "status": "open",
+      "affected_ids": [
+        "L_ADA_4323",
+        "V_TEENSY40"
+      ],
+      "explanation": "The Teensy 4.0 model name is recognized, but the selected listing evidence does not explicitly establish standard-versus-lockable security configuration. Adafruit also does not explicitly state the header configuration. The link to the standard no-header configuration remains proposed.",
+      "source_ids": [
+        "S01",
+        "S07"
+      ],
+      "raw_record_id": "R01",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    },
+    {
+      "id": "Q_MATCH_SF_DEV15583",
+      "category": "unconfirmed_configuration_match",
+      "status": "open",
+      "affected_ids": [
+        "L_SF_DEV15583",
+        "V_TEENSY40"
+      ],
+      "explanation": "The Teensy 4.0 model name is recognized, but the selected listing evidence does not explicitly establish standard-versus-lockable security configuration. Adafruit also does not explicitly state the header configuration. The link to the standard no-header configuration remains proposed.",
+      "source_ids": [
+        "S02",
+        "S07"
+      ],
+      "raw_record_id": "R02",
+      "review_author": "Codex",
+      "review_status": "agent_reviewed",
+      "user_confirmation": "pending"
+    }
+  ],
+  "analyses": []
+}

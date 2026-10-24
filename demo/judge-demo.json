@@ -1,0 +1,20 @@
+{
+  "label": "Judge demo: CSV quality checks and Pico 2 what-if",
+  "base": "workspace",
+  "mode": "simulation",
+  "filters": { "manufacturer": "Raspberry Pi Foundation" },
+  "analysis": { "x": "shipping_weight_g", "y": "price_value" },
+  "sources": [
+    {
+      "id": "DEMO_MESSY_CLAIMS",
+      "kind": "specifications",
+      "label": "Hypothetical test claims, duplicates and an unknown ID",
+      "captured_at": "2026-10-24",
+      "csv": "record_id,product_id,property,value,unit\nclaim-1, ADA6006 ,clock,160,MHz\nclaim-1, ADA6006 ,clock,160,MHz\nclaim-2,https://www.adafruit.com/product/4864,sram,264,kB\nclaim-3,99999999,sram,64,kB\n"
+    }
+  ],
+  "patches": [
+    { "product_id": "ADA6006", "field": "price_value", "value": 12.5 },
+    { "product_id": "6006", "field": "shipping_weight_g", "value": 8.2 }
+  ]
+}
