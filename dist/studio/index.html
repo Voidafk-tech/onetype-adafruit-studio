@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OneType Studio</title>
+  <link rel="stylesheet" href="/assets/studio/studio.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="mark" aria-hidden="true">◇</span><div><strong>OneType Studio</strong><span>Adafruit workspace</span></div></div>
+      <nav id="nav" aria-label="Sections"></nav>
+      <p class="side-note">Local C++ engine · runs are isolated and replayable</p>
+    </aside>
+    <div class="main">
+      <header class="topbar"><span id="run-status"><span class="dot"></span>Connecting…</span></header>
+      <main id="view" tabindex="-1"><p class="empty">Loading engine configuration…</p></main>
+    </div>
+  </div>
+  <div id="drawer" class="drawer-host"></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script type="module" src="/assets/studio/app.js"></script>
+</body>
+</html>

@@ -147,6 +147,7 @@ function purchaseOrders(catalog, {seed, rows, manufacturer}) {
     source: source({id: sourceId('ERP_OPEN_POS', seed), kind: 'purchase_orders', label: 'ERP open purchase orders (synthetic)', records: dup.records, headers: ['record_id', 'purchase_order_id', 'product_id', 'quantity', 'supplier', 'expected_date', 'status']}),
     planted: {duplicates: dup.duplicates, unknown_ids: unknown.length, covers_stockout: stockouts.map(p => p.id), overstock_risk: heavy.map(p => p.id)},
     poNumbers: records.map(r => r.purchase_order_id),
+    productIds: [...stockouts, ...heavy, ...rest].map(p => p.id),
   };
 }
 
@@ -348,7 +349,8 @@ export const SCENARIOS = [
       const feed = specFeed(catalog, {seed: k.seed, rows: 30, messiness: 4});
       return {
         request: request({label: `Monday operations review · ${k.manufacturer || 'catalog'}`, filters: k.manufacturer ? {manufacturer: k.manufacturer} : {}, sources: [count.source, pos.source, inbox.source, feed.source]}),
-        planted: {inventory: count.planted, purchase_orders: pos.planted, inbox: inbox.planted, specs: feed.planted},
+        // A low-stock item that also has an open PO is correctly not a reorder suggestion.
+        planted: {inventory: {...count.planted, low_stock: count.planted.low_stock.filter(id => !pos.productIds.includes(id))}, purchase_orders: pos.planted, inbox: inbox.planted, specs: feed.planted},
       };
     },
   },

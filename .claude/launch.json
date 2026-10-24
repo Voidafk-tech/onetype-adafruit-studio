@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {"name": "studio", "runtimeExecutable": "sh", "runtimeArgs": ["run-studio.sh"], "port": 4181, "url": "http://127.0.0.1:4181"}
+  ]
+}

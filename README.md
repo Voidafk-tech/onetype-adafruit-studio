@@ -1,3 +1,5 @@
+**Showcase UI:** run `sh run-studio.sh` and open **http://127.0.0.1:4181/assets/studio/**. See [STUDIO.md](STUDIO.md) for the demo script, synthetic scenarios and tests.
+
 # OneType: Adafruit company-data workspace
 
 **New: testable Adafruit processing engine.** Run `sh run-engine.sh` and open **http://127.0.0.1:4181/** for isolated inputs, simulations, baseline comparisons and Excel/CSV/JSON outputs. See [ENGINE_GUIDE.md](ENGINE_GUIDE.md) for the judge demo, architecture, input contract and replay instructions. The company-model explorer below remains available on port 4180.

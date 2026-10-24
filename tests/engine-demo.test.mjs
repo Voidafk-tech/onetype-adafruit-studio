@@ -7,6 +7,8 @@ import {join} from 'node:path';
 import {before, describe, test} from 'node:test';
 import {buildScenario} from '../dist/studio/lib/scenarios.js';
 import {deriveInsights} from '../dist/studio/lib/insights.js';
+import {plantedChecks} from '../dist/studio/lib/planted.js';
+import {SCENARIOS} from '../dist/studio/lib/scenarios.js';
 import {engineError, loadCatalog, root, runEngine} from './engine-harness.mjs';
 
 const catalog = loadCatalog();
@@ -169,4 +171,18 @@ describe('engine safety', () => {
     runEngine(buildScenario(catalog, 'ops-morning').request);
     assert.equal(workspaceHash(), hash);
   });
+});
+
+describe('planted vs caught scorecard', () => {
+  for (const {id} of SCENARIOS.filter(s => s.id !== 'baseline')) {
+    for (const seed of [42, 7]) {
+      test(`${id} (seed ${seed}) catches everything it planted`, () => {
+        const {request, planted} = buildScenario(catalog, id, {seed});
+        const result = runEngine(request);
+        const checks = plantedChecks(id, planted, result, deriveInsights(result));
+        assert.ok(checks.length > 0, 'scenario should produce at least one check');
+        for (const check of checks) assert.equal(check.caught, check.planted, check.label);
+      });
+    }
+  }
 });
