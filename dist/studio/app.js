@@ -10,10 +10,12 @@ import * as insights from './views/insights.js';
 import * as analysis from './views/analysis.js';
 import * as products from './views/products.js';
 import * as runs from './views/runs.js';
+import * as deliveries from './views/deliveries.js';
+import {startDemo} from './demo.js';
 
-const VIEWS = {overview, sources, run, insights, analysis, products, runs};
+const VIEWS = {overview, deliveries, sources, run, insights, analysis, products, runs};
 const NAV = [
-  ['overview', 'Overview'], ['sources', 'Data inputs'], ['run', 'Engine run'],
+  ['overview', 'Overview'], ['deliveries', 'Deliveries'], ['sources', 'Data inputs'], ['run', 'Engine run'],
   ['insights', 'Suggestions'], ['analysis', 'Analysis'], ['products', 'Products'], ['runs', 'Runs & exports'],
 ];
 
@@ -31,11 +33,10 @@ function badge(id) {
 function render() {
   nav.innerHTML = NAV.map(([id, label]) => `<a class="${state.view === id ? 'active' : ''}" data-go="${id}">${esc(label)}${badge(id) ? `<span class="count">${num(badge(id))}</span>` : ''}</a>`).join('');
   const view = VIEWS[state.view];
-  const scroll = window.scrollY;
   root.innerHTML = view.render(state);
   view.bind?.(root, state);
-  if (lastView === state.view) window.scrollTo(0, scroll);
-  else window.scrollTo(0, 0);
+  // Same view: leave scrolling alone so in-progress smooth scrolls (demo) are not cancelled.
+  if (lastView !== state.view) window.scrollTo(0, 0);
   lastView = state.view;
   drawer.innerHTML = products.drawer(state);
   drawer.classList.toggle('open', Boolean(state.drawer));
@@ -45,7 +46,9 @@ function render() {
     : state.staticMode ? '<span class="dot ok"></span>Online demo · preset runs' : state.run ? `<span class="dot ok"></span>Run ${esc(state.run.runId)}` : '<span class="dot ok"></span>Engine connected';
 }
 
+document.getElementById('play-demo').addEventListener('click', () => startDemo());
 document.addEventListener('click', event => {
+  if (event.target.closest('[data-play-demo]')) { startDemo(); return; }
   const go = event.target.closest('[data-go]');
   if (go) { event.preventDefault(); update({view: go.dataset.go, drawer: null}); return; }
   const product = event.target.closest('[data-product]');
@@ -60,6 +63,7 @@ async function boot() {
     subscribe(render);
     update({config, catalog, staticMode: mode === 'static'});
     refreshRuns();
+    if (new URLSearchParams(location.search).has('demo')) startDemo();
   } catch (error) {
     root.innerHTML = `<section class="panel"><h2>Cannot reach the engine</h2><p>${esc(error.message)}</p><p>Start it with <code>sh run-studio.sh</code> and open <code>http://127.0.0.1:4181/assets/studio/</code>.</p></section>`;
     document.getElementById('run-status').innerHTML = '<span class="dot bad"></span>Engine offline';

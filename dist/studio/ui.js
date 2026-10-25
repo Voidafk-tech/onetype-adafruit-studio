@@ -49,6 +49,7 @@ export function download(name, text, type = 'text/csv') {
 }
 
 export function toast(message, tone = 'info') {
+  if (document.body.classList.contains('demo-on')) return;
   const el = Object.assign(document.createElement('div'), {className: `toast toast-${tone}`, textContent: message, role: 'status'});
   document.getElementById('toasts').append(el);
   setTimeout(() => el.remove(), 5200);

@@ -1,8 +1,9 @@
 import {esc, num, r3, severityBadge} from '../ui.js';
 import {quickStart, openRun} from '../actions.js';
 import {SCENARIOS} from '../lib/scenarios.js';
+import {update} from '../state.js';
 
-const QUICK = ['ops-morning', 'warehouse', 'tariff-shock', 'next-capture'];
+const QUICK = ['deliveries', 'ops-morning', 'warehouse', 'tariff-shock'];
 
 export function render(state) {
   const {catalog, run, runs} = state;
@@ -12,7 +13,8 @@ export function render(state) {
     <section class="hero">
       <p class="eyebrow">Adafruit operations</p>
       <h1>Every source, one product model, <br>clear next actions.</h1>
-      <p class="lede">Catalog, stock, orders and supplier mail, matched by product ID.</p>
+      <p class="lede">Organizes supply data so analysts can find delivery problems, investigate causes and decide what to do.</p>
+      <button class="play big-play" data-play-demo>▶ Play the demo <span>about 2 minutes</span></button>
       <div class="hero-stats">
         <div><strong>${num(catalog.products.length)}</strong><span>catalog products</span></div>
         <div><strong>${num(catalog.sources.length)}</strong><span>connected sources</span></div>
@@ -60,6 +62,9 @@ export function render(state) {
 }
 
 export function bind(root) {
-  root.querySelectorAll('[data-quick]').forEach(b => b.addEventListener('click', () => quickStart(b.dataset.quick)));
+  root.querySelectorAll('[data-quick]').forEach(b => b.addEventListener('click', async () => {
+    await quickStart(b.dataset.quick);
+    if (b.dataset.quick === 'deliveries') update({view: 'deliveries'});
+  }));
   root.querySelectorAll('[data-open-run]').forEach(a => a.addEventListener('click', () => openRun(a.dataset.openRun)));
 }

@@ -21,6 +21,35 @@ The online demo on GitHub Pages replays the preset scenarios, pre-computed by th
 
 On the first run, the script compiles the engine and builds `dist/studio/data/catalog.json` from the engine's own baseline run. It needs a C++17 compiler, libcurl and Node.js 18 or later. The original test console is still served at `/`.
 
+## Presenting it (one button)
+
+Open the site and press **▶ Play the demo**. It runs the delivery-reliability story from the product brief by itself, in about 2 minutes, with captions:
+
+1. import
+2. the noon / 12:10 question
+3. performance
+4. compare
+5. investigate
+6. traceable shipments
+7. arrival odds
+8. impact
+9. association vs cause
+10. decide
+11. planted-vs-caught check
+12. next step
+
+- **Online:** https://voidafk-tech.github.io/onetype-adafruit-studio/
+- **Auto-start, for screen recording:** https://voidafk-tech.github.io/onetype-adafruit-studio/?demo=1
+- **Controls:** → next, ← back, space pause, Esc exit. The caption bar has the same buttons.
+- **Recording for slides:** open the `?demo=1` link full screen at 1280×800 or larger, start a screen recording (macOS: ⇧⌘5), and stop when "Replay" appears.
+
+The delivery data is synthetic: 12 weeks, about 2,000 shipments, with planted patterns. These are:
+- Northline Freight is late in the afternoons
+- the Shenzhen → JFK route got worse over the last 4 weeks
+- Raspberry Pi Ltd is reliable
+
+The demo ends by showing OneType found all of them.
+
 ## Demo script (about 3 minutes)
 
 1. **Overview**: show the 5,587 real catalog products, then click **Monday operations review**. This generates four synthetic sources for the Raspberry Pi line and runs the engine:

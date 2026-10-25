@@ -1,6 +1,7 @@
 // Rule layer that turns a complete engine result into ranked, actionable suggestions.
 // It reads only what the engine returned (products, evidence, conflicts, quarantine,
 // changes, sources) and never re-decides matching or specification selection.
+import {describe, findPatterns, impact, isShipment, shipmentsFrom} from './deliveries.js';
 
 export const SEVERITY_ORDER = {high: 0, medium: 1, low: 2, info: 3};
 export const LOW_STOCK = 5;
@@ -22,6 +23,8 @@ const num = n => n.toLocaleString();
 export function deriveInsights(result) {
   const products = new Map(result.products.map(p => [p.product_id, p]));
   const supplied = new Set(result.supplied_sources ?? []);
+  // A delivery run is about shipments; catalog hygiene findings would bury the story.
+  const deliveryRun = (result.evidence ?? []).some(isShipment);
   const items = [
     ...quarantineInsights(result),
     ...duplicateInsights(result, supplied),
@@ -29,8 +32,9 @@ export function deriveInsights(result) {
     ...inventoryInsights(result, products),
     ...communicationInsights(result, products),
     ...scenarioInsights(result),
-    ...pricingInsights(result),
-    ...coverageInsights(result),
+    ...(deliveryRun ? [] : pricingInsights(result)),
+    ...(deliveryRun ? [] : coverageInsights(result)),
+    ...deliveryInsights(result),
   ];
   return items.sort((a, b) => SEVERITY_ORDER[a.severity] - SEVERITY_ORDER[b.severity] || b.count - a.count);
 }
@@ -236,6 +240,29 @@ function pricingInsights(result) {
     products: list.slice(0, OUTLIER_LIMIT).map(p => p.id), count: list.length,
   })] : []);
   return [...make(high, 'above'), ...make(low, 'below')];
+}
+
+function deliveryInsights(result) {
+  const {shipments, quality} = shipmentsFrom(result);
+  if (!shipments.length) return [];
+  const pct = v => `${Math.round(v * 100)}%`;
+  const {problems} = findPatterns(shipments);
+  const items = problems.map(p => insight({
+    id: `delivery-${p.key}`, severity: 'high', area: 'Deliveries',
+    title: `${describe(p)}: ${pct(p.rate)} late`,
+    detail: `vs ${pct(p.rest_rate)} elsewhere · ${num(p.n)} shipments${p.aliases.length ? ` · same shipments as ${p.aliases.join(', ')}` : ''}`,
+    action: p.values.slot ? 'Move deliveries to mornings or another carrier' : 'Raise with the supplier and carrier; add buffer time',
+    products: [...new Set(p.list.filter(s => s.status === 'late').map(s => s.product_id))],
+    count: p.late,
+  }));
+  const cost = impact(shipments);
+  if (cost.stockout_late) {
+    items.push(insight({id: 'delivery-stockouts', severity: 'high', area: 'Deliveries', title: `${plural(cost.stockout_late, 'late shipment')} for products already sold out`, detail: 'These delays cost sales.', action: 'Expedite these first', products: cost.stockout_products}));
+  }
+  if (quality.missing_arrival || quality.invalid_timestamps) {
+    items.push(insight({id: 'delivery-data', severity: 'low', area: 'Data quality', title: `${plural(quality.missing_arrival + quality.invalid_timestamps, 'shipment')} without a usable arrival time`, detail: `${num(quality.missing_arrival)} missing, ${num(quality.invalid_timestamps)} invalid.`, action: 'Fix the receiving log', count: quality.missing_arrival + quality.invalid_timestamps}));
+  }
+  return items;
 }
 
 export function trend(points) {

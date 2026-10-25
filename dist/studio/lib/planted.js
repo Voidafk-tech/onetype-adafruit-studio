@@ -1,5 +1,6 @@
 // Compares what a scenario deliberately planted with what the engine and suggestions caught.
 // Used for the "planted vs caught" scorecard in demos.
+import {findPatterns, shipmentsFrom} from './deliveries.js';
 
 const ids = (insights, id) => new Set(insights.find(i => i.id === id)?.products ?? []);
 const caughtList = (planted, found) => planted.filter(id => found.has(id)).length;
@@ -43,6 +44,7 @@ const BUILDERS = {
 
 export function plantedChecks(scenarioId, planted, result, insights) {
   if (!planted || !result) return [];
+  if (scenarioId === 'deliveries') return deliveryChecks(planted, result);
   const filtered = scenarioId === 'ops-morning' ? planted : {
     'spec-feed': {specs: planted}, warehouse: {inventory: planted}, 'purchase-orders': {purchase_orders: planted}, 'supplier-inbox': {inbox: planted},
   }[scenarioId];
@@ -60,4 +62,19 @@ export function plantedChecks(scenarioId, planted, result, insights) {
     checks.push({label: 'Dropped listings kept out of the new price cohort', planted: kept.length, caught: kept.filter(p => p.decision === 'other_price_source_or_currency').length});
   }
   return checks;
+}
+
+function deliveryChecks(planted, result) {
+  const {shipments, quality} = shipmentsFrom(result);
+  const {problems, reliable} = findPatterns(shipments);
+  const has = (list, test) => list.some(p => test(p.values));
+  const {afternoon_carrier: carrier, worsening_route: route, reliable_supplier: supplier} = planted;
+  return [
+    {label: 'Duplicate shipment rows suppressed', planted: planted.duplicates, caught: quality.duplicates},
+    {label: 'Unknown product IDs held for review', planted: planted.unknown_ids, caught: quality.unmatched},
+    {label: 'Invalid timestamps flagged', planted: planted.invalid_timestamps, caught: quality.invalid_timestamps},
+    {label: `${carrier.carrier} late in the afternoon`, planted: 1, caught: has(problems, v => v.carrier === carrier.carrier && v.slot === carrier.slot) ? 1 : 0},
+    {label: `${route.route} worse recently`, planted: 1, caught: has(problems, v => v.route === route.route && v.period === route.period) ? 1 : 0},
+    {label: `${supplier.supplier} reliable`, planted: 1, caught: reliable.some(p => p.values.supplier === supplier.supplier || p.aliases.includes(supplier.supplier)) ? 1 : 0},
+  ];
 }

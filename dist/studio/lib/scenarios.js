@@ -3,6 +3,7 @@
 // All generated values are hypothetical and every scenario runs in simulation mode.
 import {createRandom, round} from './random.js';
 import {toCsv} from './csv.js';
+import {generateShipments} from './shipments.js';
 
 export const DEMO_DATE = '2026-10-24';
 const WAREHOUSES = ['NYC-MAIN', 'NJ-OVERFLOW', 'RENO-WEST'];
@@ -235,6 +236,18 @@ const seedKnob = {id: 'seed', label: 'Seed', type: 'number', min: 1, max: 99999,
 const manufacturerKnob = fallback => ({id: 'manufacturer', label: 'Manufacturer', type: 'manufacturer', default: fallback});
 
 export const SCENARIOS = [
+  {
+    id: 'deliveries',
+    title: 'Delivery reliability',
+    area: 'Deliveries',
+    story: '12 weeks of inbound shipments: expected vs actual arrival by supplier, carrier and route.',
+    knobs: [seedKnob, {id: 'shipments', label: 'Shipments', type: 'range', min: 500, max: 4000, default: 2000}],
+    build: (catalog, k) => {
+      const {records, planted} = generateShipments(catalog, k);
+      const headers = ['record_id', 'purchase_order_id', 'product_id', 'quantity', 'supplier', 'carrier', 'route', 'distance_km', 'expected_arrival', 'actual_arrival', 'freight_cost', 'expedite_cost'];
+      return {request: request({label: 'Inbound delivery reliability', sources: [source({id: sourceId('DELIVERY_HISTORY', k.seed), kind: 'purchase_orders', label: 'Inbound delivery history (synthetic)', records, headers})]}), planted};
+    },
+  },
   {
     id: 'baseline',
     title: 'Live catalog baseline',

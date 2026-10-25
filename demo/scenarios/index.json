@@ -1,5 +1,30 @@
 [
   {
+    "id": "deliveries",
+    "title": "Delivery reliability",
+    "request": "deliveries.request.json",
+    "uploads": [
+      "deliveries/DELIVERY_HISTORY_42.csv"
+    ],
+    "patches": 0,
+    "planted": {
+      "afternoon_carrier": {
+        "carrier": "Northline Freight",
+        "slot": "Afternoon"
+      },
+      "worsening_route": {
+        "route": "Shenzhen → JFK (air)",
+        "period": "Last 4 weeks"
+      },
+      "reliable_supplier": {
+        "supplier": "Raspberry Pi Ltd"
+      },
+      "duplicates": 4,
+      "unknown_ids": 3,
+      "invalid_timestamps": 2
+    }
+  },
+  {
     "id": "baseline",
     "title": "Live catalog baseline",
     "request": "baseline.request.json",
