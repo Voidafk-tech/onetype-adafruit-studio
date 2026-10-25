@@ -12,6 +12,7 @@ import * as products from './views/products.js';
 import * as runs from './views/runs.js';
 import * as deliveries from './views/deliveries.js';
 import {startDemo} from './demo.js';
+import {startStory} from './story.js';
 
 const VIEWS = {overview, deliveries, sources, run, insights, analysis, products, runs};
 const NAV = [
@@ -46,9 +47,9 @@ function render() {
     : state.staticMode ? '<span class="dot ok"></span>Online demo · preset runs' : state.run ? `<span class="dot ok"></span>Run ${esc(state.run.runId)}` : '<span class="dot ok"></span>Engine connected';
 }
 
-document.getElementById('play-demo').addEventListener('click', () => startDemo());
+document.getElementById('play-demo').addEventListener('click', () => startStory());
 document.addEventListener('click', event => {
-  if (event.target.closest('[data-play-demo]')) { startDemo(); return; }
+  if (event.target.closest('[data-play-demo]')) { startStory(); return; }
   const go = event.target.closest('[data-go]');
   if (go) { event.preventDefault(); update({view: go.dataset.go, drawer: null}); return; }
   const product = event.target.closest('[data-product]');
@@ -63,7 +64,9 @@ async function boot() {
     subscribe(render);
     update({config, catalog, staticMode: mode === 'static'});
     refreshRuns();
-    if (new URLSearchParams(location.search).has('demo')) startDemo();
+    const params = new URLSearchParams(location.search);
+    if (params.has('demo')) startStory();
+    else if (params.has('tour')) startDemo();
   } catch (error) {
     root.innerHTML = `<section class="panel"><h2>Cannot reach the engine</h2><p>${esc(error.message)}</p><p>Start it with <code>sh run-studio.sh</code> and open <code>http://127.0.0.1:4181/assets/studio/</code>.</p></section>`;
     document.getElementById('run-status').innerHTML = '<span class="dot bad"></span>Engine offline';

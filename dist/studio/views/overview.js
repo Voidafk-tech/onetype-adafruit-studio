@@ -14,7 +14,7 @@ export function render(state) {
       <p class="eyebrow">Adafruit operations</p>
       <h1>Every source, one product model, <br>clear next actions.</h1>
       <p class="lede">Organizes supply data so analysts can find delivery problems, investigate causes and decide what to do.</p>
-      <button class="play big-play" data-play-demo>▶ Play the demo <span>about 2 minutes</span></button>
+      <button class="play big-play" data-play-demo>▶ Play the demo <span>under a minute</span></button>
       <div class="hero-stats">
         <div><strong>${num(catalog.products.length)}</strong><span>catalog products</span></div>
         <div><strong>${num(catalog.sources.length)}</strong><span>connected sources</span></div>

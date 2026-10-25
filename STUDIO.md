@@ -23,24 +23,20 @@ On the first run, the script compiles the engine and builds `dist/studio/data/ca
 
 ## Presenting it (one button)
 
-Open the site and press **▶ Play the demo**. It runs the delivery-reliability story from the product brief by itself, in about 2 minutes, with captions:
+Open the site and press **▶ Play the demo**. A full-screen animated story (under a minute) plays by itself:
 
-1. import
-2. the noon / 12:10 question
-3. performance
-4. compare
-5. investigate
-6. traceable shipments
-7. arrival odds
-8. impact
-9. association vs cause
-10. decide
-11. planted-vs-caught check
-12. next step
+1. **Hook:** a clock ticks from 12:00 to 12:10.
+2. **Messy data:** real rows from the export, with the problems labelled.
+3. **Cleaned:** the bad rows slide out and the rest are matched to products.
+4. **Organized:** every delivery becomes a dot (21% late).
+5. **Pattern:** the dots regroup by carrier and time of day, and Northline afternoons light up red at 79% late.
+6. **Arrival odds**, 7. **Cost**, 8. **Decision.**
+
+The end screen offers **Replay**, **Explore the app**, or a **Guided tour** of the app itself (also at `?tour=1`).
 
 - **Online:** https://voidafk-tech.github.io/onetype-adafruit-studio/
 - **Auto-start, for screen recording:** https://voidafk-tech.github.io/onetype-adafruit-studio/?demo=1
-- **Controls:** → next, ← back, space pause, Esc exit. The caption bar has the same buttons.
+- **Controls:** space pauses, Esc exits.
 - **Recording for slides:** open the `?demo=1` link full screen at 1280×800 or larger, start a screen recording (macOS: ⇧⌘5), and stop when "Replay" appears.
 
 The delivery data is synthetic: 12 weeks, about 2,000 shipments, with planted patterns. These are:
