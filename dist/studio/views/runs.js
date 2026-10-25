@@ -4,14 +4,8 @@ import {downloadUrl} from '../api.js';
 import {exportWorkbook, openRun, refreshRuns} from '../actions.js';
 
 const FILES = [
-  ['products.csv', 'Every product in view, with analysis inclusion reasons'],
-  ['changes.csv', 'Field-level before/after values'],
-  ['evidence.csv', 'Linked inventory, PO, message and spec records'],
-  ['unmatched.csv', 'Quarantined rows awaiting review'],
-  ['correlations.csv', 'Manufacturer cohorts'],
-  ['sources.csv', 'Source provenance and match counts'],
-  ['inputs.json', 'Exact inputs, for replay'],
-  ['result.json', 'Complete engine result'],
+  ['products.csv', 'Products'], ['changes.csv', 'Changes'], ['evidence.csv', 'Linked records'], ['unmatched.csv', 'Held for review'],
+  ['correlations.csv', 'By manufacturer'], ['sources.csv', 'Sources'], ['inputs.json', 'Inputs, for replay'], ['result.json', 'Full result'],
 ];
 
 export function render(state) {
@@ -19,15 +13,15 @@ export function render(state) {
   return `
     ${current ? `
     <section class="panel">
-      <div class="panel-head"><h2>Outputs · ${esc(state.run.result.label)}</h2><p class="mono">${esc(current)}</p></div>
+      <div class="panel-head"><h2>Downloads</h2><p>${esc(state.run.result.label)}</p></div>
       <div class="files">
-        <button class="file" data-excel><strong>workbook.xlsx</strong><span>Formatted Excel report (needs the configured spreadsheet runtime)</span></button>
-        ${FILES.map(([file, note]) => `<a class="file" href="${downloadUrl(current, file)}"><strong>${esc(file)}</strong><span>${esc(note)}</span></a>`).join('')}
+        ${state.staticMode ? '' : '<button class="file" data-excel><strong>workbook.xlsx</strong><span>Excel report</span></button>'}
+        ${FILES.filter(([file]) => downloadUrl(current, file)).map(([file, note]) => `<a class="file" href="${esc(downloadUrl(current, file))}" download><strong>${esc(file)}</strong><span>${esc(note)}</span></a>`).join('')}
       </div>
-      <p class="hint">Replay from the terminal: <code>sh run-engine.sh --replay runs/${esc(current)}/inputs.json</code></p>
+
     </section>` : ''}
     <section class="panel">
-      <div class="panel-head"><h2>Run history</h2><p>Latest 20 saved runs. Each holds its own inputs and outputs; the baseline is never modified.</p><button class="ghost" data-refresh>Refresh</button></div>
+      <div class="panel-head"><h2>Run history</h2>${state.staticMode ? '' : '<button class="ghost" data-refresh>Refresh</button>'}</div>
       <ul class="run-list">
         ${state.runs.map(r => `<li class="${r.run_id === current ? 'current' : ''}"><a data-open-run="${esc(r.run_id)}">${esc(r.label)}</a><span class="pill ${r.mode === 'simulation' ? 'pill-sim' : ''}">${esc(r.mode)}</span><span class="muted">${esc(r.created_at)} · ${num(r.summary?.selected_products)} products · r ${r3(r.summary?.r)}</span></li>`).join('') || '<li class="empty">No runs yet.</li>'}
       </ul>

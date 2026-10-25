@@ -17,6 +17,7 @@ const SIGNALS = [
 
 const fmt = value => (Number.isFinite(value) ? (Math.abs(value) >= 100 ? value.toFixed(0) : value.toFixed(2)) : 'unknown');
 const plural = (n, word, many = `${word}s`) => `${n.toLocaleString()} ${n === 1 ? word : many}`;
+const num = n => n.toLocaleString();
 
 export function deriveInsights(result) {
   const products = new Map(result.products.map(p => [p.product_id, p]));
@@ -58,9 +59,9 @@ function quarantineInsights(result) {
         ? `${plural(rows.length, 'row')} in ${row.source_label} ${rows.length === 1 ? 'names' : 'name'} a product without an ID`
         : `${plural(rows.length, 'row')} in ${row.source_label} ${rows.length === 1 ? 'points' : 'point'} at IDs not in the catalog`,
       detail: named
-        ? `Held for review instead of guessing. ${candidates.length ? `${plural(candidates.length, 'exact name match', 'exact name matches')} found for confirmation.` : 'No catalog title matches exactly.'}`
-        : `Unknown references: ${references.slice(0, 6).join(', ')}${references.length > 6 ? '…' : ''}. ${money ? 'Stock or money is attached to records the catalog cannot see.' : ''}`.trim(),
-      action: named ? 'Confirm the suggested product or add the ID to the export' : 'Correct the ID mapping upstream or add the missing products to the catalog',
+        ? (candidates.length ? `${plural(candidates.length, 'possible match', 'possible matches')} by name.` : 'No name match.')
+        : `IDs: ${references.slice(0, 6).join(', ')}${references.length > 6 ? '…' : ''}`,
+      action: named ? 'Confirm the product or add its ID' : 'Fix the ID or add the product to the catalog',
       products: candidates,
       count: rows.length,
     });
@@ -75,8 +76,8 @@ function duplicateInsights(result, supplied) {
       severity: 'low',
       area: 'Data quality',
       title: `${plural(s.duplicate_rows, 'exact duplicate row')} suppressed in ${s.label}`,
-      detail: `${plural(s.record_count, 'row')} received, ${plural(s.unique_rows, 'distinct row')} processed once each.`,
-      action: 'Fix the export so each record is sent once',
+      detail: `${plural(s.unique_rows, 'unique row')} of ${num(s.record_count)}.`,
+      action: 'Fix the export',
       count: s.duplicate_rows,
     }));
 }
@@ -98,10 +99,10 @@ function conflictInsights(result, products, supplied) {
       severity: open ? 'high' : fromUpload ? 'medium' : 'info',
       area: 'Data quality',
       title: open
-        ? `${name}: ${conflict.property.replace('_', ' ')} claims disagree with no trusted reference`
-        : `${name}: ${fromUpload ? 'new' : 'existing'} claim disagrees with the manufacturer reference`,
-      detail: `Claims seen: ${values.join(' vs ')}. ${open ? 'Nothing is selected until someone reviews it.' : `Selected ${claimText({normalized: conflict.selected ?? conflict.claims[0].normalized})} from the reviewed reference; every claim is kept.`}`,
-      action: open ? 'Review the source documents and record the correct value' : 'Correct the disagreeing source so listings stay consistent',
+        ? `${name}: conflicting ${conflict.property.replace(/_.*/, '')} values`
+        : `${name}: ${conflict.property.replace(/_.*/, '')} differs from manufacturer`,
+      detail: `${values.join(' vs ')}${open ? '' : `. Using ${claimText({normalized: conflict.selected ?? conflict.claims[0].normalized})}.`}`,
+      action: open ? 'Check the datasheet and pick a value' : 'Correct the other source',
       products: [id],
     });
   });
@@ -148,11 +149,11 @@ function inventoryInsights(result, products) {
   }
   const make = (ids, fields) => (ids.length ? [insight({...fields, products: ids})] : []);
   return [
-    ...make(listedEmpty, {id: 'listed-empty', severity: 'high', area: 'Inventory', title: `${plural(listedEmpty.length, 'product')} listed in stock with nothing on the shelf`, detail: 'The storefront shows in stock, but every counted warehouse reports zero. Orders would oversell.', action: 'Pause or mark these listings out of stock until the count is confirmed'}),
-    ...make(hidden, {id: 'stocked-unlisted', severity: 'medium', area: 'Inventory', title: `${plural(hidden.length, 'product')} in a warehouse but shown out of stock`, detail: 'Units are on hand while the public listing says out of stock, so sales are being turned away.', action: 'Release the counted stock to the storefront'}),
-    ...make(reorder, {id: 'reorder', severity: 'medium', area: 'Supply', title: `${plural(reorder.length, 'product')} at ${LOW_STOCK} units or fewer with no open PO`, detail: 'Low on-hand quantity and nothing inbound in the purchase order export.', action: 'Raise purchase orders or confirm these are being run down on purpose'}),
-    ...make(covered, {id: 'po-covers-stockout', severity: 'info', area: 'Supply', title: `${plural(covered.length, 'stock-out')} already covered by an open PO`, detail: 'Inbound orders exist for products currently shown out of stock.', action: 'Show the expected date on these listings'}),
-    ...make(overstock, {id: 'overstock', severity: 'low', area: 'Supply', title: `${plural(overstock.length, 'large PO', 'large POs')} on products that already have plenty`, detail: `Public quantity is ${OVERSTOCK_PUBLIC}+ and ${OVERSTOCK_PO}+ more units are on order.`, action: 'Check whether these orders can be reduced or delayed'}),
+    ...make(listedEmpty, {id: 'listed-empty', severity: 'high', area: 'Inventory', title: `${plural(listedEmpty.length, 'product')} listed in stock, shelves empty`, detail: 'Risk of overselling.', action: 'Mark out of stock until recounted'}),
+    ...make(hidden, {id: 'stocked-unlisted', severity: 'medium', area: 'Inventory', title: `${plural(hidden.length, 'product')} in stock but shown sold out`, detail: 'Losing sales.', action: 'Put the stock back on sale'}),
+    ...make(reorder, {id: 'reorder', severity: 'medium', area: 'Supply', title: `${plural(reorder.length, 'product')} low on stock, nothing on order`, detail: `${LOW_STOCK} units or fewer.`, action: 'Reorder'}),
+    ...make(covered, {id: 'po-covers-stockout', severity: 'info', area: 'Supply', title: `${plural(covered.length, 'stock-out')} already on order`, detail: 'Restock is coming.', action: 'Show the arrival date'}),
+    ...make(overstock, {id: 'overstock', severity: 'low', area: 'Supply', title: `${plural(overstock.length, 'large order', 'large orders')} for well-stocked products`, detail: `${OVERSTOCK_PUBLIC}+ in stock, ${OVERSTOCK_PO}+ more ordered.`, action: 'Reduce or delay'}),
   ];
 }
 
@@ -173,8 +174,8 @@ function communicationInsights(result, products) {
       severity: exposed.length && signal.id !== 'cost' ? 'high' : 'medium',
       area: 'Supply',
       title: `${signal.label} affects ${plural(ids.length, 'product')}`,
-      detail: `${exposed.length ? `${plural(exposed.length, 'of them is', 'of them are')} already out of stock or low. ` : ''}Linked from supplier messages by exact product ID.`,
-      action: signal.id === 'cost' ? 'Review margins and decide whether to reprice' : signal.id === 'eol' ? 'Decide on a last-time buy and plan a replacement' : 'Update expected dates and customer messaging',
+      detail: exposed.length ? `${num(exposed.length)} already low or out.` : 'From supplier email.',
+      action: signal.id === 'cost' ? 'Review pricing' : signal.id === 'eol' ? 'Plan a last buy and a replacement' : 'Update delivery dates',
       products: ids,
     });
   });
@@ -186,9 +187,9 @@ function scenarioInsights(result) {
   if (Number.isFinite(before) && Number.isFinite(after) && Math.abs(after - before) >= 0.005) {
     items.push(insight({
       id: 'correlation-shift', severity: 'info', area: 'Scenario',
-      title: `${label(result.analysis.x)} vs ${label(result.analysis.y)} correlation moved ${fmt(before)} → ${fmt(after)}`,
-      detail: `Same filters, ${plural(result.analysis.n, 'pair')} after versus ${plural(result.baseline_analysis.n, 'pair')} in the baseline. An association, not a cause.`,
-      action: 'Use this to judge how far the change pulls products off the existing pattern',
+      title: `${label(result.analysis.x)}–${label(result.analysis.y)} correlation ${fmt(before)} → ${fmt(after)}`,
+      detail: `${plural(result.analysis.n, 'product')}.`,
+      action: 'Compare with the baseline',
       count: 1,
     }));
   }
@@ -200,18 +201,18 @@ function scenarioInsights(result) {
     items.push(insight({
       id: 'price-changes', severity: 'medium', area: 'Pricing',
       title: `${plural(prices.length, 'price')} changed (${up} up, ${prices.length - up} down)`,
-      detail: `Average move ${fmt(100 * moves.reduce((a, b) => a + b, 0) / moves.length)}%. ${prices[0].basis === 'scenario_patch' ? 'Hypothetical what-if values.' : 'From the newly supplied catalog capture.'}`,
-      action: 'Check the largest moves before they reach the storefront',
+      detail: `Average ${fmt(100 * moves.reduce((a, b) => a + b, 0) / moves.length)}%.`,
+      action: 'Check the biggest moves',
       products: largest.map(c => c.product_id), count: prices.length,
     }));
   }
   const soldOut = (result.changes ?? []).filter(c => c.field === 'availability' && c.before === 'in_stock' && c.after === 'out_of_stock');
   if (soldOut.length) {
-    items.push(insight({id: 'sold-out', severity: 'high', area: 'Inventory', title: `${plural(soldOut.length, 'product')} would go out of stock`, detail: 'Public quantity reaches zero under this scenario.', action: 'Prioritise these for replenishment', products: soldOut.map(c => c.product_id)}));
+    items.push(insight({id: 'sold-out', severity: 'high', area: 'Inventory', title: `${plural(soldOut.length, 'product')} sell out`, detail: 'Stock hits zero.', action: 'Restock first', products: soldOut.map(c => c.product_id)}));
   }
   const left = [...new Set((result.changes ?? []).filter(c => !c.in_selected_output).map(c => c.product_id))];
   if (left.length) {
-    items.push(insight({id: 'left-selection', severity: 'info', area: 'Scenario', title: `${plural(left.length, 'changed product')} fall outside the current filters`, detail: 'They changed but are not part of this selection, so they are not in the analysis.', action: 'Widen the filters to include them', products: left}));
+    items.push(insight({id: 'left-selection', severity: 'info', area: 'Scenario', title: `${plural(left.length, 'changed product')} outside the filters`, detail: 'Not in this analysis.', action: 'Widen the filters', products: left}));
   }
   return items;
 }
@@ -229,9 +230,9 @@ function pricingInsights(result) {
   const low = scored.filter(p => p.z <= -OUTLIER_Z).sort((a, b) => a.z - b.z);
   const make = (list, direction) => (list.length ? [insight({
     id: `outliers-${direction}`, severity: 'low', area: 'Pricing',
-    title: `${plural(list.length, 'product')} priced well ${direction} the weight trend`,
-    detail: `More than ${OUTLIER_Z} standard deviations from the log price vs log weight line across ${plural(points.length, 'product')}. Often legitimate (chips, tools, bulk packs), sometimes a pricing or weight error.`,
-    action: direction === 'above' ? 'Check for overpricing or a wrong shipping weight' : 'Check for underpricing or an inflated shipping weight',
+    title: `${plural(list.length, 'product')} priced unusually ${direction === 'above' ? 'high' : 'low'} for their weight`,
+    detail: 'Often fine, sometimes a data error.',
+    action: 'Spot-check price and weight',
     products: list.slice(0, OUTLIER_LIMIT).map(p => p.id), count: list.length,
   })] : []);
   return [...make(high, 'above'), ...make(low, 'below')];
@@ -252,8 +253,8 @@ export function trend(points) {
 function coverageInsights(result) {
   const s = result.summary;
   const items = [];
-  if (s.missing_manufacturer > 0) items.push(insight({id: 'missing-manufacturer', severity: 'low', area: 'Data quality', title: `${plural(s.missing_manufacturer, 'selected product')} ${s.missing_manufacturer === 1 ? 'has' : 'have'} no manufacturer`, detail: `That is ${fmt(100 * s.missing_manufacturer / Math.max(1, s.selected_products))}% of the selection, which weakens per-manufacturer analysis.`, action: 'Fill manufacturer in the catalog source', count: s.missing_manufacturer}));
-  if (s.unconfirmed_currency > 0) items.push(insight({id: 'currency', severity: 'info', area: 'Data quality', title: 'Currency is not stated in the catalog feed', detail: `${plural(s.unconfirmed_currency, 'price')} use source units. Prices are never pooled across currencies or captures.`, action: 'Add an ISO currency code to the catalog export', count: s.unconfirmed_currency}));
+  if (s.missing_manufacturer > 0) items.push(insight({id: 'missing-manufacturer', severity: 'low', area: 'Data quality', title: `${plural(s.missing_manufacturer, 'product')} missing a manufacturer`, detail: `${fmt(100 * s.missing_manufacturer / Math.max(1, s.selected_products))}% of products.`, action: 'Fill it in the catalog', count: s.missing_manufacturer}));
+  if (s.unconfirmed_currency > 0) items.push(insight({id: 'currency', severity: 'info', area: 'Data quality', title: 'Catalog has no currency code', detail: `${plural(s.unconfirmed_currency, 'price')}.`, action: 'Add currency to the export', count: s.unconfirmed_currency}));
   return items;
 }
 

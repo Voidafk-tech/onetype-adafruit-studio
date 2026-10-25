@@ -17,6 +17,8 @@ sh run-studio.sh
 
 Open **http://127.0.0.1:4181/assets/studio/**. You can also double-click `start-studio.command`, which opens the browser for you.
 
+The online demo on GitHub Pages replays the preset scenarios, pre-computed by the real engine during the deploy. To process your own uploads or change scenario settings, run it locally.
+
 On the first run, the script compiles the engine and builds `dist/studio/data/catalog.json` from the engine's own baseline run. It needs a C++17 compiler, libcurl and Node.js 18 or later. The original test console is still served at `/`.
 
 ## Demo script (about 3 minutes)

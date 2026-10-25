@@ -10,9 +10,9 @@ export function render(state) {
   const counts = run ? run.insights.reduce((acc, i) => ({...acc, [i.severity]: (acc[i.severity] ?? 0) + 1}), {}) : {};
   return `
     <section class="hero">
-      <p class="eyebrow">Adafruit · connected product operations</p>
-      <h1>Every source, one product model,<br>clear next actions.</h1>
-      <p class="lede">Catalog, specs, warehouse counts, purchase orders and supplier mail are matched by exact product ID in the C++ engine. Each run is isolated, replayable and compared against the live baseline.</p>
+      <p class="eyebrow">Adafruit operations</p>
+      <h1>Every source, one product model, <br>clear next actions.</h1>
+      <p class="lede">Catalog, stock, orders and supplier mail, matched by product ID.</p>
       <div class="hero-stats">
         <div><strong>${num(catalog.products.length)}</strong><span>catalog products</span></div>
         <div><strong>${num(catalog.sources.length)}</strong><span>connected sources</span></div>
@@ -22,7 +22,7 @@ export function render(state) {
     </section>
 
     <section class="panel">
-      <div class="panel-head"><h2>Start a demo run</h2><p>Generates seeded synthetic inputs, runs the engine and opens the pipeline.</p></div>
+      <div class="panel-head"><h2>Try a demo</h2></div>
       <div class="quick-grid">
         ${QUICK.map(id => SCENARIOS.find(s => s.id === id)).map(s => `
           <button class="quick" data-quick="${s.id}" ${state.running ? 'disabled' : ''}>
@@ -31,12 +31,12 @@ export function render(state) {
             <span>${esc(s.story)}</span>
           </button>`).join('')}
       </div>
-      <p class="hint">Or build your own inputs on <a data-go="sources">Data inputs</a>: pick any of ${SCENARIOS.length} scenarios, tune the knobs, or upload CSV/JSON.</p>
+      <p class="hint"><a data-go="sources">More scenarios or upload your own →</a></p>
     </section>
 
     ${result ? `
     <section class="panel">
-      <div class="panel-head"><h2>Latest run · ${esc(result.label)}</h2><p>${result.mode === 'simulation' ? '<span class="pill pill-sim">Simulation</span>' : '<span class="pill">Observed</span>'} ${esc(result.created_at)}</p></div>
+      <div class="panel-head"><h2>Latest run · ${esc(result.label)}</h2><p>${result.mode === 'simulation' ? '<span class="pill pill-sim">Simulation</span>' : '<span class="pill">Observed</span>'}</p></div>
       <div class="kpis">
         <div class="kpi"><span>Products in view</span><strong>${num(result.summary.selected_products)}</strong></div>
         <div class="kpi"><span>Rows processed</span><strong>${num(result.summary.distinct_rows)}</strong></div>
@@ -47,7 +47,7 @@ export function render(state) {
       <ul class="top-list">
         ${run.insights.slice(0, 5).map(i => `<li>${severityBadge(i.severity)}<span>${esc(i.title)}</span></li>`).join('')}
       </ul>
-      <button class="primary" data-go="insights">Review all ${num(run.insights.length)} suggestions</button>
+      <button class="primary" data-go="insights">See all ${num(run.insights.length)}</button>
     </section>` : ''}
 
     ${runs.length ? `

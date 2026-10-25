@@ -35,14 +35,14 @@ function generator(state) {
   const values = {...defaultKnobs(scenario), ...knobs};
   return `
     <section class="panel">
-      <div class="panel-head"><h2>Generate scenario data</h2><p>Seeded and reproducible. Every generated value is hypothetical and runs in simulation mode.</p></div>
+      <div class="panel-head"><h2>Generate data</h2><p>Synthetic and reproducible</p></div>
       <div class="scenario-grid">
         ${SCENARIOS.map(s => `<button class="scenario ${s.id === selected ? 'active' : ''}" data-scenario="${s.id}"><span class="tag">${esc(s.area)}</span><strong>${esc(s.title)}</strong></button>`).join('')}
       </div>
       <div class="scenario-detail">
         <p>${esc(scenario.story)}</p>
         <div class="knobs">${scenario.knobs.map(k => knobInput(k, values[k.id], state)).join('')}</div>
-        <div class="actions"><button class="primary" data-generate>Generate inputs</button><button data-generate-run ${state.running ? 'disabled' : ''}>Generate and run</button></div>
+        <div class="actions"><button class="primary" data-generate-run ${state.running ? 'disabled' : ''}>Generate and run</button><button data-generate>Generate only</button></div>
       </div>
     </section>`;
 }
@@ -60,11 +60,11 @@ function stagedCard(source) {
       </header>
       <div class="staged-meta">
         <label>Type<select data-kind="${esc(source.id)}">${kinds}</select></label>
-        <span>${num(records.length)} rows · ${headers.length} columns · captured ${esc(source.captured_at)}</span>
-        ${missing.length ? `<span class="warn">Missing column${missing.length > 1 ? 's' : ''} for this type: ${esc(missing.join(', '))}</span>` : ''}
+        <span>${num(records.length)} rows · ${headers.length} columns</span>
+        ${missing.length ? `<span class="warn">Missing: ${esc(missing.join(', '))}</span>` : ''}
       </div>
-      <details><summary>Preview first rows</summary>${rawTable(records)}</details>
-      <div class="actions"><button data-download="${esc(source.id)}">Download ${source.csv ? 'CSV' : 'JSON'}</button><button class="ghost" data-remove="${esc(source.id)}">Remove</button></div>
+      <details><summary>Preview</summary>${rawTable(records)}</details>
+      <div class="actions"><button data-download="${esc(source.id)}">Download</button><button class="ghost" data-remove="${esc(source.id)}">Remove</button></div>
     </article>`;
 }
 
@@ -74,8 +74,8 @@ function patchTable(state) {
   const field = {price_value: 'price', shipping_weight_g: 'weight_g', public_quantity: 'quantity'};
   return `
     <article class="staged">
-      <header><div><strong>What-if changes</strong><span class="muted">${num(state.patches.length)} hypothetical values, applied after matching</span></div><span class="pill pill-sim">Simulation</span></header>
-      <details><summary>Preview first changes</summary>${table([
+      <header><div><strong>What-if changes</strong><span class="muted">${num(state.patches.length)} values</span></div><span class="pill pill-sim">Simulation</span></header>
+      <details><summary>Preview</summary>${table([
         {label: 'Product', value: p => byId.get(p.product_id)?.name ?? p.product_id},
         {label: 'Field', value: p => p.field},
         {label: 'Current', num: true, value: p => byId.get(p.product_id)?.[field[p.field]] ?? '—'},
@@ -89,8 +89,8 @@ function catalogBrowser(state) {
   const rows = q ? state.catalog.products.filter(p => `${p.id} ${p.name} ${p.manufacturer} ${p.category}`.toLowerCase().includes(q)) : state.catalog.products;
   return `
     <section class="panel">
-      <div class="panel-head"><h2>Catalog baseline</h2><p>${num(rows.length)} of ${num(state.catalog.products.length)} products · read-only snapshot the engine starts from</p></div>
-      <input class="search" type="search" placeholder="Search name, ID, manufacturer or category" value="${esc(state.catalogQuery)}" data-catalog-search>
+      <div class="panel-head"><h2>Catalog</h2><p>${num(rows.length)} of ${num(state.catalog.products.length)}</p></div>
+      <input class="search" type="search" placeholder="Search products" value="${esc(state.catalogQuery)}" data-catalog-search>
       ${table([
         {label: 'ID', html: p => `<a data-product="${esc(p.id)}" class="mono">${esc(p.id)}</a>`},
         {label: 'Product', value: p => p.name},
@@ -107,7 +107,7 @@ export function render(state) {
   const total = state.staged.reduce((sum, s) => sum + recordsOf(s).length, 0);
   return `
     <section class="panel">
-      <div class="panel-head"><h2>Connected sources</h2><p>Already in the engine's baseline workspace.</p></div>
+      <div class="panel-head"><h2>Connected sources</h2></div>
       ${table([
         {label: 'Source', value: s => s.label},
         {label: 'Type', value: s => KIND_LABELS[s.kind] ?? s.kind},
@@ -117,23 +117,22 @@ export function render(state) {
     </section>
     ${generator(state)}
     <section class="panel">
-      <div class="panel-head"><h2>Upload data</h2><p>CSV or JSON. The type is detected from the headers; the engine validates every row before accepting the batch.</p></div>
+      <div class="panel-head"><h2>Upload</h2></div>
       <label class="dropzone" data-dropzone>
         <input type="file" multiple accept=".csv,.json,text/csv,application/json" data-files hidden>
-        <strong>Drop files here or click to choose</strong>
-        <span>Warehouse counts, purchase orders, supplier messages, spec sheets, catalog captures, or a saved engine request.</span>
-        <span class="muted">Demo files: <code>demo/scenarios/uploads/</code></span>
+        <strong>Drop CSV or JSON here</strong>
+        <span class="muted">${state.staticMode ? 'Preview only online · run locally to process' : 'Type is detected from the headers'}</span>
       </label>
     </section>
     <section class="panel">
       <div class="panel-head">
-        <h2>Staged for the next run</h2>
-        <p>${state.staged.length || state.patches.length ? `${num(state.staged.length)} source${state.staged.length === 1 ? '' : 's'} · ${num(total)} rows · ${num(state.patches.length)} what-if changes` : 'Nothing staged: a run will use the live baseline only.'}</p>
+        <h2>Ready to run</h2>
+        <p>${state.staged.length || state.patches.length ? `${num(state.staged.length)} source${state.staged.length === 1 ? '' : 's'} · ${num(total)} rows · ${num(state.patches.length)} what-ifs` : 'Nothing added, baseline only'}</p>
       </div>
       <div class="staged-list">${state.staged.map(stagedCard).join('')}${patchTable(state)}</div>
       <div class="actions">
         <button class="primary" data-run ${state.running ? 'disabled' : ''}>Run engine</button>
-        ${state.staged.length || state.patches.length ? '<button class="ghost" data-clear>Clear staged inputs</button>' : ''}
+        ${state.staged.length || state.patches.length ? '<button class="ghost" data-clear>Clear</button>' : ''}
       </div>
     </section>
     ${catalogBrowser(state)}`;

@@ -42,7 +42,7 @@ function render() {
   products.bindDrawer(drawer);
   document.getElementById('run-status').innerHTML = state.running
     ? '<span class="dot busy"></span>Engine running'
-    : state.run ? `<span class="dot ok"></span>Run ${esc(state.run.runId)}` : '<span class="dot ok"></span>Engine connected';
+    : state.staticMode ? '<span class="dot ok"></span>Online demo · preset runs' : state.run ? `<span class="dot ok"></span>Run ${esc(state.run.runId)}` : '<span class="dot ok"></span>Engine connected';
 }
 
 document.addEventListener('click', event => {
@@ -55,9 +55,10 @@ document.addEventListener('keydown', event => { if (event.key === 'Escape' && st
 
 async function boot() {
   try {
+    const mode = await api.detectMode();
     const [config, catalog] = await Promise.all([api.getConfig(), api.getCatalog()]);
     subscribe(render);
-    update({config, catalog});
+    update({config, catalog, staticMode: mode === 'static'});
     refreshRuns();
   } catch (error) {
     root.innerHTML = `<section class="panel"><h2>Cannot reach the engine</h2><p>${esc(error.message)}</p><p>Start it with <code>sh run-studio.sh</code> and open <code>http://127.0.0.1:4181/assets/studio/</code>.</p></section>`;

@@ -239,7 +239,7 @@ export const SCENARIOS = [
     id: 'baseline',
     title: 'Live catalog baseline',
     area: 'Baseline',
-    story: 'The real public catalog as captured. No synthetic data: this is the reference every other scenario is compared against.',
+    story: 'Real catalog only. The reference every other run is compared to.',
     knobs: [manufacturerKnob('')],
     build: (catalog, k) => ({
       request: {label: k.manufacturer ? `Baseline · ${k.manufacturer}` : 'Live catalog baseline', base: 'workspace', mode: 'observed', filters: k.manufacturer ? {manufacturer: k.manufacturer} : {}, analysis: {x: 'shipping_weight_g', y: 'price_value'}, sources: [], patches: []},
@@ -250,7 +250,7 @@ export const SCENARIOS = [
     id: 'spec-feed',
     title: 'Messy distributor spec feed',
     area: 'Data quality',
-    story: 'A distributor sends a spec sheet for dev boards: mixed units, five ID spellings, copy-paste duplicates, IDs that are not in the catalog, and two claims that contradict each other.',
+    story: 'Spec sheet with mixed units, ID typos, duplicates, unknown IDs and contradictions.',
     knobs: [seedKnob, {id: 'rows', label: 'Products in feed', type: 'range', min: 10, max: 120, default: 40}, {id: 'messiness', label: 'Messiness', type: 'range', min: 1, max: 10, default: 4}],
     build: (catalog, k) => {
       const feed = specFeed(catalog, k);
@@ -261,7 +261,7 @@ export const SCENARIOS = [
     id: 'tariff-shock',
     title: 'Tariff price shock',
     area: 'Pricing',
-    story: 'A tariff lands on part of one manufacturer’s range. Prices for the affected share rise; the engine re-runs the price/weight relationship against the untouched baseline.',
+    story: 'Prices rise on part of one manufacturer’s range.',
     knobs: [seedKnob, manufacturerKnob('Raspberry Pi Foundation'), {id: 'pct', label: 'Price increase %', type: 'range', min: 5, max: 60, default: 25}, {id: 'share', label: 'Share of range affected %', type: 'range', min: 10, max: 100, default: 60}],
     build: (catalog, k) => {
       const patches = pricePatches(catalog, k);
@@ -272,7 +272,7 @@ export const SCENARIOS = [
     id: 'packaging',
     title: 'Packaging redesign',
     area: 'Logistics',
-    story: 'A category moves to heavier retail packaging. Shipping weights change for part of the category and the engine shows how weight-driven pricing would look.',
+    story: 'One category gets heavier packaging.',
     knobs: [seedKnob, {id: 'category', label: 'Category', type: 'category', default: '183'}, {id: 'pct', label: 'Weight change %', type: 'range', min: -50, max: 150, default: 40}, {id: 'share', label: 'Share of category %', type: 'range', min: 10, max: 100, default: 80}],
     build: (catalog, k) => {
       const patches = weightPatches(catalog, k);
@@ -284,7 +284,7 @@ export const SCENARIOS = [
     id: 'warehouse',
     title: 'Warehouse cycle count',
     area: 'Inventory',
-    story: 'Three warehouses export a cycle count. Some products are listed in stock online but have nothing on the shelf; others sit in a bin while the site says out of stock.',
+    story: 'Three warehouses report counts that don’t match the storefront.',
     knobs: [seedKnob, manufacturerKnob(''), {id: 'rows', label: 'Products counted', type: 'range', min: 20, max: 600, default: 200}, {id: 'mismatches', label: 'Planted mismatches (each kind)', type: 'range', min: 1, max: 15, default: 4}],
     build: (catalog, k) => {
       const count = warehouseCount(catalog, k);
@@ -295,7 +295,7 @@ export const SCENARIOS = [
     id: 'purchase-orders',
     title: 'Open purchase orders',
     area: 'Supply',
-    story: 'The ERP exports open POs. Some cover current stock-outs, some pile more stock onto items that already have plenty, and one PO points at a product ID nobody recognises.',
+    story: 'Open POs: some cover stock-outs, some overstock, one unknown SKU.',
     knobs: [seedKnob, manufacturerKnob(''), {id: 'rows', label: 'Purchase orders', type: 'range', min: 6, max: 120, default: 36}],
     build: (catalog, k) => {
       const pos = purchaseOrders(catalog, k);
@@ -306,7 +306,7 @@ export const SCENARIOS = [
     id: 'supplier-inbox',
     title: 'Supplier inbox',
     area: 'Supply',
-    story: 'A week of supplier emails, exported as structured rows: delays, price increases, end-of-life notices and allocations. Some name a product without its ID.',
+    story: 'Supplier emails: delays, price rises, end-of-life, shortages.',
     knobs: [seedKnob, manufacturerKnob(''), {id: 'rows', label: 'Messages', type: 'range', min: 5, max: 80, default: 24}],
     build: (catalog, k) => {
       const inbox = supplierInbox(catalog, k);
@@ -317,7 +317,7 @@ export const SCENARIOS = [
     id: 'sell-through',
     title: 'Weekend sell-through',
     area: 'Inventory',
-    story: 'A promotion drains public stock. Part of the range sells down and some items sell out, changing what the storefront would show.',
+    story: 'A promotion sells part of the range down, some to zero.',
     knobs: [seedKnob, manufacturerKnob('Adafruit'), {id: 'share', label: 'Share of in-stock range sold %', type: 'range', min: 5, max: 100, default: 35}, {id: 'sellout', label: 'Of those, sold out %', type: 'range', min: 0, max: 100, default: 30}],
     build: (catalog, k) => {
       const {patches, soldOut} = sellThroughPatches(catalog, k);
@@ -328,7 +328,7 @@ export const SCENARIOS = [
     id: 'next-capture',
     title: 'Next month’s catalog',
     area: 'Pricing',
-    story: 'A full catalog capture one month later: prices drift on part of the range and a handful of listings disappear. The engine diffs it against today’s capture.',
+    story: 'A month later: prices drift and some listings vanish.',
     knobs: [seedKnob, {id: 'drift', label: 'Max price drift ±%', type: 'range', min: 1, max: 40, default: 12}, {id: 'share', label: 'Share of products repriced %', type: 'range', min: 1, max: 60, default: 15}, {id: 'dropped', label: 'Listings dropped', type: 'range', min: 0, max: 40, default: 8}],
     build: (catalog, k) => {
       const capture = nextCapture(catalog, k);
@@ -339,7 +339,7 @@ export const SCENARIOS = [
     id: 'ops-morning',
     title: 'Monday operations review',
     area: 'Combined',
-    story: 'Everything lands at once for one product line: cycle count, open POs, supplier emails and a messy spec feed. The engine connects it all by product ID.',
+    story: 'Stock count, POs, supplier mail and a spec feed for one product line.',
     knobs: [seedKnob, manufacturerKnob('Raspberry Pi Foundation')],
     build: (catalog, k) => {
       const scope = {seed: k.seed, manufacturer: k.manufacturer};

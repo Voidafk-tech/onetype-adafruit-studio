@@ -9,7 +9,7 @@ let onlyLinked = false;
 const money = v => (Number.isFinite(v) ? v.toFixed(2) : '—');
 
 export function render(state) {
-  if (!state.run) return '<section class="panel"><p class="empty">Run the engine to see connected products. The read-only catalog is on <a data-go="sources">Data inputs</a>.</p></section>';
+  if (!state.run) return '<section class="panel"><p class="empty">No run yet. <a data-go="overview">Try a demo</a>.</p></section>';
   const {result} = state.run;
   const q = state.productQuery.trim().toLowerCase();
   const rows = result.products.filter(p => (!onlyLinked || p.linked_records > 0 || p.scenario_modified) && (!q || `${p.product_id} ${p.product_name} ${p.manufacturer} ${p.category}`.toLowerCase().includes(q)));
@@ -17,10 +17,10 @@ export function render(state) {
   page = Math.min(page, pages - 1);
   return `
     <section class="panel">
-      <div class="panel-head"><h2>Connected products</h2><p>${num(rows.length)} of ${num(result.products.length)} in view</p></div>
+      <div class="panel-head"><h2>Products</h2><p>${num(rows.length)} of ${num(result.products.length)}</p></div>
       <div class="filters">
         <input class="search" type="search" placeholder="Search products" value="${esc(state.productQuery)}" data-product-search>
-        <label class="check"><input type="checkbox" data-linked ${onlyLinked ? 'checked' : ''}> Only products with linked evidence or changes</label>
+        <label class="check"><input type="checkbox" data-linked ${onlyLinked ? 'checked' : ''}> With linked data only</label>
       </div>
       ${table([
         {label: 'ID', html: p => `<a data-product="${esc(p.product_id)}" class="mono">${esc(p.product_id)}</a>`},
@@ -84,8 +84,8 @@ export function drawer(state) {
       ${related.length ? `<h3>Suggestions</h3><ul class="top-list">${related.map(i => `<li>${severityBadge(i.severity)}<span>${esc(i.title)}</span></li>`).join('')}</ul>` : ''}
       ${changes.length ? `<h3>Changed in this run</h3>${table([{label: 'Field', value: c => c.field}, {label: 'Before', value: c => c.before ?? '—'}, {label: 'After', value: c => c.after ?? '—'}], changes)}` : ''}
       ${conflicts.length ? `<h3>Spec claims</h3>${conflicts.map(c => `<p><strong>${esc(c.property)}</strong> · ${esc(c.status.replaceAll('_', ' '))}</p><ul class="log">${c.claims.map(cl => `<li>${esc(cl.source_label)}: ${esc(cl.raw.value)} ${esc(cl.raw.unit)}</li>`).join('')}</ul>`).join('')}` : ''}
-      <h3>Linked evidence (${num(evidence.length)})</h3>
-      ${evidence.length ? `<ul class="evidence">${evidence.map(e => `<li><span class="tag">${esc(KIND_LABELS[e.kind] ?? e.kind)}</span><span>${esc(evidenceText(e))}</span><span class="muted">${esc(e.source_label)} · ${esc(e.captured_at)} · matched by ${esc(e.match_basis.replaceAll('_', ' '))}</span></li>`).join('')}</ul>` : '<p class="empty">No linked records beyond the catalog row.</p>'}
+      <h3>Linked records (${num(evidence.length)})</h3>
+      ${evidence.length ? `<ul class="evidence">${evidence.map(e => `<li><span class="tag">${esc(KIND_LABELS[e.kind] ?? e.kind)}</span><span>${esc(evidenceText(e))}</span><span class="muted">${esc(e.source_label)}</span></li>`).join('')}</ul>` : '<p class="empty">None</p>'}
     </aside>`;
 }
 

@@ -13,14 +13,14 @@ function stages(result, insights) {
   const open = result.conflicts.filter(c => c.status === 'conflict_requires_review').length;
   const high = insights.filter(i => i.severity === 'high').length;
   return [
-    {name: 'Ingest', figure: num(s.input_rows), unit: 'rows', note: `${num(s.source_batches)} source batches · ${num(s.supplied_rows)} rows supplied in this run`, log: supplied.map(src => `read ${src.id} (${KIND_LABELS[src.kind] ?? src.kind}) · ${num(src.record_count)} rows`)},
-    {name: 'Validate', figure: num(result.sources.length), unit: 'batches accepted', note: 'Every row type-checked before the batch is accepted; a single bad row rejects the batch', log: ['IDs, dates, quantities and units validated']},
-    {name: 'Deduplicate', figure: num(s.duplicate_rows_suppressed), unit: 'duplicates suppressed', note: `${num(s.distinct_rows)} distinct rows continue`, log: supplied.filter(src => src.duplicate_rows).map(src => `${src.id}: ${num(src.duplicate_rows)} exact duplicates dropped`)},
-    {name: 'Match IDs', figure: num(s.matched_rows), unit: 'rows matched', note: `${num(s.unmatched_rows)} quarantined for review · exact ID or product URL only, never by name`, tone: s.unmatched_rows ? 'warn' : '', log: supplied.filter(src => src.unmatched_rows).map(src => `${src.id}: ${num(src.unmatched_rows)} rows quarantined`)},
-    {name: 'Resolve claims', figure: num(s.selected_conflicts), unit: 'conflicts in view', note: `${num(open)} need review · trusted manufacturer references win, all claims kept`, tone: open ? 'warn' : '', log: result.conflicts.map(c => `product ${c.product_id} ${c.property}: ${c.status.replaceAll('_', ' ')}`)},
-    {name: 'Apply what-ifs', figure: num(s.scenario_patches), unit: 'hypothetical changes', note: `${num(s.changed_fields)} fields differ from the baseline`, log: s.scenario_patches ? [`${num(s.scenario_patches)} patches applied in simulation mode`] : ['no hypothetical values']},
-    {name: 'Analyse', figure: r3(s.r), unit: `r · ${label(result.analysis.x)} vs ${label(result.analysis.y)}`, note: `${num(s.n)} pairs · baseline r ${r3(b.r)} on ${num(b.n)} pairs`, log: [`cohort ${result.analysis.cohort ?? 'n/a'} · status ${result.analysis.status}`]},
-    {name: 'Suggest', figure: num(insights.length), unit: 'suggestions', note: `${num(high)} high priority`, tone: high ? 'bad' : '', log: insights.slice(0, 4).map(i => `${i.severity}: ${i.title}`)},
+    {name: 'Ingest', figure: num(s.input_rows), unit: 'rows', note: `${num(s.supplied_rows)} new this run`, log: supplied.map(src => `read ${src.id} (${KIND_LABELS[src.kind] ?? src.kind}) · ${num(src.record_count)} rows`)},
+    {name: 'Validate', figure: num(result.sources.length), unit: 'sources accepted', note: 'One bad row rejects the batch', log: []},
+    {name: 'Deduplicate', figure: num(s.duplicate_rows_suppressed), unit: 'duplicates suppressed', note: `${num(s.distinct_rows)} unique rows`, log: supplied.filter(src => src.duplicate_rows).map(src => `${src.id}: ${num(src.duplicate_rows)} exact duplicates dropped`)},
+    {name: 'Match IDs', figure: num(s.matched_rows), unit: 'rows matched', note: `${num(s.unmatched_rows)} held for review`, tone: s.unmatched_rows ? 'warn' : '', log: supplied.filter(src => src.unmatched_rows).map(src => `${src.id}: ${num(src.unmatched_rows)} rows quarantined`)},
+    {name: 'Resolve claims', figure: num(s.selected_conflicts), unit: 'spec conflicts', note: `${num(open)} need review`, tone: open ? 'warn' : '', log: result.conflicts.map(c => `product ${c.product_id} ${c.property}: ${c.status.replaceAll('_', ' ')}`)},
+    {name: 'Apply what-ifs', figure: num(s.scenario_patches), unit: 'what-ifs', note: `${num(s.changed_fields)} values changed`, log: []},
+    {name: 'Analyse', figure: r3(s.r), unit: `r · ${label(result.analysis.x)} vs ${label(result.analysis.y)}`, note: `baseline ${r3(b.r)}`, log: []},
+    {name: 'Suggest', figure: num(insights.length), unit: 'suggestions', note: `${num(high)} high priority`, tone: high ? 'bad' : '', log: []},
   ];
 }
 
@@ -33,7 +33,7 @@ function config(state) {
   const rows = state.staged.reduce((sum, s) => sum + recordsOf(s).length, 0);
   return `
     <section class="panel run-config">
-      <div class="panel-head"><h2>Run configuration</h2><p>${esc(request.label)}</p></div>
+      <div class="panel-head"><h2>Settings</h2><p>${esc(request.label)}</p></div>
       <div class="form-grid">
         <label>Manufacturer<select data-filter="manufacturer">${option('', 'All manufacturers', filters.manufacturer)}${config.manufacturers.map(m => option(m, m, filters.manufacturer)).join('')}</select></label>
         <label>Category<select data-filter="category_id">${option('', 'All categories', filters.category_id)}${categories.map(([id, name]) => option(id, `${name} (${id})`, filters.category_id)).join('')}</select></label>
@@ -44,19 +44,19 @@ function config(state) {
         <label>Analyse Y<select data-metric="y">${metrics('y')}</select></label>
       </div>
       <div class="run-inputs">
-        <span>${num(state.staged.length)} staged source${state.staged.length === 1 ? '' : 's'} · ${num(rows)} rows · ${num(state.patches.length)} what-ifs</span>
-        <span class="pill ${request.mode === 'simulation' ? 'pill-sim' : ''}">${request.mode === 'simulation' ? 'Simulation run' : 'Observed run'}</span>
-        ${state.staged.some(s => s.origin === 'upload') && !state.patches.length && !state.staged.some(s => s.origin === 'scenario') ? `<label class="check"><input type="checkbox" data-real ${state.treatUploadsAsReal ? 'checked' : ''}> Uploaded files are real company data</label>` : ''}
-        <a data-go="sources">Edit inputs</a>
+        <span>${num(state.staged.length)} source${state.staged.length === 1 ? '' : 's'} · ${num(rows)} rows · ${num(state.patches.length)} what-ifs</span>
+        <span class="pill ${request.mode === 'simulation' ? 'pill-sim' : ''}">${request.mode === 'simulation' ? 'Simulation' : 'Observed'}</span>
+        ${state.staged.some(s => s.origin === 'upload') && !state.patches.length && !state.staged.some(s => s.origin === 'scenario') ? `<label class="check"><input type="checkbox" data-real ${state.treatUploadsAsReal ? 'checked' : ''}> Uploads are real data</label>` : ''}
+        <a data-go="sources">Edit</a>
       </div>
       <button class="primary big" data-run ${state.running ? 'disabled' : ''}>${state.running ? 'Engine running…' : 'Run engine'}</button>
     </section>`;
 }
 
 function pipeline(state) {
-  if (state.runError) return `<section class="panel"><div class="stage stage-bad"><h3>Validation rejected the batch</h3><p>${esc(state.runError)}</p><p class="muted">Nothing was saved. The baseline workspace is unchanged. Fix the input and run again.</p></div></section>`;
+  if (state.runError) return `<section class="panel"><div class="stage stage-bad"><h3>${state.staticMode ? 'Not available online' : 'Rejected'}</h3><p>${esc(state.runError)}</p>${state.staticMode ? '' : '<p class="muted">Nothing was saved.</p>'}</div></section>`;
   if (state.running) return `<section class="panel"><div class="pipeline">${['Ingest', 'Validate', 'Deduplicate', 'Match IDs', 'Resolve claims', 'Apply what-ifs', 'Analyse', 'Suggest'].map((n, i) => `<div class="stage pending ${i === 0 ? 'active' : ''}"><h3>${n}</h3><div class="spinner"></div></div>`).join('')}</div></section>`;
-  if (!state.run) return `<section class="panel"><p class="empty">Configure the run and press <strong>Run engine</strong>. Each run is saved with its exact inputs so it can be replayed.</p></section>`;
+  if (!state.run) return `<section class="panel"><p class="empty">Press <strong>Run engine</strong> to start.</p></section>`;
   const {result, insights, runId} = state.run;
   const animate = revealedFor !== runId;
   revealedFor = runId;
@@ -72,7 +72,7 @@ function pipeline(state) {
             ${st.log.length ? `<ul class="log">${st.log.slice(0, 4).map(l => `<li>${esc(l)}</li>`).join('')}${st.log.length > 4 ? `<li class="muted">+ ${st.log.length - 4} more</li>` : ''}</ul>` : ''}
           </div>`).join('')}
       </div>
-      <div class="actions"><button class="primary" data-go="insights">Open suggestions</button><button data-go="analysis">See analysis</button></div>
+      <div class="actions"><button class="primary" data-go="insights">Suggestions</button><button data-go="analysis">Analysis</button></div>
     </section>`;
 }
 
