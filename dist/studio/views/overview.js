@@ -11,6 +11,8 @@ export function render(state) {
   const counts = run ? run.insights.reduce((acc, i) => ({...acc, [i.severity]: (acc[i.severity] ?? 0) + 1}), {}) : {};
   return `
     <section class="hero">
+      <img class="hero-logo on-light" src="assets/logo-on-light.png" alt="OneType" width="280" height="80">
+      <img class="hero-logo on-dark" src="assets/logo-on-dark.png" alt="" width="280" height="80">
       <p class="eyebrow">Adafruit operations</p>
       <h1>Every source, one product model, <br>clear next actions.</h1>
       <p class="lede">Organizes supply data so analysts can find delivery problems, investigate causes and decide what to do.</p>

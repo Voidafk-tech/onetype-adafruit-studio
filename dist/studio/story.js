@@ -260,7 +260,8 @@ async function sceneAction() {
 
 async function sceneEnd() {
   caption('');
-  stage(`<div class="end"><div class="brand-big">◇ OneType</div><p>From messy delivery records to a clear next step.</p>
+  root.querySelector('.story-logo')?.classList.add('hide');
+  stage(`<div class="end"><img class="brand-big" src="assets/logo-on-dark.png" alt="OneType"><p>From messy delivery records to a clear next step.</p>
     <div class="end-actions"><button class="primary" data-story="replay">↺ Replay</button><button data-story="explore">Explore the app</button><button data-story="tour">Guided tour</button></div></div>`, 'center');
 }
 
@@ -300,7 +301,7 @@ function build() {
   root.className = 'story';
   root.setAttribute('role', 'dialog');
   root.setAttribute('aria-label', 'OneType demo');
-  root.innerHTML = `<canvas></canvas><div class="story-caption"></div><div class="story-stage"></div>
+  root.innerHTML = `<canvas></canvas><img class="story-logo" src="assets/logo-on-dark.png" alt="OneType"><div class="story-caption"></div><div class="story-stage"></div>
     <div class="story-controls"><div class="story-progress"></div><button data-story="pause" aria-label="Pause">❚❚</button><button data-story="close" aria-label="Close">✕</button></div>`;
   document.body.append(root);
   canvas = root.querySelector('canvas');
