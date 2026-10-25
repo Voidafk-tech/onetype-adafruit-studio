@@ -13,6 +13,7 @@ import {esc} from './ui.js';
 const COLORS = {early: '#3987e5', on_time: '#2fbf5b', late: '#ff5a52', unknown: '#77756f', dim: '#2c2c2a'};
 const SLOTS = ['Morning', 'Afternoon'];
 const MESSY_ROWS = 11;
+const CELL_HEAD = 34;   // space above each block for its late %
 const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
 const wait = ms => new Promise(resolve => { timers.push(setTimeout(resolve, ms)); });
 const pct = v => `${Math.round((v ?? 0) * 100)}%`;
@@ -64,31 +65,36 @@ function timelineTarget(d, i) {
   return {x: left + ((delay + 15 + jitter(i, 1)) / 105) * width, y: innerHeight * 0.56 + (jitter(i, 2) - 0.5) * band, a: 0.9, r: 2.4, color: COLORS[d.s.status]};
 }
 
+// A carrier × time-of-day matrix: carriers across the top, morning/afternoon down the side.
 function groupLayout() {
   const carriers = [...new Set(dots.map(d => d.s.carrier))].sort();
-  const cols = carriers.length, gap = 18;
-  const top = innerHeight * 0.3, cellW = (innerWidth * 0.86 - gap * (cols - 1)) / cols, cellH = innerHeight * 0.25;
+  const left = Math.max(110, innerWidth * 0.1), right = innerWidth * 0.04, gap = Math.max(18, innerWidth * 0.018);
+  const headerY = innerHeight * 0.3, top = headerY + 40, bottom = innerHeight - 90;
+  const cellW = (innerWidth - left - right - gap * (carriers.length - 1)) / carriers.length;
+  const cellH = (bottom - top - gap) / SLOTS.length;
   const cells = new Map();
-  carriers.forEach((carrier, c) => SLOTS.forEach((slot, r) => cells.set(`${carrier}|${slot}`, {carrier, slot, x: innerWidth * 0.07 + c * (cellW + gap), y: top + r * (cellH + gap + 26), w: cellW, h: cellH, list: []})));
+  carriers.forEach((carrier, c) => SLOTS.forEach((slot, r) => cells.set(`${carrier}|${slot}`, {carrier, slot, x: left + c * (cellW + gap), y: top + r * (cellH + gap), w: cellW, h: cellH, list: []})));
   for (const d of dots) cells.get(`${d.s.carrier}|${d.s.slot}`)?.list.push(d);
-  for (const cell of cells.values()) cell.list.sort((a, b) => (b.s.status === 'late') - (a.s.status === 'late'));
-  return cells;
-}
-
-function groupTarget(cells, focusKey) {
   // Size dots so the largest group fills its box: big, countable blocks read across a room.
   const largest = Math.max(...[...cells.values()].map(c => c.list.length));
-  const sample = cells.values().next().value;
-  const spacing = Math.max(4, Math.min(16, Math.sqrt(((sample.w - 16) * (sample.h - 40)) / largest)));
+  const spacing = Math.max(4, Math.min(16, Math.sqrt((cellW * (cellH - CELL_HEAD)) / (largest * 1.15))));
+  const perRow = Math.max(1, Math.floor(cellW / spacing));
+  for (const cell of cells.values()) {
+    cell.list.sort((a, b) => (b.s.status === 'late') - (a.s.status === 'late'));
+    cell.contentH = CELL_HEAD + Math.ceil(cell.list.length / perRow) * spacing;
+  }
+  return {cells, carriers, spacing, perRow, left, headerY};
+}
+
+function groupTarget({cells, spacing, perRow}, focusKey) {
   const radius = spacing * 0.38;
   const positions = new Map();
   for (const [key, cell] of cells) {
-    const perRow = Math.max(1, Math.floor((cell.w - 16) / spacing));
-    cell.list.forEach((d, i) => positions.set(d, {x: cell.x + 8 + (i % perRow) * spacing + spacing / 2, y: cell.y + 34 + Math.floor(i / perRow) * spacing, dim: focusKey && key !== focusKey}));
+    cell.list.forEach((d, i) => positions.set(d, {x: cell.x + (i % perRow) * spacing + spacing / 2, y: cell.y + CELL_HEAD + Math.floor(i / perRow) * spacing + spacing / 2, dim: focusKey && key !== focusKey}));
   }
   return d => {
     const p = positions.get(d);
-    return {x: p.x, y: p.y, r: radius, a: p.dim ? 0.15 : 0.95, color: COLORS[d.s.status]};
+    return {x: p.x, y: p.y, r: radius, a: p.dim ? 0.12 : 0.95, color: COLORS[d.s.status]};
   };
 }
 
@@ -182,24 +188,34 @@ async function sceneDots() {
 }
 
 async function scenePattern() {
-  const cells = groupLayout();
+  const layout = groupLayout();
+  const {cells, carriers, left, headerY} = layout;
   const first = facts.data.patterns.problems[0];
   const focusKey = first?.values.carrier && first?.values.slot ? `${first.values.carrier}|${first.values.slot}` : null;
-  caption('Group by carrier and time of day.');
-  moveDots(groupTarget(cells, null), {duration: 1600, stagger: 0.3});
-  const labels = [...cells.values()].map(c => {
-    const late = c.list.filter(d => d.s.status === 'late').length;
-    const key = `${c.carrier}|${c.slot}`;
-    return `<div class="cell-label" data-key="${esc(key)}" style="left:${c.x}px;top:${c.y}px;width:${c.w}px"><span>${esc(c.carrier)} · ${c.slot.toLowerCase()}</span><b>${c.list.length ? pct(late / c.list.length) : '—'}</b></div>`;
+  caption('Split by carrier and time of day.');
+  moveDots(groupTarget(layout, null), {duration: 1600, stagger: 0.3});
+  const anyRow = SLOTS.map(slot => cells.get(`${carriers[0]}|${slot}`));
+  const columns = carriers.map(carrier => {
+    const cell = cells.get(`${carrier}|${SLOTS[0]}`);
+    return `<div class="col-head" data-carrier="${esc(carrier)}" style="left:${cell.x}px;top:${headerY}px;width:${cell.w}px">${esc(carrier)}</div>`;
   }).join('');
-  stage(`<div class="legend-big"><span class="late">● Late</span><span class="ontime">● On time</span></div>${labels}`, 'fade-in');
+  const rows = anyRow.map(cell => `<div class="row-head" data-slot="${cell.slot}" style="top:${cell.y + CELL_HEAD}px;width:${left - 24}px">${cell.slot}</div>`).join('');
+  const rates = [...cells.values()].map(c => {
+    const late = c.list.filter(d => d.s.status === 'late').length;
+    return `<div class="cell-rate" data-key="${esc(`${c.carrier}|${c.slot}`)}" style="left:${c.x}px;top:${c.y}px;width:${c.w}px">${c.list.length ? pct(late / c.list.length) : '—'}<span>late</span></div>`;
+  }).join('');
+  stage(`<div class="legend-big"><span class="late">● Late</span><span class="ontime">● On time</span></div>${columns}${rows}${rates}`, 'fade-in');
   await wait(3200);
   if (!focusKey) return;
-  moveDots(groupTarget(cells, focusKey), {duration: 900, stagger: 0});
-  root.querySelector(`.cell-label[data-key="${CSS.escape(focusKey)}"]`)?.classList.add('focus');
-  root.querySelector('.story-stage').classList.add('focusing');
   const cell = cells.get(focusKey);
-  root.querySelector('.story-stage').insertAdjacentHTML('beforeend', `<div class="cell-ring" style="left:${cell.x - 6}px;top:${cell.y - 6}px;width:${cell.w + 12}px;height:${cell.h + 12}px"></div>`);
+  moveDots(groupTarget(layout, focusKey), {duration: 900, stagger: 0});
+  const el = root.querySelector('.story-stage');
+  el.classList.add('focusing');
+  el.querySelector(`.cell-rate[data-key="${CSS.escape(focusKey)}"]`)?.classList.add('focus');
+  el.querySelector(`.col-head[data-carrier="${CSS.escape(cell.carrier)}"]`)?.classList.add('focus');
+  el.querySelector(`.row-head[data-slot="${cell.slot}"]`)?.classList.add('focus');
+  const pad = 12;
+  el.insertAdjacentHTML('beforeend', `<div class="cell-ring" style="left:${cell.x - pad}px;top:${cell.y - pad}px;width:${cell.w + pad * 2}px;height:${cell.contentH + pad * 2}px"></div>`);
   caption(`${first.values.carrier} · afternoons`, `${pct(first.rate)} late. Everyone else: ${pct(first.rest_rate)}.`);
   await wait(4600);
 }
